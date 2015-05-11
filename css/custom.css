@@ -124,8 +124,13 @@ a:hover {color:#bd0000;}
 
 #wHeaderimg, #ewbHeaderimg, #sdHeaderimg, #agHeaderimg, 
 #jsgHeaderimg, #pcHeaderimg, #headerA3Dimg, #headerjsGameimg, 
-#artHeaderimg, #headerCOP {max-height:480px;}
+#artHeaderimg, #headerCOP{max-height:480px;}
 
+/* ------------------------ ------------------------  ------------------------ */
+/* ------------------------   GitHub Gists            ------------------------ */
+/* ------------------------ ------------------------  ------------------------ */
+
+.gist-data {max-height: 480px;
 
 /* ------------------------ ------------------------  ------------------------ */
 /* ------------------------   Equal Height CSS Fix    ------------------------ */
