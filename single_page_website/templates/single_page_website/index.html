@@ -1,0 +1,29 @@
+<!-- Don't forget Travis, you'r'e awesome look at this shit that you did -->
+
+<!-- Tell Python we've got somes static files -->
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Django Setup</title>
+ 	<!-- Alright, ,time to tell python where those static files are located -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	
+<!-- Generate that content! -->
+{% for project in projects %}
+    <h1> {{ project.title }} </h1>
+    <p>Summary: {{ project.summary }} </p>
+	<ul>
+	<p>Tools:</p>
+	{% for tool in project.tools.all %}
+    	<li>{{ tool }}
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+</body>
+</html>
