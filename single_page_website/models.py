@@ -13,6 +13,14 @@ class Tool(models.Model):
     def __str__(self):  
         return self.tool #self.title refers to title = models.CharField(max_length=200) line
 
+class Project_Image(models.Model):
+    title = models.CharField(max_length = 50)
+    description = models.TextField()
+    image = models.ImageField()
+    class Meta:
+        ordering = ('title',)
+    def __str__(self):  
+        return self.title #self.title refers to title = models.CharField(max_length=200) line
 
 
 
@@ -33,7 +41,7 @@ class Post_Project(models.Model):                       # This line defines our 
     published_date = models.DateTimeField(
             blank=True, null=True)
     tools = models.ManyToManyField(Tool)
-
+    images = models.ForeignKey(Project_Image, on_delete=models.CASCADE)
     class Meta:
         ordering = ('title',)
 

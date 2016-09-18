@@ -1,29 +1,307 @@
 <!-- Don't forget Travis, you'r'e awesome look at this shit that you did -->
-
-<!-- Tell Python we've got somes static files -->
 {% load staticfiles %}
+
+<!-- Generate that content! -->
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Django Setup</title>
- 	<!-- Alright, ,time to tell python where those static files are located -->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>Travis Bumgarner Engineering</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-	
-<!-- Generate that content! -->
-{% for project in projects %}
-    <h1> {{ project.title }} </h1>
-    <p>Summary: {{ project.summary }} </p>
-	<ul>
-	<p>Tools:</p>
-	{% for tool in project.tools.all %}
-    	<li>{{ tool }}
-    {% endfor %}
-    </ul>
-{% endfor %}
+<style>
+	.all-pages{
+		min-height: 100vh;
+	}
+	.all-pages:nth-child(2n){
+		background: #ccc;
+	}
+</style>
+<div class="container">
 
+
+
+<!-- Home page --><!-- Home page --><!-- Home page -->
+<!-- Home page --><!-- Home page --><!-- Home page -->
+<!-- Home page --><!-- Home page --><!-- Home page -->
+<div id="home-page" class="all-pages">
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+		<h2>If it’s interesting, I’m <i>interested</i> in it. What are you intersted in?</h2>
+		<ul>
+			<li><a href="#filter-page">Engineering & Design Projects</a></li>
+			<li><a href="#about-page">Travis Bumgarner Himself</a></li>
+			<li><a href="#contact-page">Getting in Touch</a></li>
+			<li><a href="http://painlessprototyping.com" target="_blank">Painless Prototyping Startup</a></li>
+		</ul>
+	</div>
+</div><!-- row -->
+</div><!-- home page -->
+
+
+
+
+
+
+
+
+
+<!-- filter page --><!-- filter page --><!-- filter page -->
+<!-- filter page --><!-- filter page --><!-- filter page -->
+<!-- filter page --><!-- filter page --><!-- filter page -->
+<div id="filter-page" class= "all-pages">
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+		<h2>Projects Filter</h2>
+		<ul>
+			<li><a href="#">View All</a></li>
+			<li><a href="#">Web Design</a></li>
+			<li><a href="#">Electromechanical Design</a></li>
+			<li><a href="#">Mechanical Engineering</a></li>
+			<li><a href="#">Other Projects</a></li>
+		</ul>
+	</div>
+</div><!-- row -->
+<div class="row">
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<a href="#">
+				<img src="2.jpg" alt="" class="img-responsive">
+				<p>Peace Corps</p>
+		</a>		
+	</div>
+</div><!-- row -->
+</div><!-- filter page -->
+
+
+
+
+
+<!-- project page --><!-- project page --><!-- project page -->
+<!-- project page --><!-- project page --><!-- project page -->
+<!-- project page --><!-- project page --><!-- project page -->
+
+
+
+
+
+<div id="project-page"  class= "all-pages">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+		<h2>Lorem ipsum</h2>
+		<p>Possim deseruisse est eu, no pro assum labores. Eos cu iuvaret copiosae, ut odio ceteros duo, saperet eligendi maiestatis ex sit. Vis odio assum luptatum ei, hinc probo conceptam cum ad. Mea ea minimum explicari definiebas, causae laoreet epicuri vis ut, vis ut nihil accusata mediocrem. Indoctum expetenda vis id. Et suscipit maluisset his, per elitr tritani maiorum ex. Et vidit mediocritatem quo, amet enim wisi vix ex.</p>
+		<ul><!-- Make soure to set to two or three columns -->
+			<li>Possim deseruisse</li>
+			<li>Indoctum expetenda</li>
+			<li>laoreet epicuri </li>
+			<li> mediocritatem quo</li>
+			<li>Indoctum expetenda</li>
+		</ul>
+		<img src="2.jpg" alt="" class="img-responsive">
+	</div>
+</div><!-- row -->
+</div><!-- project page -->
+
+
+
+
+
+
+
+
+
+
+<!-- about page --><!-- about page --><!-- about page -->
+<!-- about page --><!-- about page --><!-- about page -->
+<!-- about page --><!-- about page --><!-- about page -->
+
+
+
+
+
+<div id="about-page"  class= "all-pages">
+<div class="row">
+	<div class="col-sm-4">
+		<img src="http://placehold.it/300x450" class="img-responsive">
+	</div>
+	<div class="col-sm-8">
+		<h2>Travis Bumgarner</h2>
+		<ul><!-- setup for 2 or 3 columns -->
+			<li>Resume</li>
+			<li>Linkedin</li>
+			<li>Photography portfolio</li>
+			<li>My COmpany</li>
+			<li>Instagram</li>
+		</ul>
+		<p>Possim deseruisse est eu, no pro assum labores. Eos cu iuvaret copiosae, ut odio ceteros duo, saperet eligendi maiestatis ex sit. Vis odio assum luptatum ei, hinc probo conceptam cum ad. Mea ea minimum explicari definiebas, causae laoreet epicuri vis ut, vis ut nihil accusata mediocrem. Indoctum expetenda vis id. Et suscipit maluisset his, per elitr tritani maiorum ex. Et vidit mediocritatem quo, amet enim wisi vix ex.</p>
+		<p>Possim deseruisse est eu, no pro assum labores. Eos cu iuvaret copiosae, ut odio ceteros duo, saperet eligendi maiestatis ex sit. Vis odio assum luptatum ei, hinc probo conceptam cum ad. Mea ea minimum explicari definiebas, causae laoreet epicuri vis ut, vis ut nihil accusata mediocrem. Indoctum expetenda vis id. Et suscipit maluisset his, per elitr tritani maiorum ex. Et vidit mediocritatem quo, amet enim wisi vix ex.</p>
+		<p>Possim deseruisse est eu, no pro assum labores. Eos cu iuvaret copiosae, ut odio ceteros duo, saperet eligendi maiestatis ex sit. Vis odio assum luptatum ei, hinc probo conceptam cum ad. Mea ea minimum explicari definiebas, causae laoreet epicuri vis ut, vis ut nihil accusata mediocrem. Indoctum expetenda vis id. Et suscipit maluisset his, per elitr tritani maiorum ex. Et vidit mediocritatem quo, amet enim wisi vix ex.</p>
+	</div>
+</div><!-- row -->
+</div><!-- about page -->
+
+
+
+
+
+
+
+
+
+
+<!-- skills page --><!-- skills page --><!-- skills page -->
+<!-- skills page --><!-- skills page --><!-- skills page -->
+<!-- skills page --><!-- skills page --><!-- skills page -->
+<div id="skills-page"  class= "all-pages">
+	
+<div class="row">
+	<div class="col-xs-6 skills">
+		<h2>Lorem ipsum</h2>
+		<ul>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+
+		</ul>
+	</div>
+	<div class="col-xs-6 skills">
+		<h2>Lorem ipsum</h2>
+		<ul>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+		</ul>
+	</div>
+	<div class="col-xs-6 skills">
+		<h2>Lorem ipsum</h2>
+		<ul>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+		</ul>
+	</div>
+	<div class="col-xs-6 skills">
+		<h2>Lorem ipsum</h2>
+		<ul>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+			<li>ipsum<img src="http://placekitten.com/60/20"></li>
+		</ul>
+	</div>
+</div>
+
+</div><!-- skills page -->
+
+
+
+
+<!-- contact-page --><!-- contact-page --><!-- contact-page -->
+<!-- contact-page --><!-- contact-page --><!-- contact-page -->
+<!-- contact-page --><!-- contact-page --><!-- contact-page -->
+<div id="contact-page" class="all-pages">
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+		<h2>Get in Touch</h2>
+	<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+		<div class="row">
+			<label for="name">Your name:</label><br />
+			<input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+		</div>
+		<div class="row">
+			<label for="email">Your email:</label><br />
+			<input id="email" class="input" name="email" type="text" value="" size="30" /><br />
+		</div>
+		<div class="row">
+			<label for="message">Your message:</label><br />
+			<textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+		</div>
+		<input id="submit_button" type="submit" value="Send email" />
+	</form>						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div><!-- row -->
+</div><!-- contact-page -->
+
+
+
+
+
+<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
+<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
+<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
+<div id="fixed-nav">
+	<ul>
+		<li><a href="#home-page">Home</a></li>
+		<li><a href="#filter-page">Portfolio</a></li>
+		<li><a href="#about-page">About</a></li>
+		<li><a href="#contact-page">Contact</a></li>
+	</ul>
+	
+</div><!-- fixed-nav -->
+
+
+
+
+
+</div>
 </body>
 </html>
