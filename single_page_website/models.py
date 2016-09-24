@@ -5,24 +5,23 @@
 from django.db import models
 from django.utils import timezone
 
-class Tool(models.Model):
-    tool = models.CharField(max_length=100)
+class Project_Tool(models.Model):
+    human_display_tool = models.CharField(max_length=100)
+    html_class_display_tool = models.CharField(max_length=100)
     class Meta:
-        ordering = ('tool',)
+        ordering = ('human_display_tool',)
 
     def __str__(self):  
-        return self.tool #self.title refers to title = models.CharField(max_length=200) line
+        return self.human_display_tool #self.title refers to title = models.CharField(max_length=200) line
 
-class Project_Image(models.Model):
-    title = models.CharField(max_length = 50)
-    description = models.TextField()
-    image = models.ImageField()
+class Project_Category(models.Model):
+    human_display_category = models.CharField(max_length=100)
+    html_class_display_category = models.CharField(max_length=100)
     class Meta:
-        ordering = ('title',)
+        ordering = ('human_display_category',)
+
     def __str__(self):  
-        return self.title #self.title refers to title = models.CharField(max_length=200) line
-
-
+        return self.human_display_category #self.title refers to title = models.CharField(max_length=200) line
 
 """
 Post_Project is how we refer to the data from the databse:
@@ -31,17 +30,28 @@ in the command line with ORM and Query Sets:
 from single_page_website.models import Post_Project
 Post_Project.objects.all()
 """
+##################################################
+########## Project Functions #####################
+##################################################
+class Project_Image(models.Model):
+    title = models.CharField(max_length = 50)
+    description = models.TextField()
+    image = models.ImageField(upload_to = 'images_directory/')
+    class Meta:
+        ordering = ('title',)
+    def __str__(self):  
+        return self.title #self.title refers to title = models.CharField(max_length=200) line
 
-class Post_Project(models.Model):                       # This line defines our model, it is an object, class is a special keyword to define we are making an object
+class Project(models.Model):                       # This line defines our model, it is an object, class is a special keyword to define we are making an object
     author = models.ForeignKey('auth.User')             # models.Model means that the Post is a Django Model, so Django knows that it should be saved in the database.
     title = models.CharField(max_length=200)
     summary = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
-    tools = models.ManyToManyField(Tool)
-    images = models.ForeignKey(Project_Image, on_delete=models.CASCADE)
+    tools = models.ManyToManyField(Project_Tool)
+    categories = models.ManyToManyField(Project_Category)    
+    headline_image = models.ImageField(upload_to = 'images_directory/headline_images' )
+    project_images = models.ForeignKey(Project_Image, on_delete=models.CASCADE)
     class Meta:
         ordering = ('title',)
 
@@ -54,6 +64,28 @@ class Post_Project(models.Model):                       # This line defines our 
     def __str__(self):  
         return self.title #self.title refers to title = models.CharField(max_length=200) line
 
+
+
+
+##################################################
+########## Skills Functions ######################
+##################################################
+
+class Skill_Category(models.Model):
+    title = models.CharField(max_length=200)
+    class Meta:
+        ordering = ('title',)
+    def __str__(self):  
+        return self.title #self.title refers to title = models.CharField(max_length=200) line
+
+class Skill(models.Model):
+    title = models.CharField(max_length=200)
+    rating = models.IntegerField()
+    category = models.ForeignKey(Skill_Category, on_delete=models.CASCADE)
+    class Meta:
+        ordering = ('title',)
+    def __str__(self):  
+        return self.title #self.title refers to title = models.CharField(max_length=200) line
 
 
 

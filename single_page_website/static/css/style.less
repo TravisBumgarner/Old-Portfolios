@@ -1,4 +1,3 @@
-/* HTML5 display-role reset for older browsers */
 /*
 <h2>Projects Filter</h2>
 <ul>
@@ -7,309 +6,299 @@
 <h2>Lorem ipsum</h2>
 	<p>Possim deseruisse est eu, no pro 
 */
-div.all-pages:nth-child(even) {
-  background-color: #888;
+
+@dark-red:   #bd0000;
+@light-red:  #f88379;
+@whiteish:   #ffffff;
+@blackish:   #ccc;
+@section-padding: 5px 5px 5px 10px;
+
+@number-nav-items: 4; 
+@nav-item-width: 100%/@number-nav-items; 
+
+
+
+
+
+div.all-pages:nth-child(even){
+	background-color:#888;
 }
-div.all-pages:nth-child(odd) {
-  background-color: #999;
+div.all-pages:nth-child(odd){
+	background-color:#999;
 }
 /************************************************************************/
 /******************* CSS Reset  *****************************************/
 /************************************************************************/
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
 }
-ol,
-ul {
-  list-style: none;
+ol, ul {
+	list-style: none;
 }
-blockquote,
-q {
-  quotes: none;
+blockquote, q {
+	quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
+
+
+
+
+
+
+
+
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
-.section-header {
-  background-color: #f88379;
-  color: #ffffff;
-  padding: 5px 5px 5px 10px;
-  margin-bottom: 2px;
+.section-header{
+	background-color: @light-red;
+	color: @whiteish;
+	padding: @section-padding;
+	margin-bottom: 2px;
 }
-.section-content ul {
-  list-style: none;
-  padding-left: 0px;
+
+//Define general coloring for content
+.section-content{
+	ul{
+		list-style:none;
+		padding-left: 0px;
+	}
+	li, p{
+		background-color: @whiteish;
+		color: @blackish;
+		padding: @section-padding;
+    	margin-bottom: 2px;
+    }
+    li{
+    	a{
+    		color: @blackish;
+    	}
+    	&:hover, &:hover a{
+    		background-color: @light-red;
+    		color: @whiteish;	
+    	}
+    }
 }
-.section-content li,
-.section-content p {
-  background-color: #ffffff;
-  color: #cccccc;
-  padding: 5px 5px 5px 10px;
-  margin-bottom: 2px;
+
+//Remove hover for content without links
+#project-page,
+#skills-page{
+	.section-content{
+		li, p{
+	    	&:hover, &:hover a{
+				background-color: @whiteish;
+				color: @blackish;
+			}		
+		}
+
+	}
 }
-.section-content li a {
-  color: #cccccc;
-}
-.section-content li:hover,
-.section-content li:hover a {
-  background-color: #f88379;
-  color: #ffffff;
-}
-#project-page .section-content li:hover,
-#skills-page .section-content li:hover,
-#project-page .section-content p:hover,
-#skills-page .section-content p:hover,
-#project-page .section-content li:hover a,
-#skills-page .section-content li:hover a,
-#project-page .section-content p:hover a,
-#skills-page .section-content p:hover a {
-  background-color: #ffffff;
-  color: #cccccc;
-}
+
 /************************************************************************/
 /******************* helper Classes *************************************/
 /************************************************************************/
-.clear-both {
-  clear: both;
+.clear-both{
+	clear:both;
 }
+
+
 /************************************************************************/
 /******************* Random Element Tweaks ******************************/
 /************************************************************************/
-body {
-  background-color: black;
+body{
+	background-color: black;
 }
+
 /************************************************************************/
 /******************* Less Commom Stuff **********************************/
 /************************************************************************/
-.two-col-li ul li {
-  width: 49%;
-  float: left;
+// Display li items in two columns
+.two-col-li{
+	ul{
+		li{
+			width: 49%;
+			float: left;
+		}
+		li:nth-child(odd){
+			margin-right: 2%;
+		}
+	}
 }
-.two-col-li ul li:nth-child(odd) {
-  margin-right: 2%;
-}
+
+
 /************************************************************************/
 /******************* Normalize ******************************************/
 /************************************************************************/
-a:hover,
-a:active,
-a:visited,
-a:visited {
-  text-decoration: none;
+a {
+	&:hover, &:active, &:visited, &:visited{
+		text-decoration: none;
+	}
 }
+
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
-#home-page .row .section-header {
-  font-size: 30px;
-}
-#home-page .row .section-content {
-  font-size: 20px;
-}
-#home-page .row .content-wrapper {
-  margin-top: 30vh;
+#home-page{
+	.row{
+		.section-header{
+			font-size: 30px;
+		}
+		.section-content{
+			font-size: 20px;
+		}
+		.content-wrapper{
+			margin-top: 30vh;
+		}
+	}
 }
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
-#filter-page ul li {
-  width: 49.75%;
-  float: left;
+#filter-page{
+	ul{
+		li{
+			width: 49.75%;
+			float: left;
+		}
+		li:first-child{
+			width:100%;
+		}
+		li:nth-child(even){
+			margin-right: .5%;
+		}
+	}
+	.row{
+		.content-wrapper{
+			margin-top: 10vh;
+		}
+	}
 }
-#filter-page ul li:first-child {
-  width: 100%;
+
+//Could merge this and the higher one later if I want
+#filter-page{
+	li.active-filter{
+		color: @whiteish;
+		background-color: @light-red;
+	}
 }
-#filter-page ul li:nth-child(even) {
-  margin-right: .5%;
-}
-#filter-page .row .content-wrapper {
-  margin-top: 10vh;
-}
-#filter-page li.active-filter {
-  color: #ffffff;
-  background-color: #f88379;
-}
+
+
 /************************************************************************/
 /******************* Projects *******************************************/
 /************************************************************************/
-#project-page ul li {
-  width: 49%;
-  float: left;
+#project-page{
+	ul{
+		li{
+			width: 49%;
+			float: left;
+		}
+		li:nth-child(odd){
+			margin-right: 2%;
+		}
+	}
 }
-#project-page ul li:nth-child(odd) {
-  margin-right: 2%;
+
+
+#about-page{
+	.two-col-li;
 }
-#about-page ul li {
-  width: 49%;
-  float: left;
-}
-#about-page ul li:nth-child(odd) {
-  margin-right: 2%;
-}
+
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
+
+
+
+
 /************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
-.fixed-nav {
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
+.fixed-nav{
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	ul{
+		text-align:center;
+		background-color: @whiteish;
+		height: 33px;
+		width: 50%;
+		margin:0px auto;
+		border-top: 5px solid @whiteish;
+	}
+	li{
+		display: inline;
+		width: @nav-item-width;
+		padding: 10px;
+	}
+
 }
-.fixed-nav ul {
-  text-align: center;
-  background-color: #ffffff;
-  height: 33px;
-  width: 50%;
-  margin: 0px auto;
-  border-top: 5px solid #ffffff;
-}
-.fixed-nav li {
-  display: inline;
-  width: 25%;
-  padding: 10px;
-}
+
+
 /************************************************************************/
 /******************* Grid Items******************************************/
 /************************************************************************/
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+.grid{
+	max-width:1200px;
 }
-.grid {
-  max-width: 1200px;
-}
+
 .grid:after {
   content: '';
   display: block;
   clear: both;
 }
+
 .grid-sizer,
 .grid-item {
   width: 50%;
   padding: 1%;
 }
-.grid-item {
-  float: left;
+.grid-item{
+	float:left;
 }
+
 /*
 @base-item-height: 70px;
 @additional-item-height: 35px;
@@ -325,5 +314,3 @@ a:visited {
 .grid-item-height-10{height: @base-item-height + @additional-item-height * 9;}
 
 */
-
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
