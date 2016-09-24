@@ -286,9 +286,10 @@
 <!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
 <!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
 <!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
-<div>
+<div id="nav-page"  class= "all-pages">
 	<div class="section-content fixed-nav">
 		<ul>
+			<li>Page Title</li>
 			<li><a href="#home-page">Home</a></li>
 			<li><a href="#filter-page">Portfolio</a></li>
 			<li><a href="#about-page">About</a></li>
@@ -317,12 +318,27 @@
 
 <script src = "{% static 'js/masonry.js' %}"></script>
 <script>
-	$('.grid').masonry({
+$('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: '.grid-sizer',
   percentPosition: true
-
 });
+
+
+(function($) {          
+    $(document).ready(function(){                    
+        $(window).scroll(function(){
+        	var home = $('#filter-page') .offset().top;                        
+            if ($(this).scrollTop() > home) {
+                $('.fixed-nav').fadeIn(250);
+            } else {
+                $('.fixed-nav').fadeOut(250);
+            }
+        });
+    });
+})(jQuery);
+
+
 
 </script>
 </body>

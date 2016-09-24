@@ -10,7 +10,7 @@
 @dark-red:   #bd0000;
 @light-red:  #f88379;
 @whiteish:   #ffffff;
-@blackish:   #ccc;
+@blackish:   #444;
 @section-padding: 5px 5px 5px 10px;
 
 @number-nav-items: 4; 
@@ -20,12 +20,6 @@
 
 
 
-div.all-pages:nth-child(even){
-	background-color:#888;
-}
-div.all-pages:nth-child(odd){
-	background-color:#999;
-}
 /************************************************************************/
 /******************* CSS Reset  *****************************************/
 /************************************************************************/
@@ -176,6 +170,20 @@ a {
 	}
 }
 
+
+
+/************************************************************************/
+/******************* All Pages ******************************************/
+/************************************************************************/
+div.all-pages:nth-child(even){
+	background-color:#888;
+}
+div.all-pages:nth-child(odd){
+	background-color:#999;
+}
+.all-pages{
+	min-height: 100vh;
+}
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
@@ -210,7 +218,7 @@ a {
 	}
 	.row{
 		.content-wrapper{
-			margin-top: 10vh;
+			margin-top: 30vh;
 		}
 	}
 }
@@ -255,6 +263,7 @@ a {
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav{
+	display: none;
 	width: 100%;
 	position: fixed;
 	top: 0px;
@@ -262,12 +271,22 @@ a {
 	ul{
 		text-align:center;
 		background-color: @whiteish;
-		height: 33px;
+		height: 31px;
 		width: 50%;
 		margin:0px auto;
 		border-top: 5px solid @whiteish;
+
+		li:first-child{
+			&:hover{
+				background: @light-red;
+				color: @whiteish;
+			}
+			color: @whiteish;
+			background: @light-red;
+		}
 	}
 	li{
+		height: 31px;
 		display: inline;
 		width: @nav-item-width;
 		padding: 10px;

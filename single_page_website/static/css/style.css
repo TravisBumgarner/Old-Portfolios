@@ -7,12 +7,6 @@
 <h2>Lorem ipsum</h2>
 	<p>Possim deseruisse est eu, no pro 
 */
-div.all-pages:nth-child(even) {
-  background-color: #888;
-}
-div.all-pages:nth-child(odd) {
-  background-color: #999;
-}
 /************************************************************************/
 /******************* CSS Reset  *****************************************/
 /************************************************************************/
@@ -160,12 +154,12 @@ table {
 .section-content li,
 .section-content p {
   background-color: #ffffff;
-  color: #cccccc;
+  color: #444444;
   padding: 5px 5px 5px 10px;
   margin-bottom: 2px;
 }
 .section-content li a {
-  color: #cccccc;
+  color: #444444;
 }
 .section-content li:hover,
 .section-content li:hover a {
@@ -181,7 +175,7 @@ table {
 #project-page .section-content p:hover a,
 #skills-page .section-content p:hover a {
   background-color: #ffffff;
-  color: #cccccc;
+  color: #444444;
 }
 /************************************************************************/
 /******************* helper Classes *************************************/
@@ -215,6 +209,18 @@ a:visited {
   text-decoration: none;
 }
 /************************************************************************/
+/******************* All Pages ******************************************/
+/************************************************************************/
+div.all-pages:nth-child(even) {
+  background-color: #888;
+}
+div.all-pages:nth-child(odd) {
+  background-color: #999;
+}
+.all-pages {
+  min-height: 100vh;
+}
+/************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
 #home-page .row .section-header {
@@ -240,7 +246,7 @@ a:visited {
   margin-right: .5%;
 }
 #filter-page .row .content-wrapper {
-  margin-top: 10vh;
+  margin-top: 30vh;
 }
 #filter-page li.active-filter {
   color: #ffffff;
@@ -270,6 +276,7 @@ a:visited {
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav {
+  display: none;
   width: 100%;
   position: fixed;
   top: 0px;
@@ -278,12 +285,21 @@ a:visited {
 .fixed-nav ul {
   text-align: center;
   background-color: #ffffff;
-  height: 33px;
+  height: 31px;
   width: 50%;
   margin: 0px auto;
   border-top: 5px solid #ffffff;
 }
+.fixed-nav ul li:first-child {
+  color: #ffffff;
+  background: #f88379;
+}
+.fixed-nav ul li:first-child:hover {
+  background: #f88379;
+  color: #ffffff;
+}
 .fixed-nav li {
+  height: 31px;
   display: inline;
   width: 25%;
   padding: 10px;
