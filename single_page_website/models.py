@@ -4,7 +4,20 @@
 
 from django.db import models
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
+
+
+"""
+Post_Project is how we refer to the data from the databse:
+in the command line with ORM and Query Sets:
+
+from single_page_website.models import Post_Project
+Post_Project.objects.all()
+"""
+##################################################
+########## Project Functions #####################
+##################################################
 class Project_Tool(models.Model):
     human_display_tool = models.CharField(max_length=100)
     html_class_display_tool = models.CharField(max_length=100)
@@ -23,20 +36,10 @@ class Project_Category(models.Model):
     def __str__(self):  
         return self.human_display_category #self.title refers to title = models.CharField(max_length=200) line
 
-"""
-Post_Project is how we refer to the data from the databse:
-in the command line with ORM and Query Sets:
-
-from single_page_website.models import Post_Project
-Post_Project.objects.all()
-"""
-##################################################
-########## Project Functions #####################
-##################################################
 class Project_Image(models.Model):
     title = models.CharField(max_length = 50)
     description = models.TextField()
-    image = models.ImageField(upload_to = 'images_directory/')
+    image = models.ImageField(upload_to = 'single_page_website/media/img/')
     class Meta:
         ordering = ('title',)
     def __str__(self):  
@@ -45,12 +48,13 @@ class Project_Image(models.Model):
 class Project(models.Model):                       # This line defines our model, it is an object, class is a special keyword to define we are making an object
     author = models.ForeignKey('auth.User')             # models.Model means that the Post is a Django Model, so Django knows that it should be saved in the database.
     title = models.CharField(max_length=200)
+    title_computer = models.CharField(max_length=100, blank=True)
     summary = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
     tools = models.ManyToManyField(Project_Tool)
     categories = models.ManyToManyField(Project_Category)    
-    headline_image = models.ImageField(upload_to = 'images_directory/headline_images' )
+    headline_image = models.ImageField(upload_to = 'single_page_website/media/img/' )
     project_images = models.ForeignKey(Project_Image, on_delete=models.CASCADE)
     class Meta:
         ordering = ('title',)
@@ -60,10 +64,13 @@ class Project(models.Model):                       # This line defines our model
         self.published_date = timezone.now()
         self.save()
 
+    def save(self, *args, **kwargs):
+        self.title_computer = self.title.lower().replace(" " , "_")
+        super().save(*args, **kwargs)
+
     #Methods often return something. There is an example of that in the __str__ method. In this scenario, when we call __str__() we will get a text (string) with a Post title.
     def __str__(self):  
         return self.title #self.title refers to title = models.CharField(max_length=200) line
-
 
 
 
@@ -88,7 +95,23 @@ class Skill(models.Model):
         return self.title #self.title refers to title = models.CharField(max_length=200) line
 
 
+##################################################
+########## About Me Functions ####################
+##################################################
+class About_Author(models.Model):
+    title = models.CharField(max_length=200)
+    summary = models.TextField()
+    photo = models.ImageField(upload_to = 'single_page_website/media/img/' )
+    photography_portfolio_url = models.CharField(max_length=100, blank=True)
+    instagram_url = models.CharField(max_length=100, blank=True)
+    startup_url = models.CharField(max_length=100, blank=True)
+    linkedin_url = models.CharField(max_length=100, blank=True)
+    resume_url = models.CharField(max_length=100, blank=True)
 
+    class Meta:
+        ordering = ('title',)
+    def __str__(self):  
+        return self.title 
 
 #TB
 # A project is an object with >>object properties<< such as title, description, etc. 

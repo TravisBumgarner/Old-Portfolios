@@ -1,12 +1,4 @@
-/* HTML5 display-role reset for older browsers */
-/*
-<h2>Projects Filter</h2>
-<ul>
-	<li><a href="#">View All</a></li>	
-
-<h2>Lorem ipsum</h2>
-	<p>Possim deseruisse est eu, no pro 
-*/
+@import 'https://fonts.googleapis.com/css?family=Cutive+Mono|Playfair+Display';
 /************************************************************************/
 /******************* CSS Reset  *****************************************/
 /************************************************************************/
@@ -138,10 +130,24 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+/************************************************************************/
+/******************* Imports ********************************************/
+/************************************************************************/
+/*
+font-family: 'Cutive Mono', monospace;
+font-family: 'Playfair Display', serif;
+*/
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
 .section-header {
+  font-family: 'Playfair Display', serif;
   background-color: #f88379;
   color: #ffffff;
   padding: 5px 5px 5px 10px;
@@ -157,9 +163,11 @@ table {
   color: #444444;
   padding: 5px 5px 5px 10px;
   margin-bottom: 2px;
+  font-family: 'Cutive Mono', monospace;
 }
 .section-content li a {
   color: #444444;
+  font-family: 'Cutive Mono', monospace;
 }
 .section-content li:hover,
 .section-content li:hover a {
@@ -183,12 +191,15 @@ table {
 .clear-both {
   clear: both;
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 /************************************************************************/
 /******************* Random Element Tweaks ******************************/
 /************************************************************************/
-body {
-  background-color: black;
-}
 /************************************************************************/
 /******************* Less Commom Stuff **********************************/
 /************************************************************************/
@@ -202,12 +213,6 @@ body {
 /************************************************************************/
 /******************* Normalize ******************************************/
 /************************************************************************/
-a:hover,
-a:active,
-a:visited,
-a:visited {
-  text-decoration: none;
-}
 /************************************************************************/
 /******************* All Pages ******************************************/
 /************************************************************************/
@@ -219,18 +224,22 @@ div.all-pages:nth-child(odd) {
 }
 .all-pages {
   min-height: 100vh;
+  padding-top: 40vh;
+  padding-bottom: 40vh;
 }
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
+#home-page {
+  background: #999999 url("../img/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
 #home-page .row .section-header {
   font-size: 30px;
 }
 #home-page .row .section-content {
   font-size: 20px;
-}
-#home-page .row .content-wrapper {
-  margin-top: 30vh;
 }
 /************************************************************************/
 /******************* Filter Page ****************************************/
@@ -245,12 +254,15 @@ div.all-pages:nth-child(odd) {
 #filter-page ul li:nth-child(even) {
   margin-right: .5%;
 }
-#filter-page .row .content-wrapper {
-  margin-top: 30vh;
-}
-#filter-page li.active-filter {
-  color: #ffffff;
+#filter-page ul li.active {
   background-color: #f88379;
+  color: #ffffff;
+}
+#filter-page .projects-all {
+  margin-top: 5vh;
+}
+.all-projects-container .mix {
+  display: none;
 }
 /************************************************************************/
 /******************* Projects *******************************************/
@@ -262,16 +274,35 @@ div.all-pages:nth-child(odd) {
 #project-page ul li:nth-child(odd) {
   margin-right: 2%;
 }
-#about-page ul li {
-  width: 49%;
-  float: left;
-}
-#about-page ul li:nth-child(odd) {
-  margin-right: 2%;
+/************************************************************************/
+/******************* About Page *****************************************/
+/************************************************************************/
+#about-page #about-photo {
+  width: 33%;
+  background: #888;
+  border-left: 2px solid #888;
+  border-bottom: 2px solid #888;
 }
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
+/************************************************************************/
+/******************* Form ***********************************************/
+/************************************************************************/
+#contact-page form input,
+#contact-page form textarea,
+#contact-page form label {
+  width: 100%;
+  background-color: #ffffff;
+  text-color: #444444;
+  margin-top: 5px;
+  border: none;
+  padding: 5px 5px 5px 10px;
+}
+#contact-page form textarea,
+#contact-page form input {
+  margin-bottom: 10px;
+}
 /************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
@@ -285,7 +316,7 @@ div.all-pages:nth-child(odd) {
 .fixed-nav ul {
   text-align: center;
   background-color: #ffffff;
-  height: 31px;
+  height: 32px;
   width: 50%;
   margin: 0px auto;
   border-top: 5px solid #ffffff;
@@ -299,7 +330,7 @@ div.all-pages:nth-child(odd) {
   color: #ffffff;
 }
 .fixed-nav li {
-  height: 31px;
+  height: 35px;
   display: inline;
   width: 25%;
   padding: 10px;
@@ -341,5 +372,3 @@ div.all-pages:nth-child(odd) {
 .grid-item-height-10{height: @base-item-height + @additional-item-height * 9;}
 
 */
-
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */

@@ -17,7 +17,8 @@ def project_list(request):
 	projects = Project.objects.all()
 	skills = Skill.objects.all()
 	skills_category = Skill_Category.objects.all()
-	return render(request, 'single_page_website/index.html', {'projects':projects,'skills_category':skills_category,'skills':skills})
+	about = About_Author.objects.all()[0]
+	return render(request, 'single_page_website/index.html', {'projects':projects,'skills_category':skills_category,'skills':skills,'about':about})
 	#{}, is a place in which we can add some things for the template to use. 
 	#{'projects':projects} is what can be played around with in HTML
 

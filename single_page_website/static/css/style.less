@@ -1,25 +1,3 @@
-/*
-<h2>Projects Filter</h2>
-<ul>
-	<li><a href="#">View All</a></li>	
-
-<h2>Lorem ipsum</h2>
-	<p>Possim deseruisse est eu, no pro 
-*/
-
-@dark-red:   #bd0000;
-@light-red:  #f88379;
-@whiteish:   #ffffff;
-@blackish:   #444;
-@section-padding: 5px 5px 5px 10px;
-
-@number-nav-items: 4; 
-@nav-item-width: 100%/@number-nav-items; 
-
-
-
-
-
 /************************************************************************/
 /******************* CSS Reset  *****************************************/
 /************************************************************************/
@@ -75,17 +53,35 @@ table {
 	border-spacing: 0;
 }
 
-
-
-
-
-
-
+a {
+	&:hover, &:active, &:visited, &:focus{
+		text-decoration: none;
+	}
+}
+/************************************************************************/
+/******************* Imports ********************************************/
+/************************************************************************/
+@import 'https://fonts.googleapis.com/css?family=Cutive+Mono|Playfair+Display';
+/*
+font-family: 'Cutive Mono', monospace;
+font-family: 'Playfair Display', serif;
+*/
 
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
+@dark-red:   #bd0000;
+@light-red:  #f88379;
+@whiteish:   #ffffff;
+@blackish:   #444;
+@section-padding: 5px 5px 5px 10px;
+
+@number-nav-items: 4; 
+@nav-item-width: 100%/@number-nav-items; 
+
+
 .section-header{
+   		font-family: 'Playfair Display', serif;
 	background-color: @light-red;
 	color: @whiteish;
 	padding: @section-padding;
@@ -103,10 +99,12 @@ table {
 		color: @blackish;
 		padding: @section-padding;
     	margin-bottom: 2px;
+		font-family: 'Cutive Mono', monospace;
     }
     li{
     	a{
     		color: @blackish;
+    		font-family: 'Cutive Mono', monospace;
     	}
     	&:hover, &:hover a{
     		background-color: @light-red;
@@ -135,14 +133,16 @@ table {
 .clear-both{
 	clear:both;
 }
-
-
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
 /************************************************************************/
 /******************* Random Element Tweaks ******************************/
 /************************************************************************/
-body{
-	background-color: black;
-}
+
 
 /************************************************************************/
 /******************* Less Commom Stuff **********************************/
@@ -164,17 +164,13 @@ body{
 /************************************************************************/
 /******************* Normalize ******************************************/
 /************************************************************************/
-a {
-	&:hover, &:active, &:visited, &:visited{
-		text-decoration: none;
-	}
-}
-
-
 
 /************************************************************************/
 /******************* All Pages ******************************************/
 /************************************************************************/
+body{
+}
+
 div.all-pages:nth-child(even){
 	background-color:#888;
 }
@@ -183,11 +179,16 @@ div.all-pages:nth-child(odd){
 }
 .all-pages{
 	min-height: 100vh;
+	padding-top: 40vh;
+	padding-bottom: 40vh;
 }
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
 #home-page{
+	background: #999 url("../img/background.png");
+	background-repeat: no-repeat;
+	background-position: bottom right;
 	.row{
 		.section-header{
 			font-size: 30px;
@@ -196,7 +197,6 @@ div.all-pages:nth-child(odd){
 			font-size: 20px;
 		}
 		.content-wrapper{
-			margin-top: 30vh;
 		}
 	}
 }
@@ -215,20 +215,22 @@ div.all-pages:nth-child(odd){
 		li:nth-child(even){
 			margin-right: .5%;
 		}
+		li.active{
+			background-color: @light-red;
+			color: @whiteish;
+
+		}
 	}
 	.row{
 		.content-wrapper{
-			margin-top: 30vh;
 		}
 	}
-}
-
-//Could merge this and the higher one later if I want
-#filter-page{
-	li.active-filter{
-		color: @whiteish;
-		background-color: @light-red;
+	.projects-all{
+		margin-top: 5vh;
 	}
+}
+.all-projects-container .mix{
+  display: none;
 }
 
 
@@ -246,10 +248,17 @@ div.all-pages:nth-child(odd){
 		}
 	}
 }
-
+/************************************************************************/
+/******************* About Page *****************************************/
+/************************************************************************/
 
 #about-page{
-	.two-col-li;
+	#about-photo{
+		width: 33%;
+		background: #888;
+		border-left: 2px solid #888;
+		border-bottom: 2px solid #888;
+	}
 }
 
 /************************************************************************/
@@ -257,6 +266,24 @@ div.all-pages:nth-child(odd){
 /************************************************************************/
 
 
+/************************************************************************/
+/******************* Form ***********************************************/
+/************************************************************************/
+#contact-page{
+	form{
+		input, textarea,label{
+			width:100%;
+			background-color: @whiteish;
+			text-color: @blackish;
+			margin-top: 5px;
+			border: none;
+			padding: @section-padding;
+		}
+		textarea, input{
+			margin-bottom: 10px;
+		}
+	}
+}
 
 
 /************************************************************************/
@@ -271,7 +298,7 @@ div.all-pages:nth-child(odd){
 	ul{
 		text-align:center;
 		background-color: @whiteish;
-		height: 31px;
+		height: 32px;
 		width: 50%;
 		margin:0px auto;
 		border-top: 5px solid @whiteish;
@@ -286,7 +313,7 @@ div.all-pages:nth-child(odd){
 		}
 	}
 	li{
-		height: 31px;
+		height: 35px;
 		display: inline;
 		width: @nav-item-width;
 		padding: 10px;
