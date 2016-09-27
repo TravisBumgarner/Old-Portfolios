@@ -4,6 +4,8 @@
 <!-- Generate that content! -->
 
 
+<!-- Variables for generating things for Django -->
+{% with standard_content_width="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1" %}    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,7 @@
 	<title>Travis Bumgarner Engineering</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 	<script src = "{% static 'js/jquery.js' %}"></script>
 	<script src = "{% static 'js/jquery.smooth-scroll.js' %}"></script>
 	<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
@@ -35,7 +38,7 @@
 <!-- Home page --><!-- Home page --><!-- Home page -->
 <div id="home-page" class="all-pages">
 <div class="row ">
-	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 content-wrapper">
+	<div class="{{standard_content_width}} content-wrapper">
 		<h2 class="section-header">If it’s interesting, I’m <i>interested</i> in it. What are you intersted in?</h2>
 		<div class="section-content">
 			<ul>
@@ -64,7 +67,7 @@
 <div id="filter-page" class= "all-pages">
 
 <div class = "row">
-	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 content-wrapper">
+	<div class="{{standard_content_width}} content-wrapper">
 		<div class="controls">
 			<h2 class="section-header">Projects Filter</h2>
 			<div class="section-content" id = "projects-filter">
@@ -109,7 +112,7 @@
 
 <div id="project-page"  class= "all-pages">
 <div class="row">
-	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+	<div class="{{standard_content_width}}">
 		<h2 class="section-header">{{ projects.0.title }} </h2>
 		<div class="section-content">
 			<p>{{ projects.0.summary }}</p>
@@ -121,9 +124,30 @@
 				{% endfor %}
 			</ul>
 		</div>
+	</div><!-- end columns -->
+</div><!-- end rows -->
+<div class="row">
+	<div class="col-xs-3">
 		<div class="section-content">
 			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
-		</div>
+		</div><!-- section content -->
+	</div><!-- cols -->
+	<div class="col-xs-3">
+		<div class="section-content">
+			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
+		</div><!-- section content -->
+	</div><!-- cols -->
+	<div class="col-xs-3">
+		<div class="section-content">
+			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
+		</div><!-- section content -->
+	</div><!-- cols -->
+	<div class="col-xs-3">
+		<div class="section-content">
+			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
+		</div><!-- section content -->
+	</div><!-- cols -->
+</div><!-- row -->
 
 
 	</div>
@@ -181,24 +205,28 @@
 <!-- skills page --><!-- skills page --><!-- skills page -->
 <!-- skills page --><!-- skills page --><!-- skills page -->
 <div id="skills-page"  class= "all-pages">
-
-<div class="grid">
-{% for skill_category in skills_category %}
-	<div class="grid-sizer"></div>
-	<div class="skills grid-item grid-item-height-{{ skill_category|length }}">
-		<h2 class="section-header">{{ skill_category.title }}</h2>
-		<div class="section-content">
-			<ul>
-				{% for skill in skills %}
-					{% if skill_category == skill.category %}
-						<li>{{ skill.title }} : {{ skill.rating }} </li>
-					{% endif %}
-				{% endfor %}
-			</ul>			
-		</div>
+<div class="row">
+	<div class="{{standard_content_width}}">
+		<div class="grid">
+		{% for skill_category in skills_category %}
+			<div class="grid-sizer"></div>
+			<div class="skills grid-item grid-item-height-{{ skill_category|length }}">
+				<h2 class="section-header">{{ skill_category.title }}</h2>
+				<div class="section-content">
+					<ul>
+						{% for skill in skills %}
+							{% if skill_category == skill.category %}
+								<li><div>{{ skill.title }}</div><div><img src="{% static "img" %}/{{skill.rating}}.png"></div></li>
+							{% endif %}
+						{% endfor %}
+					</ul>			
+				</div>
+			</div>
+		{% endfor %}
+		</div><!-- grid -->
 	</div>
-{% endfor %}
-</div><!-- grid -->
+</div>
+
 	
 
 
@@ -215,7 +243,7 @@
 <!-- contact-page --><!-- contact-page --><!-- contact-page -->
 <div id="contact-page" class="all-pages">
 <div class="row">
-	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+	<div class="{{standard_content_width}}">
 		<h2 class="section-header">Get in Touch</h2>
 		<div class="section-content">
 			<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
@@ -288,3 +316,7 @@
 </script>
 </body>
 </html>
+
+
+
+{% endwith %}
