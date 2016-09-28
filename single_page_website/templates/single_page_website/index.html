@@ -21,18 +21,6 @@
 
 </head>
 <body>
-<style>
-	.all-pages{
-		min-height: 100vh;
-	}
-	.all-pages:nth-child(2n){
-		background: #ccc;
-	}
-</style>
-<div class="container">
-
-
-
 <!-- Home page --><!-- Home page --><!-- Home page -->
 <!-- Home page --><!-- Home page --><!-- Home page -->
 <!-- Home page --><!-- Home page --><!-- Home page -->
@@ -279,16 +267,12 @@
 
 
 
-
-
-
-</div><!-- container -->
-
 <script src = "{% static 'js/masonry.js' %}"></script>
 <script>
 	// Smooth Scrolling when links are clicked on
 	$('a').smoothScroll();
-	
+</script>
+<script>
 	// Project Filter Functionality
 	$(function(){$('.all-projects-container').mixItUp();});
 
@@ -303,7 +287,7 @@
 	(function($) {          
 	    $(document).ready(function(){                    
 	        $(window).scroll(function(){
-	        	var home = $('#filter-page') .offset().top - 5;                        
+	        	var home = $('#filter-page') .offset().top;                        
 	            if ($(this).scrollTop() > home) {
 	                $('.fixed-nav').fadeIn(250);
 	            } else {
