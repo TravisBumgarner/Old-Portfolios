@@ -153,6 +153,12 @@ font-family: 'Playfair Display', serif;
   padding: 5px 5px 5px 10px;
   margin-bottom: 2px;
 }
+@media only screen and (max-width: 768px) {
+  .section-header {
+    padding: 20px 10px 20px 10px;
+    font-size: 30px;
+  }
+}
 .section-content ul {
   list-style: none;
   padding-left: 0px;
@@ -173,6 +179,13 @@ font-family: 'Playfair Display', serif;
 .section-content li:hover a {
   background-color: #f88379;
   color: #ffffff;
+}
+@media only screen and (max-width: 768px) {
+  .section-content li,
+  .section-content p {
+    padding: 20px 10px 20px 10px;
+    font-size: 20px;
+  }
 }
 #project-page .section-content li:hover,
 #skills-page .section-content li:hover,
@@ -363,18 +376,3 @@ body {
 .grid-item {
   float: left;
 }
-/*
-@base-item-height: 70px;
-@additional-item-height: 35px;
-.grid-item-height-1{height: @base-item-height;}
-.grid-item-height-2{height: @base-item-height + @additional-item-height;}
-.grid-item-height-3{height: @base-item-height + @additional-item-height * 2;}
-.grid-item-height-4{height: @base-item-height + @additional-item-height * 3;}
-.grid-item-height-5{height: @base-item-height + @additional-item-height * 4;}
-.grid-item-height-6{height: @base-item-height + @additional-item-height * 5;}
-.grid-item-height-7{height: @base-item-height + @additional-item-height * 6;}
-.grid-item-height-8{height: @base-item-height + @additional-item-height * 7;}
-.grid-item-height-9{height: @base-item-height + @additional-item-height * 8;}
-.grid-item-height-10{height: @base-item-height + @additional-item-height * 9;}
-
-*/

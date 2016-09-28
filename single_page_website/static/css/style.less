@@ -75,17 +75,23 @@ font-family: 'Playfair Display', serif;
 @whiteish:   #ffffff;
 @blackish:   #444;
 @section-padding: 5px 5px 5px 10px;
+@section-padding-small-screen: 20px 10px 20px 10px;
 
 @number-nav-items: 4; 
 @nav-item-width: 100%/@number-nav-items; 
 
 
 .section-header{
-   		font-family: 'Playfair Display', serif;
+   	font-family: 'Playfair Display', serif;
 	background-color: @light-red;
 	color: @whiteish;
 	padding: @section-padding;
 	margin-bottom: 2px;
+    @media only screen and (max-width:768px){
+    	padding: @section-padding-small-screen; 
+    	font-size:30px
+
+    }
 }
 
 //Define general coloring for content
@@ -109,6 +115,12 @@ font-family: 'Playfair Display', serif;
     	&:hover, &:hover a{
     		background-color: @light-red;
     		color: @whiteish;	
+    	}
+    }
+    @media only screen and (max-width:768px){
+    	li,p{
+    		padding: @section-padding-small-screen; 
+    		font-size: 20px;
     	}
     }
 }
@@ -347,18 +359,5 @@ html, body{
 	float:left;
 }
 
-/*
-@base-item-height: 70px;
-@additional-item-height: 35px;
-.grid-item-height-1{height: @base-item-height;}
-.grid-item-height-2{height: @base-item-height + @additional-item-height;}
-.grid-item-height-3{height: @base-item-height + @additional-item-height * 2;}
-.grid-item-height-4{height: @base-item-height + @additional-item-height * 3;}
-.grid-item-height-5{height: @base-item-height + @additional-item-height * 4;}
-.grid-item-height-6{height: @base-item-height + @additional-item-height * 5;}
-.grid-item-height-7{height: @base-item-height + @additional-item-height * 6;}
-.grid-item-height-8{height: @base-item-height + @additional-item-height * 7;}
-.grid-item-height-9{height: @base-item-height + @additional-item-height * 8;}
-.grid-item-height-10{height: @base-item-height + @additional-item-height * 9;}
 
-*/
+
