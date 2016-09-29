@@ -156,7 +156,7 @@ font-family: 'Playfair Display', serif;
 @media only screen and (max-width: 768px) {
   .section-header {
     padding: 20px 10px 20px 10px;
-    font-size: 30px;
+    font-size: 22px;
   }
 }
 .section-content ul {
@@ -184,7 +184,7 @@ font-family: 'Playfair Display', serif;
   .section-content li,
   .section-content p {
     padding: 20px 10px 20px 10px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 #project-page .section-content li:hover,
@@ -243,7 +243,7 @@ body {
 /******************* Homepage *******************************************/
 /************************************************************************/
 #home-page .row .section-header {
-  font-size: 30px;
+  font-size: 22px;
 }
 #home-page .row .section-content {
   font-size: 20px;
