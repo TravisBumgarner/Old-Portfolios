@@ -3,7 +3,6 @@
 
 <!-- Generate that content! -->
 
-
 <!-- Variables for generating things for Django -->
 {% with standard_content_width="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" %}    
 
@@ -12,19 +11,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Travis Bumgarner Engineering</title>
+	
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
-	<script src = "{% static 'js/jquery.js' %}"></script>
-	<script src = "{% static 'js/jquery.smooth-scroll.js' %}"></script>
-	<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
-
 </head>
 <body>
-<!-- Home page --><!-- Home page --><!-- Home page -->
-<!-- Home page --><!-- Home page --><!-- Home page -->
-<!-- Home page --><!-- Home page --><!-- Home page -->
+
+<!-- Home page -->
 <div id="home-page" class="all-pages">
 <div class="row ">
 	<div class="{{standard_content_width}} content-wrapper">
@@ -42,19 +39,8 @@
 </div><!-- row -->
 </div><!-- home page -->
 
-
-
-
-
-
-
-
-
-<!-- filter page --><!-- filter page --><!-- filter page -->
-<!-- filter page --><!-- filter page --><!-- filter page -->
-<!-- filter page --><!-- filter page --><!-- filter page -->
+<!-- filter page -->
 <div id="filter-page" class= "all-pages">
-
 <div class = "row">
 	<div class="{{standard_content_width}} content-wrapper">
 		<div class="controls">
@@ -87,18 +73,9 @@
 		<div class="gap"></div>
 	</div><!-- all-projects-container -->
 </div><!-- row projects-all -->
-
-
 </div><!-- filter page -->
 
-<!-- project page --><!-- project page --><!-- project page -->
-<!-- project page --><!-- project page --><!-- project page -->
-<!-- project page --><!-- project page --><!-- project page -->
-
-
-
-
-
+<!-- project page -->
 <div id="project-page"  class= "all-pages">
 <div class="row">
 	<div class="{{standard_content_width}}">
@@ -138,23 +115,7 @@
 </div><!-- row -->
 </div><!-- project page -->
 
-
-
-
-
-
-
-
-
-
-<!-- about page --><!-- about page --><!-- about page -->
-<!-- about page --><!-- about page --><!-- about page -->
-<!-- about page --><!-- about page --><!-- about page -->
-
-
-
-
-
+<!-- about page -->
 <div id="about-page"  class= "all-pages">
 <div class="row">
 	<div class="col-xs-12">
@@ -176,18 +137,7 @@
 </div><!-- row -->
 </div><!-- about page -->
 
-
-
-
-
-
-
-
-
-
-<!-- skills page --><!-- skills page --><!-- skills page -->
-<!-- skills page --><!-- skills page --><!-- skills page -->
-<!-- skills page --><!-- skills page --><!-- skills page -->
+<!-- skills page -->
 <div id="skills-page"  class= "all-pages">
 <div class="row">
 	<div class="{{standard_content_width}}">
@@ -210,21 +160,9 @@
 		</div><!-- grid -->
 	</div>
 </div>
-
-	
-
-
-
-
-
 </div><!-- skills page -->
 
-
-
-
-<!-- contact-page --><!-- contact-page --><!-- contact-page -->
-<!-- contact-page --><!-- contact-page --><!-- contact-page -->
-<!-- contact-page --><!-- contact-page --><!-- contact-page -->
+<!-- contact-page -->
 <div id="contact-page" class="all-pages">
 <div class="row">
 	<div class="{{standard_content_width}}">
@@ -244,13 +182,7 @@
 </div><!-- row -->
 </div><!-- contact-page -->
 
-
-
-
-
-<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
-<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
-<!-- fixed-nav --><!-- fixed-nav --><!-- fixed-nav -->
+<!-- fixed-nav -->
 <div class="section-content fixed-nav">
 	<ul>
 		<li>Page Title</li>
@@ -259,44 +191,51 @@
 		<li><a href="#about-page">About</a></li>
 		<li><a href="#contact-page">Contact</a></li>
 	</ul>		
-</div>
+</div><!-- fixed mav -->
 
 
+
+
+<script src = "{% static 'js/jquery.js' %}"></script>
+
+<script src = "{% static 'js/jquery.smooth-scroll.js' %}"></script>
+<script>
+// Smooth Scrolling when links are clicked on
+$('a').smoothScroll();
+</script>
+
+<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
+<script>
+// Project Filter Functionality
+$(function(){$('.all-projects-container').mixItUp();});
+</script>
 
 <script src = "{% static 'js/masonry.js' %}"></script>
 <script>
-	// Smooth Scrolling when links are clicked on
-	$('a').smoothScroll();
+//Masonry for how skills are displayed
+$('.grid').masonry({
+  itemSelector: '.grid-item',
+  columnWidth: '.grid-sizer',
+  percentPosition: true
+});
 </script>
+
 <script>
-	// Project Filter Functionality
-	$(function(){$('.all-projects-container').mixItUp();});
-
-	//Masonry for how skills are displayed
-	$('.grid').masonry({
-	  itemSelector: '.grid-item',
-	  columnWidth: '.grid-sizer',
-	  percentPosition: true
-	});
-
-	//Function for displaying nav menu after home page
-	(function($) {          
-	    $(document).ready(function(){                    
-	        $(window).scroll(function(){
-	        	var home = $('#filter-page') .offset().top;                        
-	            if ($(this).scrollTop() > home) {
-	                $('.fixed-nav').fadeIn(250);
-	            } else {
-	                $('.fixed-nav').fadeOut(250);
-	            }
-	        });
-	    });
-	})(jQuery);
-
+//Function for displaying nav menu after home page
+(function($) {          
+    $(document).ready(function(){                    
+        $(window).scroll(function(){
+        	var home = $('#filter-page') .offset().top;                        
+            if ($(this).scrollTop() > home) {
+                $('.fixed-nav').fadeIn(250);
+            } else {
+                $('.fixed-nav').fadeOut(250);
+            }
+        });
+    });
+})(jQuery);
 </script>
+
 </body>
 </html>
-
-
-
 {% endwith %}
