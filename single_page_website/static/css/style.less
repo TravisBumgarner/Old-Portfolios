@@ -61,10 +61,10 @@ a {
 /************************************************************************/
 /******************* Imports ********************************************/
 /************************************************************************/
-@import 'https://fonts.googleapis.com/css?family=Cutive+Mono|Playfair+Display';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display';
 /*
-font-family: 'Cutive Mono', monospace;
-font-family: 'Playfair Display', serif;
+font-family: @content-font
+font-family: @header-font;
 */
 
 /************************************************************************/
@@ -74,24 +74,24 @@ font-family: 'Playfair Display', serif;
 @light-red:  #bd0000;
 @whiteish:   #ffffff;
 @blackish:   #444;
+
 @section-padding: 5px 5px 5px 10px;
 @section-padding-small-screen: 20px 10px 20px 10px;
+
+@header-font: 'Playfair Display', serif;
+@content-font: 'Open Sans', sans-serif;
 
 @number-nav-items: 4; 
 @nav-item-width: 100%/@number-nav-items; 
 
 
 .section-header{
-   	font-family: 'Playfair Display', serif;
+   	font-family: @header-font;
 	background-color: @light-red;
 	color: @whiteish;
 	padding: @section-padding;
 	margin-bottom: 2px;
-    @media only screen and (max-width:768px){
-    	padding: @section-padding-small-screen; 
-    	font-size:22px
-
-    }
+	font-size:28px;
 }
 
 //Define general coloring for content
@@ -105,12 +105,15 @@ font-family: 'Playfair Display', serif;
 		color: @blackish;
 		padding: @section-padding;
     	margin-bottom: 2px;
-		font-family: 'Cutive Mono', monospace;
+		font-family: @content-font
+    }
+    p{
+    	line-height: 24px;
     }
     li{
     	a{
     		color: @blackish;
-    		font-family: 'Cutive Mono', monospace;
+    		font-family: @content-font
     	}
     	&:hover, &:hover a{
     		background-color: @light-red;
@@ -200,7 +203,7 @@ html, body{
 	padding-top: 30vh;
 	.row{
 		.section-header{
-			font-size: 22px;
+			font-size: 30px;
 		}
 		.section-content{
 			font-size: 20px;
@@ -238,9 +241,16 @@ html, body{
 	.projects-all{
 		margin-top: 5vh;
 	}
-}
-.all-projects-container .mix{
-  display: none;
+	.list-of-projects{
+		.mix{
+			display: none;
+		}
+		img{
+			width:300px;
+			height:300px;
+		}
+	} 
+
 }
 
 
@@ -260,6 +270,10 @@ html, body{
 		background: #888;
 		border-left: 2px solid #888;
 		border-bottom: 2px solid #888;
+    	margin: 0px 0px 10px 15px;
+	}
+	p{
+		margin-bottom: 0px;
 	}
 }
 

@@ -38,7 +38,6 @@ class Project_Category(models.Model):
 
 class Project_Image(models.Model):
     title = models.CharField(max_length = 50)
-    description = models.TextField()
     image = models.ImageField(upload_to = 'single_page_website/media/img/')
     class Meta:
         ordering = ('title',)
