@@ -28,10 +28,10 @@
 		<h2 class="section-header">If it’s interesting, I’m <i>interested</i> in it.</br>What are you intersted in?</h2>
 		<div class="section-content">
 			<ul>
-				<li><a href="#filter-page">Engineering & Design Projects</a></li>
-				<li><a href="#about-page">Travis Bumgarner Himself</a></li>
-				<li><a href="#contact-page">Getting in Touch</a></li>
-				<li><a href="http://painlessprototyping.com" target="_blank">Painless Prototyping Startup</a></li>
+				<li><a data-scroll href="#filter-page">Engineering & Design Projects</a></li>
+				<li><a data-scroll href="#about-page">Travis Himself</a></li>
+				<li><a data-scroll href="#contact-page">Getting in Touch</a></li>
+			
 			</ul>		
 		</div>
 
@@ -63,7 +63,7 @@
 	<div id="Container" class="all-projects-container">
 		{% for project in projects %}
 			<div class="col-sm-4 col-xs-6 mix section-content {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-				<a href= "#project-page">
+				<a href= "#project-page" data-project-id = "project-{{project.id}}">
 					<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
 					<p>{{ project.title }}</p>
 				</a>
@@ -75,43 +75,48 @@
 </div><!-- row projects-all -->
 </div><!-- filter page -->
 
+
+
+
+
+
+
+
+
+
+
+
 <!-- project page -->
 <div id="project-page"  class= "all-pages">
 <div class="row">
-	<div class="{{standard_content_width}}">
-		<h2 class="section-header">{{ projects.0.title }} </h2>
-		<div class="section-content">
-			<p>{{ projects.0.summary }}</p>
-		</div>
-		<div class="section-content">
-			<ul><!-- Make soure to set to two or three columns -->
-				{% for tool in projects.0.tools.all %}
-				<li>{{ tool }}</li>
-				{% endfor %}
-			</ul>
-		</div>
+	<div class="{{standard_content_width}} toggle_visible_projects">
+    {% for project in projects %}
+        <div class = "project hidden" data-project-id = "project-{{project.id}}" >
+            <h2 class = "section-header">{{project.title}}</h2>
+    		<div class="section-content">
+    			<p>{{ project.summary }}</p>
+    		</div>
+    		<div class="section-content">
+    			<ul><!-- Make soure to set to two or three columns -->
+    				{% for tool in project.tools.all %}
+    				<li>{{ tool }}</li>
+    				{% endfor %}
+    			</ul>
+    		</div>
+        </div>
+	{% endfor %}
 	</div><!-- end columns -->
 </div><!-- end rows -->
 <div class="row">
-	<div class="col-xs-4">
-		<div class="section-content">
-			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
-		</div><!-- section content -->
-	</div><!-- cols -->
-	<div class="col-xs-4">
-		<div class="section-content">
-			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
-		</div><!-- section content -->
-	</div><!-- cols -->
-	<div class="col-xs-4">
-		<div class="section-content">
-			<img src="https://placehold.it/300x300" alt="" class="img-responsive">
-		</div><!-- section content -->
-	</div><!-- cols -->
-</div><!-- row -->
-
-
+    {% for project in projects %}
+    <div class = "project hidden" data-project-id = "project-{{project.id}}" >
+    	<div class="col-xs-4">
+    		<div class="section-content">
+    			<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
+    		</div><!-- section content -->
+    	</div><!-- cols -->
 	</div>
+	{% endfor %}
 </div><!-- row -->
 </div><!-- project page -->
 
@@ -198,44 +203,56 @@
 
 <script src = "{% static 'js/jquery.js' %}"></script>
 
-<script src = "{% static 'js/jquery.smooth-scroll.js' %}"></script>
+<script src="{% static 'js/smooth-scroll.min.js' %}"></script>
 <script>
-// Smooth Scrolling when links are clicked on
-$('a').smoothScroll();
+	smoothScroll.init({
+	    speed: 1000, // Integer. How fast to complete the scroll in milliseconds
+	    selector: '[data-scroll]', 
+	});
 </script>
 
 <script src = "{% static 'js/jquery.mixitup.js' %}"></script>
 <script>
-// Project Filter Functionality
-$(function(){$('.all-projects-container').mixItUp();});
+	// Project Filter Functionality
+	$(function(){$('.all-projects-container').mixItUp();});
 </script>
 
 <script src = "{% static 'js/masonry.js' %}"></script>
 <script>
-//Masonry for how skills are displayed
-$('.grid').masonry({
-  itemSelector: '.grid-item',
-  columnWidth: '.grid-sizer',
-  percentPosition: true
-});
+	//Masonry for how skills are displayed
+	$('.grid').masonry({
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	  percentPosition: true
+	});
 </script>
 
 <script>
-//Function for displaying nav menu after home page
-(function($) {          
-    $(document).ready(function(){                    
-        $(window).scroll(function(){
-        	var home = $('#filter-page') .offset().top;                        
-            if ($(this).scrollTop() > home) {
-                $('.fixed-nav').fadeIn(250);
-            } else {
-                $('.fixed-nav').fadeOut(250);
-            }
-        });
-    });
-})(jQuery);
+	//Function for displaying nav menu after home page
+	(function($) {          
+	    $(document).ready(function(){                    
+	        $(window).scroll(function(){
+	        	var home = $('#filter-page') .offset().top;                        
+	            if ($(this).scrollTop() > home) {
+	                $('.fixed-nav').fadeIn(250);
+	            } else {
+	                $('.fixed-nav').fadeOut(250);
+	            }
+	        });
+	    });
+	})(jQuery);
 </script>
 
+<script>
+	//Function for loading projects
+	$(".all-projects-container").find("a").on("click",function(e){
+	    $project_id = $(this).data("project-id");;
+	    $('[data-project-id="' + $project_id + '"]')
+	        .removeClass("hidden")
+	        .siblings().addClass("hidden");
+    });
+
+</script>
 </body>
 </html>
 {% endwith %}

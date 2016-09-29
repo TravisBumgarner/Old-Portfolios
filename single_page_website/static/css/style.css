@@ -148,7 +148,7 @@ font-family: 'Playfair Display', serif;
 /************************************************************************/
 .section-header {
   font-family: 'Playfair Display', serif;
-  background-color: #f88379;
+  background-color: #bd0000;
   color: #ffffff;
   padding: 5px 5px 5px 10px;
   margin-bottom: 2px;
@@ -177,7 +177,7 @@ font-family: 'Playfair Display', serif;
 }
 .section-content li:hover,
 .section-content li:hover a {
-  background-color: #f88379;
+  background-color: #bd0000;
   color: #ffffff;
 }
 @media only screen and (max-width: 768px) {
@@ -210,6 +210,9 @@ font-family: 'Playfair Display', serif;
 .right {
   float: right;
 }
+.hidden {
+  display: none;
+}
 /************************************************************************/
 /******************* LESS Commom Stuff **********************************/
 /************************************************************************/
@@ -235,13 +238,16 @@ body {
   background-position: bottom right;
 }
 .all-pages {
-  min-height: 100vh;
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding-top: 5vh;
+  padding-bottom: 0vh;
 }
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
+#home-page {
+  min-height: 100vh;
+  padding-top: 30vh;
+}
 #home-page .row .section-header {
   font-size: 22px;
 }
@@ -262,7 +268,7 @@ body {
   margin-right: .5%;
 }
 #filter-page ul li.active {
-  background-color: #f88379;
+  background-color: #bd0000;
   color: #ffffff;
 }
 #filter-page .projects-all {
@@ -342,10 +348,10 @@ body {
 }
 .fixed-nav ul li:first-child {
   color: #ffffff;
-  background: #f88379;
+  background: #bd0000;
 }
 .fixed-nav ul li:first-child:hover {
-  background: #f88379;
+  background: #bd0000;
   color: #ffffff;
 }
 .fixed-nav li {
