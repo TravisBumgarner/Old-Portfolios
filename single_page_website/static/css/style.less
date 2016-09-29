@@ -81,8 +81,7 @@ font-family: @header-font;
 @header-font: 'Playfair Display', serif;
 @content-font: 'Open Sans', sans-serif;
 
-@number-nav-items: 4; 
-@nav-item-width: 100%/@number-nav-items; 
+
 
 
 .section-header{
@@ -90,7 +89,7 @@ font-family: @header-font;
 	background-color: @light-red;
 	color: @whiteish;
 	padding: @section-padding;
-	margin-bottom: 2px;
+	margin-bottom: 5px;
 	font-size:28px;
 }
 
@@ -104,7 +103,7 @@ font-family: @header-font;
 		background-color: @whiteish;
 		color: @blackish;
 		padding: @section-padding;
-    	margin-bottom: 2px;
+    	margin-bottom: 5px;
 		font-family: @content-font
     }
     p{
@@ -180,18 +179,19 @@ font-family: @header-font;
 /************************************************************************/
 html, body{
     width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
 	background: #999 url("../img/background.png");
 	background-repeat: no-repeat;
 	background-position: bottom right;
+	background-attachment: fixed;
 }
 
 .all-pages{
-	padding-top: 5vh;
+	padding-top: 10vh;
 	padding-bottom: 0vh;
+	min-height: 100vh;
 
 }
 
@@ -219,14 +219,16 @@ html, body{
 	ul{
 
 		li{
-			width: 49.75%;
+			width: 49.5%;
 			float: left;
+			cursor: pointer;
+			cursor: hand;
 		}
 		li:first-child{
 			width:100%;
 		}
 		li:nth-child(even){
-			margin-right: .5%;
+			margin-right: 1%;
 		}
 		li.active{
 			background-color: @light-red;
@@ -238,16 +240,16 @@ html, body{
 		.content-wrapper{
 		}
 	}
-	.projects-all{
-		margin-top: 5vh;
-	}
 	.list-of-projects{
+		margin-top: 5vh;
 		.mix{
 			display: none;
 		}
-		img{
-			width:300px;
-			height:300px;
+		p{
+			background: rgba(255,255,255,0.8);
+			height: 57px;
+		    position: relative;
+		    bottom: 57px;
 		}
 	} 
 
@@ -259,6 +261,7 @@ html, body{
 /************************************************************************/
 #project-page{
 	.two-col-li;
+	min-height: 80vh;
 }
 /************************************************************************/
 /******************* About Page *****************************************/
@@ -268,8 +271,8 @@ html, body{
 	#about-photo{
 		width: 33%;
 		background: #888;
-		border-left: 2px solid #888;
-		border-bottom: 2px solid #888;
+		border-left: 5px solid #888;
+		border-bottom: 5px solid #888;
     	margin: 0px 0px 10px 15px;
 	}
 	p{
@@ -281,6 +284,15 @@ html, body{
 /******************* Skills *********************************************/
 /************************************************************************/
 #skills-page{
+	.page-title{
+		width:95%;
+		margin: 0px auto;
+		margin-bottom: 5px;
+	}
+	.skills-wrapper{
+		padding-left: 0.5%;
+		padding-right: 5px;
+	}
 	ul{
 		li{
 			overflow: auto;
@@ -297,6 +309,31 @@ html, body{
 
 	}
 }
+/******************* Grid Items******************************************/
+* { box-sizing: border-box; }
+.grid{
+	max-width:1200px;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+
+.grid-sizer,
+.grid-item {
+  width: 45%;
+  margin: 0% 2.5%;
+}
+.grid-item{
+	float:left;
+	margin-bottom:15px;
+}
+
+
 
 /************************************************************************/
 /******************* Form ***********************************************/
@@ -323,59 +360,33 @@ html, body{
 /************************************************************************/
 .fixed-nav{
 	display: none;
-	width: 100%;
-	position: fixed;
-	top: 0px;
-	left: 0px;
+	.content-wrapper{
+		background-color:white; 
+		position: fixed; 
+		top: 0px; 
+		left: 0px;
+    	z-index: 999;
+    	padding: 0px;
+	}
 	ul{
 		text-align:center;
 		background-color: @whiteish;
 		height: 32px;
-		width: 50%;
-		margin:0px auto;
-		border-top: 5px solid @whiteish;
-
-		li:first-child{
+		li{
 			&:hover{
 				background: @light-red;
 				color: @whiteish;
 			}
-			color: @whiteish;
-			background: @light-red;
+			height: 35px;
+			display: inline;
+			padding: 10px;
+			float: left;
+			width: 16.666%;
+			margin-bottom: 0px;
 		}
 	}
-	li{
-		height: 35px;
-		display: inline;
-		width: @nav-item-width;
-		padding: 10px;
-	}
-
 }
 
-
-/************************************************************************/
-/******************* Grid Items******************************************/
-/************************************************************************/
-* { box-sizing: border-box; }
-.grid{
-	max-width:1200px;
-}
-
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.grid-sizer,
-.grid-item {
-  width: 50%;
-  padding: 1%;
-}
-.grid-item{
-	float:left;
-}
 
 
 

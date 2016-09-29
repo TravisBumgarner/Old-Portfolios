@@ -151,7 +151,7 @@ font-family: @header-font;
   background-color: #bd0000;
   color: #ffffff;
   padding: 5px 5px 5px 10px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   font-size: 28px;
 }
 .section-content ul {
@@ -163,7 +163,7 @@ font-family: @header-font;
   background-color: #ffffff;
   color: #444444;
   padding: 5px 5px 5px 10px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   font-family: 'Open Sans', sans-serif;
 }
 .section-content p {
@@ -227,17 +227,18 @@ font-family: @header-font;
 html,
 body {
   width: 100%;
-  height: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
   background: #999999 url("../img/background.png");
   background-repeat: no-repeat;
   background-position: bottom right;
+  background-attachment: fixed;
 }
 .all-pages {
-  padding-top: 5vh;
+  padding-top: 10vh;
   padding-bottom: 0vh;
+  min-height: 100vh;
 }
 /************************************************************************/
 /******************* Homepage *******************************************/
@@ -256,32 +257,39 @@ body {
 /******************* Filter Page ****************************************/
 /************************************************************************/
 #filter-page ul li {
-  width: 49.75%;
+  width: 49.5%;
   float: left;
+  cursor: pointer;
+  cursor: hand;
 }
 #filter-page ul li:first-child {
   width: 100%;
 }
 #filter-page ul li:nth-child(even) {
-  margin-right: .5%;
+  margin-right: 1%;
 }
 #filter-page ul li.active {
   background-color: #bd0000;
   color: #ffffff;
 }
-#filter-page .projects-all {
+#filter-page .list-of-projects {
   margin-top: 5vh;
 }
 #filter-page .list-of-projects .mix {
   display: none;
 }
-#filter-page .list-of-projects img {
-  width: 300px;
-  height: 300px;
+#filter-page .list-of-projects p {
+  background: rgba(255, 255, 255, 0.8);
+  height: 57px;
+  position: relative;
+  bottom: 57px;
 }
 /************************************************************************/
 /******************* Projects *******************************************/
 /************************************************************************/
+#project-page {
+  min-height: 80vh;
+}
 #project-page ul li {
   width: 49.75%;
   float: left;
@@ -295,8 +303,8 @@ body {
 #about-page #about-photo {
   width: 33%;
   background: #888;
-  border-left: 2px solid #888;
-  border-bottom: 2px solid #888;
+  border-left: 5px solid #888;
+  border-bottom: 5px solid #888;
   margin: 0px 0px 10px 15px;
 }
 #about-page p {
@@ -305,6 +313,15 @@ body {
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
+#skills-page .page-title {
+  width: 95%;
+  margin: 0px auto;
+  margin-bottom: 5px;
+}
+#skills-page .skills-wrapper {
+  padding-left: 0.5%;
+  padding-right: 5px;
+}
 #skills-page ul li {
   overflow: auto;
 }
@@ -316,6 +333,27 @@ body {
 }
 #skills-page ul li div:last-child {
   float: right;
+}
+/******************* Grid Items******************************************/
+* {
+  box-sizing: border-box;
+}
+.grid {
+  max-width: 1200px;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-sizer,
+.grid-item {
+  width: 45%;
+  margin: 0% 2.5%;
+}
+.grid-item {
+  float: left;
+  margin-bottom: 15px;
 }
 /************************************************************************/
 /******************* Form ***********************************************/
@@ -339,52 +377,29 @@ body {
 /************************************************************************/
 .fixed-nav {
   display: none;
-  width: 100%;
+}
+.fixed-nav .content-wrapper {
+  background-color: white;
   position: fixed;
   top: 0px;
   left: 0px;
+  z-index: 999;
+  padding: 0px;
 }
 .fixed-nav ul {
   text-align: center;
   background-color: #ffffff;
   height: 32px;
-  width: 50%;
-  margin: 0px auto;
-  border-top: 5px solid #ffffff;
 }
-.fixed-nav ul li:first-child {
-  color: #ffffff;
-  background: #bd0000;
-}
-.fixed-nav ul li:first-child:hover {
-  background: #bd0000;
-  color: #ffffff;
-}
-.fixed-nav li {
+.fixed-nav ul li {
   height: 35px;
   display: inline;
-  width: 25%;
   padding: 10px;
-}
-/************************************************************************/
-/******************* Grid Items******************************************/
-/************************************************************************/
-* {
-  box-sizing: border-box;
-}
-.grid {
-  max-width: 1200px;
-}
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-.grid-sizer,
-.grid-item {
-  width: 50%;
-  padding: 1%;
-}
-.grid-item {
   float: left;
+  width: 16.666%;
+  margin-bottom: 0px;
+}
+.fixed-nav ul li:hover {
+  background: #bd0000;
+  color: #ffffff;
 }
