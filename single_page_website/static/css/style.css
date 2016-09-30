@@ -179,10 +179,14 @@ font-family: @header-font;
   color: #ffffff;
 }
 @media only screen and (max-width: 768px) {
+  .section-header {
+    font-size: 22px;
+    padding: 5px 10px 5px 10px;
+  }
   .section-content li,
   .section-content p {
-    padding: 20px 10px 20px 10px;
-    font-size: 18px;
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
   }
 }
 #project-page .section-content li:hover,
@@ -253,6 +257,14 @@ body {
 #home-page .row .section-content {
   font-size: 20px;
 }
+@media only screen and (max-width: 768px) {
+  #home-page {
+    padding-top: 10vh;
+  }
+  #home-page .row .section-header {
+    font-size: 26px;
+  }
+}
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
@@ -296,6 +308,9 @@ body {
 }
 #project-page ul li:nth-child(odd) {
   margin-right: 0.5%;
+}
+#project-page .project-wrapper {
+  margin-top: 5vh;
 }
 /************************************************************************/
 /******************* About Page *****************************************/
@@ -367,6 +382,7 @@ body {
   margin-top: 5px;
   border: none;
   padding: 5px 5px 5px 10px;
+  text-align: left;
 }
 #contact-page form textarea,
 #contact-page form input {
@@ -396,7 +412,7 @@ body {
   display: inline;
   padding: 10px;
   float: left;
-  width: 16.666%;
+  width: 20%;
   margin-bottom: 0px;
 }
 .fixed-nav ul li:hover {

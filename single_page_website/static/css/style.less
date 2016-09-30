@@ -76,7 +76,7 @@ font-family: @header-font;
 @blackish:   #444;
 
 @section-padding: 5px 5px 5px 10px;
-@section-padding-small-screen: 20px 10px 20px 10px;
+@section-padding-small-screen: 5px 10px 5px 10px;
 
 @header-font: 'Playfair Display', serif;
 @content-font: 'Open Sans', sans-serif;
@@ -119,13 +119,21 @@ font-family: @header-font;
     		color: @whiteish;	
     	}
     }
-    @media only screen and (max-width:768px){
-    	li,p{
-    		padding: @section-padding-small-screen; 
-    		font-size: 18px;
-    	}
-    }
 }
+@media only screen and (max-width:768px){
+	.section-header{
+		font-size:22px;
+		padding: @section-padding-small-screen; 
+	}
+	.section-content{
+		li,p{
+			padding: @section-padding-small-screen; 
+			font-size: 14px;
+		}
+	}
+}
+
+
 
 //Remove hover for content without links
 #project-page,
@@ -212,6 +220,16 @@ html, body{
 		}
 	}
 }
+@media only screen and (max-width:768px){
+	#home-page{
+		padding-top: 10vh;
+		.row{
+			.section-header{
+				font-size: 26px;
+			}
+		}
+	}
+}
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
@@ -262,6 +280,9 @@ html, body{
 #project-page{
 	.two-col-li;
 	min-height: 80vh;
+	.project-wrapper{
+		margin-top: 5vh;
+	}
 }
 /************************************************************************/
 /******************* About Page *****************************************/
@@ -347,6 +368,7 @@ html, body{
 			margin-top: 5px;
 			border: none;
 			padding: @section-padding;
+			text-align:left;
 		}
 		textarea, input{
 			margin-bottom: 10px;
@@ -381,7 +403,7 @@ html, body{
 			display: inline;
 			padding: 10px;
 			float: left;
-			width: 16.666%;
+			width: 20%;
 			margin-bottom: 0px;
 		}
 	}
