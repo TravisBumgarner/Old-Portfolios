@@ -75,12 +75,15 @@ font-family: @header-font;
 @whiteish:   #ffffff;
 @blackish:   #444;
 
-@section-padding: 5px 5px 5px 10px;
+@section-header-padding: 5px 10px 5px 10px;
+@section-content-padding: 5px 5px 5px 5px;
+@section-content-margin: 0px 5px 0px 5px;
 @section-padding-small-screen: 5px 10px 5px 10px;
 
 @header-font: 'Playfair Display', serif;
 @content-font: 'Open Sans', sans-serif;
 
+@gray-border: 1px solid #ccc;
 
 
 
@@ -88,35 +91,30 @@ font-family: @header-font;
    	font-family: @header-font;
 	background-color: @light-red;
 	color: @whiteish;
-	padding: @section-padding;
-	margin-bottom: 5px;
-	font-size:28px;
+	padding: @section-header-padding;
+	font-size:22px;
 }
 
 //Define general coloring for content
 .section-content{
+	background-color: @whiteish; 
 	ul{
 		list-style:none;
 		padding-left: 0px;
 	}
 	li, p{
-		background-color: @whiteish;
 		color: @blackish;
-		padding: @section-padding;
-    	margin-bottom: 5px;
-		font-family: @content-font
+		padding: @section-content-padding;
+		margin: @section-content-margin;
+		font-family: @content-font;
     }
     p{
     	line-height: 24px;
     }
-    li{
+    li , p{
     	a{
     		color: @blackish;
-    		font-family: @content-font
-    	}
-    	&:hover, &:hover a{
-    		background-color: @light-red;
-    		color: @whiteish;	
+    		font-family: @content-font;
     	}
     }
 }
@@ -208,16 +206,18 @@ html, body{
 /************************************************************************/
 #home-page{
 	min-height: 100vh;
-	padding-top: 30vh;
-	.row{
-		.section-header{
-			font-size: 30px;
-		}
-		.section-content{
-			font-size: 20px;
-		}
-		.content-wrapper{
-		}
+	padding-top: 20vh;
+	.menu-item-title{
+		font-size: 18px;
+	}
+	.menu-item-description{
+		font-size: 11px;
+	}
+	li{
+    	border-bottom: @gray-border;
+	}
+	li:hover span:first-child{
+		color: @light-red;	
 	}
 }
 @media only screen and (max-width:768px){
@@ -359,29 +359,33 @@ html, body{
 /************************************************************************/
 .fixed-nav{
 	display: none;
+	background-color:white; 
 	.content-wrapper{
-		background-color:white; 
+		width: 100vw; 
 		position: fixed; 
 		top: 0px; 
 		left: 0px;
     	z-index: 999;
     	padding: 0px;
+		height: 35px;
 	}
 	ul{
+		width: 60vw;
+		margin: 0px auto;
 		text-align:center;
 		background-color: @whiteish;
-		height: 32px;
 		li{
-			&:hover{
-				background: @light-red;
-				color: @whiteish;
-			}
 			height: 35px;
 			display: inline;
-			padding: 10px;
+			padding: 10px 20px 10px 20px;
 			float: left;
-			width: 25%;
-			margin-bottom: 0px;
+			margin: 0px;
+			&:hover{
+				border-bottom: solid 5px @light-red;
+			}
+			&:last-child{
+				border-left: @gray-border;
+			}
 		}
 	}
 }
