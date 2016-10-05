@@ -146,15 +146,25 @@ font-family: @header-font;
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
-.section-header {
+h2.section-header {
   font-family: 'Playfair Display', serif;
   background-color: #bd0000;
   color: #ffffff;
-  padding: 5px 10px 5px 10px;
+  padding: 10px 15px 10px 15px;
   font-size: 22px;
+}
+p.section-header {
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  font-size: 11px;
+  float: right;
+  padding: 15px;
+  font-style: italic;
 }
 .section-content {
   background-color: #ffffff;
+  overflow: hidden;
 }
 .section-content ul {
   list-style: none;
@@ -183,7 +193,7 @@ font-family: @header-font;
   .section-content li,
   .section-content p {
     padding: 5px 10px 5px 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 #project-page .section-content li:hover,
@@ -231,7 +241,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  background: #999999 url("../img/background.png");
+  background: #cecece url("../img/background.png");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-attachment: fixed;
@@ -249,7 +259,7 @@ body {
   padding-top: 20vh;
 }
 #home-page .menu-item-title {
-  font-size: 18px;
+  font-size: 16px;
 }
 #home-page .menu-item-description {
   font-size: 11px;
@@ -264,28 +274,26 @@ body {
   #home-page {
     padding-top: 10vh;
   }
-  #home-page .row .section-header {
-    font-size: 26px;
-  }
 }
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
 #filter-page ul li {
-  width: 49.5%;
+  width: 31%;
+  font-size: 11px;
   float: left;
   cursor: pointer;
   cursor: hand;
+  padding: 10px 15px 10px 15px;
+  margin: 0px;
 }
 #filter-page ul li:first-child {
   width: 100%;
 }
-#filter-page ul li:nth-child(even) {
-  margin-right: 1%;
-}
 #filter-page ul li.active {
-  background-color: #bd0000;
-  color: #ffffff;
+  color: #444444;
+  color: #bd0000;
+  font-weight: 900;
 }
 #filter-page .list-of-projects {
   margin-top: 5vh;
@@ -294,10 +302,9 @@ body {
   display: none;
 }
 #filter-page .list-of-projects p {
-  background: rgba(255, 255, 255, 0.8);
-  height: 57px;
-  position: relative;
-  bottom: 57px;
+  font-size: 11px;
+  height: 33px;
+  line-height: 11px;
 }
 /************************************************************************/
 /******************* Projects *******************************************/
@@ -320,13 +327,19 @@ body {
 /************************************************************************/
 #about-page #about-photo {
   width: 33%;
-  background: #888;
-  border-left: 5px solid #888;
-  border-bottom: 5px solid #888;
-  margin: 0px 0px 10px 15px;
+  padding: 10px;
+}
+#about-page ul {
+  width: 65%;
 }
 #about-page p {
   margin-bottom: 0px;
+}
+#about-page li {
+  padding: 15px;
+}
+#about-page li:nth-child(n+1) {
+  border-bottom: 1px solid #cccccc;
 }
 /************************************************************************/
 /******************* Skills *********************************************/
@@ -404,4 +417,7 @@ body {
 }
 .fixed-nav ul li:hover {
   border-bottom: solid 5px #bd0000;
+}
+.fixed-nav ul li:last-child {
+  border-left: 1px solid #cccccc;
 }

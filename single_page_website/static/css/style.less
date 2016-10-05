@@ -75,7 +75,7 @@ font-family: @header-font;
 @whiteish:   #ffffff;
 @blackish:   #444;
 
-@section-header-padding: 5px 10px 5px 10px;
+@section-header-padding: 10px 15px 10px 15px;
 @section-content-padding: 5px 5px 5px 5px;
 @section-content-margin: 0px 5px 0px 5px;
 @section-padding-small-screen: 5px 10px 5px 10px;
@@ -85,19 +85,32 @@ font-family: @header-font;
 
 @gray-border: 1px solid #ccc;
 
+@font-size-small: 11px;
+@font-size-normal: 16px;
+@font-size-large: 22px;
+@font-size-extra-large: 30px;
 
-
-.section-header{
+h2.section-header{
    	font-family: @header-font;
 	background-color: @light-red;
 	color: @whiteish;
 	padding: @section-header-padding;
-	font-size:22px;
+	font-size:@font-size-large;
+}
+p.section-header{
+	font-family: @header-font;
+	color: @whiteish;	
+	padding: @section-header-padding;
+	font-size: @font-size-small;
+	float:right;
+	padding: 15px;
+	font-style: italic;
 }
 
 //Define general coloring for content
 .section-content{
 	background-color: @whiteish; 
+	overflow: hidden;
 	ul{
 		list-style:none;
 		padding-left: 0px;
@@ -120,13 +133,13 @@ font-family: @header-font;
 }
 @media only screen and (max-width:768px){
 	.section-header{
-		font-size:22px;
+		font-size:@font-size-large;
 		padding: @section-padding-small-screen; 
 	}
 	.section-content{
 		li,p{
 			padding: @section-padding-small-screen; 
-			font-size: 14px;
+			font-size: @font-size-normal;
 		}
 	}
 }
@@ -188,7 +201,7 @@ html, body{
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-	background: #999 url("../img/background.png");
+	background: #cecece url("../img/background.png");
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	background-attachment: fixed;
@@ -208,10 +221,10 @@ html, body{
 	min-height: 100vh;
 	padding-top: 20vh;
 	.menu-item-title{
-		font-size: 18px;
+		font-size: @font-size-normal;
 	}
 	.menu-item-description{
-		font-size: 11px;
+		font-size: @font-size-small;
 	}
 	li{
     	border-bottom: @gray-border;
@@ -223,11 +236,6 @@ html, body{
 @media only screen and (max-width:768px){
 	#home-page{
 		padding-top: 10vh;
-		.row{
-			.section-header{
-				font-size: 26px;
-			}
-		}
 	}
 }
 /************************************************************************/
@@ -237,21 +245,21 @@ html, body{
 	ul{
 
 		li{
-			width: 49.5%;
+			width: 31%;
+			font-size: @font-size-small;
 			float: left;
 			cursor: pointer;
 			cursor: hand;
+		    padding: 10px 15px 10px 15px;
+		    margin: 0px;
 		}
 		li:first-child{
 			width:100%;
 		}
-		li:nth-child(even){
-			margin-right: 1%;
-		}
 		li.active{
-			background-color: @light-red;
-			color: @whiteish;
-
+			color: @blackish;
+			color: @light-red;
+			font-weight: 900;
 		}
 	}
 	.row{
@@ -264,10 +272,10 @@ html, body{
 			display: none;
 		}
 		p{
-			background: rgba(255,255,255,0.8);
-			height: 57px;
-		    position: relative;
-		    bottom: 57px;
+			font-size: @font-size-small;
+			height: @font-size-small*3;
+			line-height: @font-size-small;
+
 		}
 	} 
 
@@ -291,14 +299,21 @@ html, body{
 #about-page{
 	#about-photo{
 		width: 33%;
-		background: #888;
-		border-left: 5px solid #888;
-		border-bottom: 5px solid #888;
-    	margin: 0px 0px 10px 15px;
+    	padding: 10px;
+	}
+	ul{
+		width: 65%;
 	}
 	p{
 		margin-bottom: 0px;
 	}
+	li{
+		padding: 15px;
+	}
+	li:nth-child(n+1){
+    	border-bottom: @gray-border;
+	}
+
 }
 
 /************************************************************************/

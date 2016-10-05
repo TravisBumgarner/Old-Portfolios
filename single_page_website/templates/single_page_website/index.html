@@ -4,7 +4,7 @@
 <!-- Generate that content! -->
 
 <!-- Variables for generating things for Django -->
-{% with standard_content_width="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" wide_content_width="col-sm-10 col-sm-offset-1 col-xs-12" %}    
+{% with standard_content_width="col-sm-8 col-sm-offset-2 col-xs-12"%}    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +85,8 @@
 	<div class = "row">
 		<div class="{{standard_content_width}} content-wrapper">
 			<div class="controls">
-				<h2 class="section-header">Projects Filter</h2>
+				<p class = "section-header">Select any or a few categories to view.</p>
+				<h2 class="section-header">Projects</h2>
 				<div class="section-content" id = "projects-filter">
 					<ul>
 						<li data-filter = "all" class = "filter">View All</li>
@@ -103,11 +104,13 @@
 	<div class="row list-of-projects">
 		<div id="Container">
 			{% for project in projects %}
-				<div class="col-md-3 col-xs-6 mix section-content {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-					<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
-						<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
-						<p>{{ project.title }}</p>
-					</a>
+				<div class="col-md-3 col-xs-6 mix  {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
+					<div class="section-content">
+						<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
+							<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
+							<p>{{ project.title }}</p>
+						</a>				
+					</div>
 				</div><!-- col-md-3 col-sm-4 col-xs-6 -->
 			{% endfor %}
 			<div class="gap"></div>
@@ -154,12 +157,14 @@
 	<!-- about page -->
 	<div id="about-page"  class= "all-pages">
 	<div class="row">
-		<div class="{{wide_content_width}}">
+		<div class="{{standard_content_width}}">
 			<h2 class="section-header">{{ about.title }} </h2>
-			<img src="{{about.photo.url}}" alt="" class="img-responsive right" id="about-photo">
 			<div class="section-content">
-				<ul><!-- setup for 2 or 3 columns -->
-					Links here.
+				<img src="{{about.photo.url}}" alt="" class="img-responsive left" id="about-photo">
+				<ul class = "left"><!-- setup for 2 or 3 columns -->
+					{% for link in links %}
+						<li><img src="{{link.link_image}}"><a href = "{{link.url_path}}" target="_blank">{{link.url_title}}</a></li>
+					{% endfor %}
 				</ul>			
 			</div>
 			<div class="section-content">
