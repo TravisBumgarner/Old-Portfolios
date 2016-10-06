@@ -74,7 +74,6 @@ font-family: @header-font;
 @light-red:  #bd0000;
 @whiteish:   #ffffff;
 @blackish:   #444;
-@gray : 	 #ccc;
 
 @section-header-padding: 10px 15px 10px 15px;
 @section-content-padding: 5px 5px 5px 5px;
@@ -224,15 +223,12 @@ html, body{
 	padding-top: 20vh;
 	.menu-item-title{
 		font-size: @font-size-normal;
-		font-weight: 800;
 	}
 	.menu-item-description{
 		font-size: @font-size-small;
 	}
 	li{
     	border-bottom: @gray-border;
-    	margin: 0px 10px;
-    	padding: 10px 0px;
 	}
 	li:hover span:first-child{
 		color: @light-red;	
@@ -304,22 +300,19 @@ html, body{
 #about-page{
 	#about-photo{
 		width: 33%;
-    	padding: 20px;
+    	padding: 10px;
 	}
 	ul{
 		width: 65%;
-		padding-top: 20px;
 	}
 	p{
-		margin: 0px;
-		padding: 10px 20px;
+		margin-bottom: 0px;
 	}
 	li{
 		padding: 15px;
-    	border-bottom: @gray-border;
 	}
-	li:first-child{
-    	border-top: @gray-border;
+	li:nth-child(n+1){
+    	border-bottom: @gray-border;
 	}
 
 }
@@ -328,24 +321,13 @@ html, body{
 /******************* Skills *********************************************/
 /************************************************************************/
 #skills-page{
-	#ready-to-learn{
-		float:right;
-		width: 100%;
-		font-size: @font-size-normal;
-		text-transform: uppercase;
-		color: @gray;
-		font-weight: 900;
-		padding: 15px;
-		border-top: @gray-border;
-	}
 	.skill-category{
 		border-top: @black-border;
 		text-transform: uppercase;
-		font-size: @font-size-normal;
+		font-size: @font-size-small;
 		font-weight: 900;
 		padding: 10px 10px 10px 0px;
 		margin-top: 20px;
-		font-family: @content-font;
 	}
 	.skill{
 		font-size: @font-size-small;
@@ -402,12 +384,6 @@ html, body{
 }
 
 /************************************************************************/
-/******************* Footer Page ****************************************/
-/************************************************************************/
-#footer-page{
-	min-height: initial;
-}
-/************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav{
@@ -415,7 +391,6 @@ html, body{
 	background-color:white; 
 	.content-wrapper{
 		width: 100vw; 
-		margin: 0px auto;
 		position: fixed; 
 		top: 0px; 
 		left: 0px;
@@ -429,17 +404,16 @@ html, body{
 		text-align:center;
 		background-color: @whiteish;
 		li{
-			font-size: @font-size-normal;
+			height: 35px;
 			display: inline;
-			padding: 0px 0px 5px 0px;
+			padding: 10px 20px 10px 20px;
 			float: left;
-			margin: 10px 20px;
-			text-transform: uppercase;
+			margin: 0px;
 			&:hover{
 				border-bottom: solid 5px @light-red;
 			}
 			&:last-child{
-				font-style: italic;
+				border-left: @gray-border;
 			}
 		}
 	}

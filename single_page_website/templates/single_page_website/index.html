@@ -26,11 +26,11 @@
 	<div class = "fixed-nav">
 		<div class=" content-wrapper section-content">
 			<ul>
-				<a data-scroll href="#home-page"><li>Home</li></a>
-				<a data-scroll href="#filter-page"><li>Portfolio</li></a>
-				<a data-scroll href="#about-page"><li>About</li></a>
-				<a data-scroll href="#skills-page"><li>Skills</li></a>
-				<a data-scroll href="http://painlessprototyping.com" target="_blank"><li>Painless Prototyping Website</li></a>
+				<li><a data-scroll href="#home-page">Home</a></li>
+				<li><a data-scroll href="#filter-page">Portfolio</a></li>
+				<li><a data-scroll href="#about-page">About</a></li>
+				<li><a data-scroll href="#skills-page">Skills</a></li>
+				<li><a data-scroll href="http://painlessprototyping.com" target="_blank">Painless Prototyping Website</a></li>
 			</ul>			
 		</div>
 	</div><!-- fixed nav -->
@@ -177,27 +177,49 @@
 	<!-- skills page -->
 	<div id="skills-page"  class= "all-pages">
 	<div class="row">
-		<div class="skills-wrapper col-xs-12">
-			<div class="grid">
-			{% for skill_category in skills_category %}
-				<div class="grid-sizer"></div>
-				<div class="skills grid-item grid-item-height-{{ skill_category|length }}">
-					<h2 class="section-header">{{ skill_category.title }}</h2>
-					<div class="section-content">
+		<div class="{{standard_content_width}}">
+			<h2 class="section-header">Skills + Tools</h2>
+			<div class="section-content">
+				<div class="grid">
+				{% for skill_category in skills_category %}
+					<div class="grid-sizer"></div>
+					<div class="skills grid-item grid-item-height-{{ skill_category|length }}">
+						<h2 class="skill-category">{{ skill_category.title }}</h2>
 						<ul>
 							{% for skill in skills %}
 								{% if skill_category == skill.category %}
-									<li><div>{{ skill.title }}</div><div><img src="{% static "img" %}/{{skill.rating}}.png"></div></li>
+									<li><div class="skill">{{ skill.title }}</div><div><img src="{% static "img" %}/{{skill.rating}}.png"></div></li>
 								{% endif %}
 							{% endfor %}
 						</ul>			
 					</div>
+				{% endfor %}
+				<div class="grid-item">
+					<h2 id = "ready-to-learn"> [ INSERT NEXT SKILL HERE, I'M ALWAYS READY TO LEARN]
 				</div>
-			{% endfor %}
-			</div><!-- grid -->
+				</div><!-- grid -->
+			</div>	
 		</div>
 	</div>
 	</div><!-- skills page -->
+
+
+	<!-- skills page -->
+	<div id="footer-page"  class= "all-pages">
+	<div class="row">
+		<div class="{{standard_content_width}}">
+			<div class="section-content">
+				<p>Content, HTML, CSS by Travis Bumgarner (me!)</p>
+				<p>Website Design by Amanda Santello</p>
+				<p>Icons Designed by Freepik and distributed by Flaticon</p>
+			</div>
+		</div>
+	</div>
+	</div><!-- skills page -->
+
+
+
+
 </div><!-- container -->
 
 

@@ -260,15 +260,12 @@ body {
 }
 #home-page .menu-item-title {
   font-size: 16px;
-  font-weight: 800;
 }
 #home-page .menu-item-description {
   font-size: 11px;
 }
 #home-page li {
   border-bottom: 1px solid #cccccc;
-  margin: 0px 10px;
-  padding: 10px 0px;
 }
 #home-page li:hover span:first-child {
   color: #bd0000;
@@ -330,44 +327,30 @@ body {
 /************************************************************************/
 #about-page #about-photo {
   width: 33%;
-  padding: 20px;
+  padding: 10px;
 }
 #about-page ul {
   width: 65%;
-  padding-top: 20px;
 }
 #about-page p {
-  margin: 0px;
-  padding: 10px 20px;
+  margin-bottom: 0px;
 }
 #about-page li {
   padding: 15px;
-  border-bottom: 1px solid #cccccc;
 }
-#about-page li:first-child {
-  border-top: 1px solid #cccccc;
+#about-page li:nth-child(n+1) {
+  border-bottom: 1px solid #cccccc;
 }
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
-#skills-page #ready-to-learn {
-  float: right;
-  width: 100%;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #cccccc;
-  font-weight: 900;
-  padding: 15px;
-  border-top: 1px solid #cccccc;
-}
 #skills-page .skill-category {
   border-top: 1px solid #444444;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 900;
   padding: 10px 10px 10px 0px;
   margin-top: 20px;
-  font-family: 'Open Sans', sans-serif;
 }
 #skills-page .skill {
   font-size: 11px;
@@ -417,12 +400,6 @@ body {
   margin-bottom: 15px;
 }
 /************************************************************************/
-/******************* Footer Page ****************************************/
-/************************************************************************/
-#footer-page {
-  min-height: initial;
-}
-/************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav {
@@ -431,7 +408,6 @@ body {
 }
 .fixed-nav .content-wrapper {
   width: 100vw;
-  margin: 0px auto;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -446,16 +422,15 @@ body {
   background-color: #ffffff;
 }
 .fixed-nav ul li {
-  font-size: 16px;
+  height: 35px;
   display: inline;
-  padding: 0px 0px 5px 0px;
+  padding: 10px 20px 10px 20px;
   float: left;
-  margin: 10px 20px;
-  text-transform: uppercase;
+  margin: 0px;
 }
 .fixed-nav ul li:hover {
   border-bottom: solid 5px #bd0000;
 }
 .fixed-nav ul li:last-child {
-  font-style: italic;
+  border-left: 1px solid #cccccc;
 }
