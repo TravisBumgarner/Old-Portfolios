@@ -16,7 +16,8 @@
 	
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/featherlight.css' %}" />	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/featherlight.gallery.css' %}" />	
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 </head>
 <body>
@@ -473,21 +474,11 @@ jQuery(function($){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src = "{% static 'js/featherlight.js' %}"></script>
+<script src = "{% static 'js/featherlight.gallery.js' %}"></script>
+<style>.inline { display: none }</style>
+<a href=".inline" data-featherlight>Inline</a>
+<div class="inline">Hello, world</div>
 </body>
 </html>
 {% endwith %}
