@@ -425,6 +425,15 @@ body {
 #footer-page p {
   font-size: 11px;
   line-height: 11px;
+  margin: 10px;
+}
+#footer-page .row div:nth-child(2) p {
+  text-align: center;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+#footer-page .row div:nth-child(3) p {
+  text-align: right;
 }
 /************************************************************************/
 /******************* Nav ************************************************/
@@ -465,4 +474,36 @@ body {
 }
 .fixed-nav ul li:last-child {
   font-style: italic;
+}
+@media only screen and (max-width: 768px) {
+  #filter-page ul li {
+    width: 50%;
+  }
+  #about-page p {
+    padding: 5px;
+  }
+  #about-page ul {
+    padding-top: 5px;
+    width: 60%;
+  }
+  #about-page ul li {
+    font-size: 11px;
+    padding: 5px;
+  }
+  #about-page #about-photo {
+    padding: 5px;
+    width: 40%;
+  }
+  #skills-page .skill-category {
+    font-size: 11px;
+  }
+  .fixed-nav .section-content {
+    overflow: initial;
+  }
+  .fixed-nav .section-content ul {
+    width: 100vw;
+  }
+  .fixed-nav .section-content ul li:last-child {
+    display: none;
+  }
 }
