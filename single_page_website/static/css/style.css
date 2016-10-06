@@ -247,7 +247,7 @@ body {
   background-attachment: fixed;
 }
 .all-pages {
-  padding-top: 10vh;
+  padding-top: 20vh;
   padding-bottom: 0vh;
   min-height: 100vh;
 }
@@ -422,12 +422,19 @@ body {
 #footer-page {
   min-height: initial;
 }
+#footer-page p {
+  font-size: 11px;
+  line-height: 11px;
+}
 /************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav {
   display: none;
   background-color: white;
+}
+.fixed-nav .active {
+  border-bottom: solid 5px #bd0000;
 }
 .fixed-nav .content-wrapper {
   width: 100vw;

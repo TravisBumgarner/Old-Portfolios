@@ -210,7 +210,7 @@ html, body{
 }
 
 .all-pages{
-	padding-top: 10vh;
+	padding-top: 20vh;
 	padding-bottom: 0vh;
 	min-height: 100vh;
 
@@ -406,11 +406,18 @@ html, body{
 /************************************************************************/
 #footer-page{
 	min-height: initial;
+	p{
+		font-size: @font-size-small;
+		line-height: @font-size-small;
+	}
 }
 /************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav{
+	.active{
+		border-bottom: solid 5px @light-red;
+	}
 	display: none;
 	background-color:white; 
 	.content-wrapper{

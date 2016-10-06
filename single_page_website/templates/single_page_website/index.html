@@ -30,7 +30,7 @@
 				<li><a data-scroll href="#filter-page">Portfolio</a></li>
 				<li><a data-scroll href="#about-page">About</a></li>
 				<li><a data-scroll href="#skills-page">Skills</a></li>
-				<li><a data-scroll href="http://painlessprototyping.com" target="_blank">Painless Prototyping Website</a></li>
+				<li><a class = "external-link" href="http://painlessprototyping.com" target="_blank">Painless Prototyping</a></li>
 			</ul>			
 		</div>
 	</div><!-- fixed nav -->
@@ -277,6 +277,26 @@
 	        .removeClass("hidden")
 	        .siblings().addClass("hidden");
     });
+</script>
+
+<script type="text/javascript">
+	//Function for scrolling underline for menu
+    $(document).on("scroll", onScroll);
+function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $(".fixed-nav a:not(.external-link)").each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#menu-center ul li a').removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}
+
 </script>
 </body>
 </html>
