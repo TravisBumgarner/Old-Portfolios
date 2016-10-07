@@ -197,13 +197,6 @@ html, body{
 	background-attachment: fixed;
 }
 
-.all-pages{
-	padding-top: 20vh;
-	padding-bottom: 0vh;
-	min-height: 100vh;
-
-}
-
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
@@ -315,6 +308,7 @@ html, body{
 /******************* Projects *******************************************/
 /************************************************************************/
 #project-page{
+	padding-top: 0vh;
 	.two-col-li;
 	min-height: 80vh;
 	.project-wrapper{
@@ -323,12 +317,17 @@ html, body{
 	a, a:hover{
 		color: @light-red;
 	}
+	.item-title{
+		font-weight: 800;
+		text-transform: uppercase;
+	}
 }
 /************************************************************************/
 /******************* About Page *****************************************/
 /************************************************************************/
 
 #about-page{
+	margin-bottom: 5vh;
 	#about-photo{
 		width: 33%;
     	padding: 20px;
@@ -367,6 +366,7 @@ html, body{
 /******************* Skills *********************************************/
 /************************************************************************/
 #skills-page{
+	margin-bottom: 5vh;
 	#ready-to-learn{
 		float:right;
 		width: 100%;
@@ -451,16 +451,14 @@ html, body{
 		margin:10px;
 	}
 	.row{
-		div:nth-child(2) p{
-			text-align: center;
+		div:nth-child(even) p{
+			text-align: right;
 			border-left: @gray-border;
-			border-right: @gray-border;
-		}
-		div:nth-child(3) p{
-			text-align:right;
 		}
 	}
-
+	a, a:hover{
+    	color: @light-red;
+    }
 }
 /************************************************************************/
 /******************* Nav ************************************************/
@@ -479,7 +477,7 @@ html, body{
 		left: 0px;
     	z-index: 999;
     	padding: 0px;
-		height: 35px;
+		height: 27px;
 	}
 	ul{
 		width: 60vw;
@@ -487,7 +485,7 @@ html, body{
 		text-align:center;
 		background-color: @whiteish;
 		li{
-			font-size: @font-size-normal;
+			font-size: @font-size-small;
 			display: inline;
 			padding: 0px 0px 5px 0px;
 			float: left;

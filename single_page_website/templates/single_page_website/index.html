@@ -133,15 +133,10 @@
 	            <h2 class = "section-header">{{project.title}}</h2>
 	    		<div class="section-content">
 	    			<p>{{ project.summary|safe }}</p>
-	    		</div>
-	    		<div class="section-content">
-	    			<ul><!-- Make soure to set to two or three columns -->
-	    				<li>Tools</li>
-	    				{% for tool in project.tools.all %}
-	    				<li>{{ tool }}</li>
-	    				{% endfor %}
+	    			<p><span class="item-title">Tools Used:</span> {{project.tools.all|join:", "}}</p>
 	    			</ul>
-	    		</div>
+	    			<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
+	    		</div><!-- section content -->
 	        </div>
 		{% endfor %}
 		</div><!-- end columns -->
@@ -151,7 +146,7 @@
 	    <div class = "project hidden" data-project-id = "project-{{project.id}}" >
 	    	<div class="col-sm-4 col-xs-6">
 	    		<div class="section-content">
-	    			<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
+	    			
 	    		</div><!-- section content -->
 	    	</div><!-- cols -->
 		</div>
@@ -211,11 +206,22 @@
 
 	<!-- footer page -->
 	<div id="footer-page"  class= "all-pages">
-		<div class="section-content">
-			<div class="row">
-				<div class="col-xs-12 col-sm-4"><p>Content, HTML, CSS by Travis Bumgarner (me!)</p></div>
-				<div class="col-xs-12 col-sm-4"><p>Website Design by Amanda Santello</p></div>
-				<div class="col-xs-12 col-sm-4"><p>Icons Designed by Freepik and distributed by Flaticon</p></div>
+		<div class="row">
+			<div class="{{standard_content_width}}">
+				<div class="section-content">
+					<div class="row">
+						<div class="col-xs-6"><p>Content, HTML, CSS, and Some JS by Travis Bumgarner (me!)</p></div>
+						<div class="col-xs-6"><p>Website Design by <a href="http://amandasantello.com/" target="_blank">Amanda Santello</a></p></div>
+						<div class="col-xs-6"><p>Icons Designed by Freepik and distributed by <a href="http://www.flaticon.com/" target="_blank">Flaticon</a></p></div>	
+						<div class="col-xs-6"><p>Powered by 
+							<a href="djangoproject.com" target="_blank">Django</a>, 
+							<a href="http://jquery.com/" target="_blank">jQuery</a>,
+							<a href="http://lesscss.org/" target="_blank">Less</a>,
+							<a href="getbootstrap.com" target="_blank">Bootstrap</a>, 
+							<a href="https://mixitup.kunkalabs.com/" target="_blank">MixItUp</a>, and 
+							<a href="http://darsa.in/sly/" target="_blank">Sly</a></p></div>						
+					</div>
+				</div>
 			</div>			
 		</div>
 

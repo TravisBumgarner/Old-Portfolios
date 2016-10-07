@@ -235,11 +235,6 @@ body {
   background-position: bottom right;
   background-attachment: fixed;
 }
-.all-pages {
-  padding-top: 20vh;
-  padding-bottom: 0vh;
-  min-height: 100vh;
-}
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
@@ -342,6 +337,7 @@ body {
 /******************* Projects *******************************************/
 /************************************************************************/
 #project-page {
+  padding-top: 0vh;
   min-height: 80vh;
 }
 #project-page ul li {
@@ -358,9 +354,16 @@ body {
 #project-page a:hover {
   color: #bd0000;
 }
+#project-page .item-title {
+  font-weight: 800;
+  text-transform: uppercase;
+}
 /************************************************************************/
 /******************* About Page *****************************************/
 /************************************************************************/
+#about-page {
+  margin-bottom: 5vh;
+}
 #about-page #about-photo {
   width: 33%;
   padding: 20px;
@@ -395,6 +398,9 @@ body {
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
+#skills-page {
+  margin-bottom: 5vh;
+}
 #skills-page #ready-to-learn {
   float: right;
   width: 100%;
@@ -472,13 +478,13 @@ body {
   line-height: 11px;
   margin: 10px;
 }
-#footer-page .row div:nth-child(2) p {
-  text-align: center;
-  border-left: 1px solid #cccccc;
-  border-right: 1px solid #cccccc;
-}
-#footer-page .row div:nth-child(3) p {
+#footer-page .row div:nth-child(even) p {
   text-align: right;
+  border-left: 1px solid #cccccc;
+}
+#footer-page a,
+#footer-page a:hover {
+  color: #bd0000;
 }
 /************************************************************************/
 /******************* Nav ************************************************/
@@ -498,7 +504,7 @@ body {
   left: 0px;
   z-index: 999;
   padding: 0px;
-  height: 35px;
+  height: 27px;
 }
 .fixed-nav ul {
   width: 60vw;
@@ -507,7 +513,7 @@ body {
   background-color: #ffffff;
 }
 .fixed-nav ul li {
-  font-size: 16px;
+  font-size: 11px;
   display: inline;
   padding: 0px 0px 5px 0px;
   float: left;
