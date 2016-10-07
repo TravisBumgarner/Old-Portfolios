@@ -79,6 +79,7 @@
 	</div><!-- row -->
 	</div><!-- home page -->
 
+
 	<!-- filter page -->
 	<div id="filter-page" class= "all-pages">
 	<div class = "row">
@@ -87,7 +88,7 @@
 				<p class = "section-header">Select any or a few categories to view.</p>
 				<h2 class="section-header">Projects</h2>
 				<div class="section-content" id = "projects-filter">
-					<ul>
+					<ul class="filters">
 						<li data-filter = "all" class = "filter">View All</li>
 						<li data-filter = ".mechanical-project" class = "filter">Mechanical Engineering</li>
 						<li data-filter = ".electrical-project" class = "filter">Electrical Engineering</li>
@@ -100,21 +101,26 @@
 			</div><!-- controls -->
 		</div><!-- col -->
 	</div><!-- row -->
-	<div class="row list-of-projects">
-		<div id="Container">
-			{% for project in projects %}
-				<div class="col-md-3 col-xs-6 mix  {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-					<div class="section-content">
-						<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
-							<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
-							<p>{{ project.title }}</p>
-						</a>				
-					</div>
-				</div><!-- col-md-3 col-sm-4 col-xs-6 -->
-			{% endfor %}
-			<div class="gap"></div>
-			<div class="gap"></div>
-		</div><!-- all-projects-container -->
+	<div class="row ">
+		<div class="{{standard_content_width}}">
+			<div class ="wrap Container">
+				<div class="sly-frame" id="basic">
+					<ul class="clearfix list-of-projects">
+						{% for project in projects %}
+							<li class="mix slidee section-content {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
+								<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
+									<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
+									<p>{{ project.title }}</p>
+								</a>				
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="scrollbar">
+				    <div class="handle"></div>
+				</div><!-- sly frame -->
+			</div><!-- all-projects-container -->
+		</div><!-- standard content width -->
 	</div><!-- row projects-all -->
 	</div><!-- filter page -->
 
@@ -167,7 +173,7 @@
 				</ul>			
 			</div>
 			<div class="section-content">
-				{{about.summary|linebreaks}}
+				{{ about.summary|escape|safe }}
 			</div><!-- section-content -->
 		</div><!-- col-xs-8 -->
 	</div><!-- row -->
@@ -238,7 +244,12 @@
 <script src = "{% static 'js/jquery.mixitup.js' %}"></script>
 <script>
 	// Project Filter Functionality
-	$(function(){$('.list-of-projects').mixItUp();});
+	$(function(){$('.list-of-projects').mixItUp({
+		layout: {
+			display: 'inline'
+
+		}
+	});});
 </script>
 
 <script src = "{% static 'js/masonry.js' %}"></script>
@@ -382,103 +393,6 @@ jQuery(function($){
 	}());
 })
 </script>
-<style>
-.sly-frame {
-	 width: 100%; 
-	 height: 300px; 
-	 padding: 0; 
-	}
-.sly-frame .slidee {
-	margin: 0px 10px; 
-	padding: 0px 0px;}
-.sly-frame .slidee .section-content { 
-	float: left; 
-	margin: 0 5px 0 0; 
-	padding: 0; 
-	width: 300px; 
-	height: 100%; }
-.scrollbar { 
-	width: 100%; 
-	height: 10px;}
-.scrollbar .handle {
-    width: 100px; /* overriden if dynamicHandle: 1 */
-    height: 100%;
-    background: #ffffff;
-    border-radius: 5px;
-}
-.sly-frame ul li {
-	float: left;
-	width: 227px;
-	height: 100%;
-	margin: 0 1px 0 0;
-	padding: 0;
-	color: #ddd;
-	text-align: center;
-	cursor: pointer;
-}
-
-</style>
-
-
-
-<div class="row">
-	<div class="{{standard_content_width}}">
-		<div class = "wrap">
-			<div class="sly-frame" id="basic">
-				<ul class="clearfix">
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-					<li class="slidee section-content">
-						<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="" class="img-responsive">
-						<p>Hey</p>
-					</li>
-				</ul>
-			</div>
-			<div class="scrollbar">
-			    <div class="handle"></div>
-			</div><!-- sly frame -->
-		</div><!-- wrap -->
-	</div><!-- standard width -->
-</div> <!-- row -->
-
-
-
-
-<script src = "{% static 'js/featherlight.js' %}"></script>
-<script src = "{% static 'js/featherlight.gallery.js' %}"></script>
-<style>.inline { display: none }</style>
-<a href=".inline" data-featherlight>Inline</a>
-<div class="inline">Hello, world</div>
 </body>
 </html>
 {% endwith %}

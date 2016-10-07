@@ -44,7 +44,7 @@ class Project(models.Model):                       # This line defines our model
     created_date = models.DateTimeField()
     tools = models.ManyToManyField(Project_Tool)
     categories = models.ManyToManyField(Project_Category)  
-    headline_image = models.ImageField(upload_to = 'single_page_website/media/img/', blank = True)
+    headline_image = models.ImageField(upload_to = 'single_page_website/media/img/')
     class Meta:
         ordering = ('title',)
 
@@ -102,7 +102,7 @@ class About_Author(models.Model):
 class About_Author_Link(models.Model):
     url_title = models.CharField(max_length = 50)
     url_path = models.CharField(max_length = 300)
-    link_image = models.ImageField(upload_to = 'single_page_website/media/img/', blank=True )
+    link_image = models.ImageField(upload_to = 'single_page_website/media/img/')
     about = models.ForeignKey(About_Author, related_name='about_author_link')
     class Meta:
         ordering = ('url_title',)
