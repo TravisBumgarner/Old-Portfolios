@@ -132,7 +132,7 @@
 	        <div class = "project hidden" data-project-id = "project-{{project.id}}" >
 	            <h2 class = "section-header">{{project.title}}</h2>
 	    		<div class="section-content">
-	    			<p>{{ project.summary }}</p>
+	    			<p>{{ project.summary|safe }}</p>
 	    		</div>
 	    		<div class="section-content">
 	    			<ul><!-- Make soure to set to two or three columns -->
@@ -168,12 +168,12 @@
 				<img src="{{about.photo.url}}" alt="" class="img-responsive left" id="about-photo">
 				<ul class = "left"><!-- setup for 2 or 3 columns -->
 					{% for link in links %}
-						<li><img src="{{link.link_image}}"><a href = "{{link.url_path}}" target="_blank">{{link.url_title}}</a></li>
+						<li><img src="{{link.link_image.url}}"><a href = "{{link.url_path}}" target="_blank">{{link.url_title}}</a></li>
 					{% endfor %}
 				</ul>			
 			</div>
 			<div class="section-content">
-				{{ about.summary|escape|safe }}
+				{{ about.summary }}
 			</div><!-- section-content -->
 		</div><!-- col-xs-8 -->
 	</div><!-- row -->

@@ -196,17 +196,6 @@ p.section-header {
     font-size: 16px;
   }
 }
-#project-page .section-content li:hover,
-#skills-page .section-content li:hover,
-#project-page .section-content p:hover,
-#skills-page .section-content p:hover,
-#project-page .section-content li:hover a,
-#skills-page .section-content li:hover a,
-#project-page .section-content p:hover a,
-#skills-page .section-content p:hover a {
-  background-color: #ffffff;
-  color: #444444;
-}
 /************************************************************************/
 /******************* helper Classes *************************************/
 /************************************************************************/
@@ -365,6 +354,10 @@ body {
 #project-page .project-wrapper {
   margin-top: 5vh;
 }
+#project-page a,
+#project-page a:hover {
+  color: #bd0000;
+}
 /************************************************************************/
 /******************* About Page *****************************************/
 /************************************************************************/
@@ -383,6 +376,18 @@ body {
 #about-page li {
   padding: 15px;
   border-bottom: 1px solid #cccccc;
+}
+#about-page li a {
+  padding-left: 10px;
+}
+#about-page li a:hover {
+  color: #bd0000;
+}
+#about-page li img {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 2px;
 }
 #about-page li:first-child {
   border-top: 1px solid #cccccc;
