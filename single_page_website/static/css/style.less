@@ -70,8 +70,8 @@ font-family: @header-font;
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
-@dark-red:   #bd0000;
-@light-red:  #bd0000;
+@light-green:  #a8bd00;
+@light-blue: #00a8bd;
 @whiteish:   #ffffff;
 @blackish:   #444;
 @gray : 	 #ccc;
@@ -94,7 +94,7 @@ font-family: @header-font;
 
 h2.section-header{
    	font-family: @header-font;
-	background-color: @light-red;
+	background-color: @light-green;
 	color: @whiteish;
 	padding: @section-header-padding;
 	font-size:@font-size-large;
@@ -111,7 +111,7 @@ p.section-header{
 
 //Define general coloring for content
 .section-content{
-	background-color: @whiteish; 
+	background-color: rgba(255,255,255,0.8); 
 	overflow: hidden;
 	ul{
 		list-style:none;
@@ -162,7 +162,7 @@ p.section-header{
 .right{
 	float:right;
 }
-.hidden{
+.hidden-project{
     display: none;
 }
 
@@ -187,14 +187,13 @@ p.section-header{
 /******************* All Pages ******************************************/
 /************************************************************************/
 html, body{
+	background: #cecece;
     width: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-	background: #cecece url("../img/background.png");
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	background-attachment: fixed;
+}
+.all-pages{
 }
 
 /************************************************************************/
@@ -202,7 +201,16 @@ html, body{
 /************************************************************************/
 #home-page{
 	min-height: 100vh;
-	padding-top: 20vh;
+	.section-header{
+		margin-top:20vh;
+	}
+	.section-content{
+		background-color: rgba(255,255,255,0.8);
+	}
+	background: #3c3c3c url("../img/background.png");
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-attachment: fixed;
 	.menu-item-title{
 		font-size: @font-size-normal;
 		font-weight: 800;
@@ -215,21 +223,30 @@ html, body{
     	margin: 0px 10px;
     	padding: 10px 0px;
 	}
+	a:last-child li{
+		border-bottom: 0px;
+	}
 	li:hover span:first-child{
-		color: @light-red;	
+		color: @light-blue;	
 	}
 }
 @media only screen and (max-width:768px){
 	#home-page{
-		padding-top: 10vh;
 	}
 }
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
 #filter-page{
+	padding-top: 30px;
+	background: url("../img/background-filter-page.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.controls{
+	    margin-top: 15vh;
+    	margin-bottom: 8vh;
+	}
 	ul.filters{
-
 		li{
 			width: 31%;
 			font-size: @font-size-small;
@@ -239,12 +256,9 @@ html, body{
 		    padding: 10px 15px 10px 15px;
 		    margin: 0px;
 		}
-		li:first-child{
-			width:100%;
-		}
 		li.active{
 			color: @blackish;
-			color: @light-red;
+			color: @light-blue;
 			font-weight: 900;
 		}
 	}
@@ -253,54 +267,23 @@ html, body{
 		}
 	}
 	.list-of-projects{
-		margin-top: 5vh;
 		.mix{
 			display: none;
+			margin-bottom: 20px;
+		}
+		.section-content{
+			background: none;
 		}
 		p{
 			font-size: @font-size-small;
 			height: @font-size-small*3;
 			line-height: @font-size-small;
-
+			text-align: center;
+			background: @whiteish;
+			margin:0px;
 		}
 	} 
 
-}
-.sly-frame {
-	 width: 100%; 
-	 height: 300px; 
-	 padding: 0; 
-	}
-.sly-frame .slidee {
-	margin: 0px 10px; 
-	padding: 0px 0px;}
-.sly-frame .slidee .section-content { 
-	float: left; 
-	margin: 0 5px 0 0; 
-	padding: 0; 
-	width: 300px; 
-	height: 100%; }
-.scrollbar { 
-	width: 100%; 
-	height: 10px;}
-.scrollbar .handle {
-    width: 100px; /* overriden if dynamicHandle: 1 */
-    height: 100%;
-    background: #ffffff;
-    border-radius: 5px;
-}
-.sly-frame ul{
-	width: 100% !important;
-}
-.sly-frame ul li {
-	float: left;
-	width: 227px;
-	height: 100%;
-	margin: 0 1px 0 0;
-	padding: 0;
-	color: #ddd;
-	text-align: center;
-	cursor: pointer;
 }
 
 
@@ -308,14 +291,24 @@ html, body{
 /******************* Projects *******************************************/
 /************************************************************************/
 #project-page{
-	padding-top: 0vh;
-	.two-col-li;
-	min-height: 80vh;
-	.project-wrapper{
-		margin-top: 5vh;
+	background: url("../img/background-project-page.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.toggle_visible_projects{
+    	padding-top: 30px;
+		padding-bottom: 30px;	
+		.project:first-child{
+			display: initial;
+		}
 	}
-	a, a:hover{
-		color: @light-red;
+	.two-col-li;
+	.project-wrapper{
+	}
+	a{
+		color: @light-green;
+	}
+	a:hover{
+		color:@light-blue;
 	}
 	.item-title{
 		font-weight: 800;
@@ -323,20 +316,28 @@ html, body{
 	}
 }
 /************************************************************************/
+/******************* about-skills-background ****************************/
+/************************************************************************/
+.about-skills-background{
+	background: url("../img/about.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+/************************************************************************/
 /******************* About Page *****************************************/
 /************************************************************************/
 
 #about-page{
-	margin-bottom: 5vh;
+	padding-top: 30px;
 	#about-photo{
-		width: 33%;
+		width: 41%;
     	padding: 20px;
 	}
-	ul{
-		width: 65%;
+	ul.about{
+		width: 50%;
 		padding-top: 20px;
 	}
-	p{
+	p.about{
 		margin: 0px;
 		padding: 10px 20px;
 	}
@@ -344,7 +345,7 @@ html, body{
 		a{
 		    padding-left: 10px;
 		    &:hover{
-		    	color: @light-red;
+		    	color: @light-blue;
 		    }
 		}
 		img{
@@ -366,7 +367,8 @@ html, body{
 /******************* Skills *********************************************/
 /************************************************************************/
 #skills-page{
-	margin-bottom: 5vh;
+	padding-top: 30px;
+	padding-bottom: 30px;	
 	#ready-to-learn{
 		float:right;
 		width: 100%;
@@ -432,8 +434,8 @@ html, body{
 
 .grid-sizer,
 .grid-item {
-  width: 45%;
-  margin: 0% 2.5%;
+  width: 31%;
+  margin: 0% 1%;
 }
 .grid-item{
 	float:left;
@@ -444,6 +446,9 @@ html, body{
 /******************* Footer Page ****************************************/
 /************************************************************************/
 #footer-page{
+	padding-top: 30px;
+	padding-bottom: 30px;	
+	background: #3c3c3c;
 	min-height: initial;
 	p{
 		font-size: @font-size-small;
@@ -456,16 +461,19 @@ html, body{
 			border-left: @gray-border;
 		}
 	}
-	a, a:hover{
-    	color: @light-red;
+	a{
+    	color: @light-green;
     }
+	 a:hover{
+	    	color: @light-blue;
+	    }
 }
 /************************************************************************/
 /******************* Nav ************************************************/
 /************************************************************************/
 .fixed-nav{
 	.active{
-		border-bottom: solid 5px @light-red;
+		border-bottom: solid 5px @light-blue;
 	}
 	display: none;
 	background-color:white; 
@@ -491,8 +499,8 @@ html, body{
 			float: left;
 			margin: 10px 20px;
 			text-transform: uppercase;
-			&:hover{
-				border-bottom: solid 5px @light-red;
+			&:hover a{
+				border-bottom: solid 5px @light-blue;
 			}
 			&:last-child{
 				font-style: italic;

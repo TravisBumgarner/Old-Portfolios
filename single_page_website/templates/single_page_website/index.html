@@ -4,7 +4,7 @@
 <!-- Generate that content! -->
 
 <!-- Variables for generating things for Django -->
-{% with standard_content_width="col-sm-8 col-sm-offset-2 col-xs-12"%}    
+{% with standard_content_width="col-sm-10 col-sm-offset-1 col-xs-12"%}    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,8 +94,7 @@
 						<li data-filter = ".electrical-project" class = "filter">Electrical Engineering</li>
 						<li data-filter = ".computer-project" class = "filter">Computer Programming</li>
 						<li data-filter = ".web-project" class = "filter">Web Design</li>
-						<li data-filter = ".civil-project" class = "filter">Civil Engineering</li>
-						<li data-filter = ".misc-project" class = "filter">Misc Projects</li>
+						<li data-filter = ".international-project" class = "filter">International Development</li>
 					</ul>	
 				</div>	
 			</div><!-- controls -->
@@ -103,33 +102,26 @@
 	</div><!-- row -->
 	<div class="row ">
 		<div class="{{standard_content_width}}">
-			<div class ="wrap Container">
-				<div class="sly-frame" id="basic">
-					<ul class="clearfix list-of-projects">
-						{% for project in projects %}
-							<li class="mix slidee section-content {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-								<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
-									<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
-									<p>{{ project.title }}</p>
-								</a>				
-							</li>
-						{% endfor %}
-					</ul>
+			<div class = "row">
+				<div class="list-of-projects">
+					{% for project in projects %}
+						<div class="section-content mix col-sm-4 col-xs-6 {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
+							<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
+								<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
+								<p class = "">{{ project.title }}</p>
+							</a>				
+						</div>
+					{% endfor %}
 				</div>
-				<div class="scrollbar">
-				    <div class="handle"></div>
-				</div><!-- sly frame -->
-			</div><!-- all-projects-container -->
+			</div><!-- row -->
 		</div><!-- standard content width -->
 	</div><!-- row projects-all -->
-	</div><!-- filter page -->
-
 	<!-- project page -->
 	<div id="project-page"  class= "all-pages">
 	<div class="row">
 		<div class="{{standard_content_width}} toggle_visible_projects">
 	    {% for project in projects %}
-	        <div class = "project hidden" data-project-id = "project-{{project.id}}" >
+	        <div class = "project hidden-project" data-project-id = "project-{{project.id}}" >
 	            <h2 class = "section-header">{{project.title}}</h2>
 	    		<div class="section-content">
 	    			<p>{{ project.summary|safe }}</p>
@@ -143,7 +135,7 @@
 	</div><!-- end rows -->
 	<div class="row project-wrapper">
 	    {% for project in projects %}
-	    <div class = "project hidden" data-project-id = "project-{{project.id}}" >
+	    <div class = "project hidden-project" data-project-id = "project-{{project.id}}" >
 	    	<div class="col-sm-4 col-xs-6">
 	    		<div class="section-content">
 	    			
@@ -153,7 +145,8 @@
 		{% endfor %}
 	</div><!-- row -->
 	</div><!-- project page -->
-
+	</div><!-- filter page -->
+	<div class = "about-skills-background">
 	<!-- about page -->
 	<div id="about-page"  class= "all-pages">
 	<div class="row">
@@ -161,14 +154,14 @@
 			<h2 class="section-header">{{ about.title }} </h2>
 			<div class="section-content">
 				<img src="{{about.photo.url}}" alt="" class="img-responsive left" id="about-photo">
-				<ul class = "left"><!-- setup for 2 or 3 columns -->
+				<ul class = "about left"><!-- setup for 2 or 3 columns -->
 					{% for link in links %}
 						<li><img src="{{link.link_image.url}}"><a href = "{{link.url_path}}" target="_blank">{{link.url_title}}</a></li>
 					{% endfor %}
 				</ul>			
 			</div>
 			<div class="section-content">
-				{{ about.summary }}
+				<p class="about">{{ about.summary }}</p>
 			</div><!-- section-content -->
 		</div><!-- col-xs-8 -->
 	</div><!-- row -->
@@ -202,7 +195,7 @@
 		</div>
 	</div>
 	</div><!-- skills page -->
-
+	</div><!-- about-skills-background -->
 
 	<!-- footer page -->
 	<div id="footer-page"  class= "all-pages">
@@ -217,8 +210,8 @@
 							<a href="djangoproject.com" target="_blank">Django</a>, 
 							<a href="http://jquery.com/" target="_blank">jQuery</a>,
 							<a href="http://lesscss.org/" target="_blank">Less</a>,
-							<a href="getbootstrap.com" target="_blank">Bootstrap</a>, 
-							<a href="https://mixitup.kunkalabs.com/" target="_blank">MixItUp</a>, and 
+							<a href="mixitup.kunkalabs.com" target="_blank">MixItUp</a>,
+							<a href="getbootstrap.com" target="_blank">Bootstrap</a>, and 
 							<a href="http://darsa.in/sly/" target="_blank">Sly</a></p></div>						
 					</div>
 				</div>
@@ -247,16 +240,6 @@
 	});
 </script>
 
-<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
-<script>
-	// Project Filter Functionality
-	$(function(){$('.list-of-projects').mixItUp({
-		layout: {
-			display: 'inline'
-
-		}
-	});});
-</script>
 
 <script src = "{% static 'js/masonry.js' %}"></script>
 <script>
@@ -289,8 +272,8 @@
 	$(".list-of-projects").find("a").on("click",function(e){
 	    $project_id = $(this).data("project-id");;
 	    $('[data-project-id="' + $project_id + '"]')
-	        .removeClass("hidden")
-	        .siblings().addClass("hidden");
+	        .css("display","initial")
+	        .siblings().css("display","none");
     });
 </script>
 
@@ -314,91 +297,17 @@ function onScroll(event){
 </script>
 
 
-
-
-
-
-
-
-
-<script src = "{% static 'js/sly.js' %}"></script>
+<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
 <script>
-jQuery(function($){
-	'use strict';
-
-	// -------------------------------------------------------------
-	//   Basic Navigation
-	// -------------------------------------------------------------
-	(function () {
-		var $frame  = $('.sly-frame');
-		var $slidee = $frame.children('.slidee').eq(0);
-		var $wrap   = $frame.parent();
-
-		// Call Sly on frame
-		$frame.sly({
-			horizontal: 1,
-			itemNav: 'basic',
-			smart: 1,
-			activateOn: 'click',
-			mouseDragging: 1,
-			touchDragging: 1,
-			releaseSwing: 1,
-			startAt: 0,
-			scrollBar: $wrap.find('.scrollbar'),
-			scrollBy: 1,
-			pagesBar: $wrap.find('.pages'),
-			activatePageOn: 'click',
-			speed: 300,
-			elasticBounds: 1,
-			dragHandle: 1,
-			dynamicHandle: 1,
-			clickBar: 1,
-
-			// Buttons
-			forward: $wrap.find('.forward'),
-			backward: $wrap.find('.backward'),
-			prev: $wrap.find('.prev'),
-			next: $wrap.find('.next'),
-			prevPage: $wrap.find('.prevPage'),
-			nextPage: $wrap.find('.nextPage')
-		});
-
-		// To Start button
-		$wrap.find('.toStart').on('click', function () {
-			var item = $(this).data('item');
-			// Animate a particular item to the start of the frame.
-			// If no item is provided, the whole content will be animated.
-			$frame.sly('toStart', item);
-		});
-
-		// To Center button
-		$wrap.find('.toCenter').on('click', function () {
-			var item = $(this).data('item');
-			// Animate a particular item to the center of the frame.
-			// If no item is provided, the whole content will be animated.
-			$frame.sly('toCenter', item);
-		});
-
-		// To End button
-		$wrap.find('.toEnd').on('click', function () {
-			var item = $(this).data('item');
-			// Animate a particular item to the end of the frame.
-			// If no item is provided, the whole content will be animated.
-			$frame.sly('toEnd', item);
-		});
-
-		// Add item
-		$wrap.find('.add').on('click', function () {
-			$frame.sly('add', '<li>' + $slidee.children().length + '</li>');
-		});
-
-		// Remove item
-		$wrap.find('.remove').on('click', function () {
-			$frame.sly('remove', -1);
-		});
-	}());
-})
+	// Project Filter Functionality
+	$(function(){$('.list-of-projects').mixItUp({
+		layout: {
+			display: 'inline'
+		}
+	});});
 </script>
+
+
 </body>
 </html>
 {% endwith %}

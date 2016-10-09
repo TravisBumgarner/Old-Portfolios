@@ -14,7 +14,7 @@ def home_page(request):
 	return render(request, 'single_page_website/index.html',{})
 
 def project_list(request):
-	projects = Project.objects.all()
+	projects = Project.objects.all().order_by('-created_date')
 	skills = Skill.objects.all()
 	skills_category = Skill_Category.objects.all()
 	about = About_Author.objects.all()[0]
