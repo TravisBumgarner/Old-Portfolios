@@ -106,7 +106,7 @@
 				<div class="list-of-projects">
 					{% for project in projects %}
 						<div class="section-content mix col-sm-4 col-xs-6 {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-							<a data-scroll href= "#project-page" data-project-id = "project-{{project.id}}">
+							<a href= "#project-{{project.id}}" class="filter-link">
 								<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
 								<p class = "">{{ project.title }}</p>
 							</a>				
@@ -121,26 +121,31 @@
 	<div class="row">
 		<div class="{{standard_content_width}} toggle_visible_projects">
 	    {% for project in projects %}
-	        <div class = "project hidden-project" data-project-id = "project-{{project.id}}" >
-	            <h2 class = "section-header">{{project.title}}</h2>
-	    		<div class="section-content">
-	    			<p>{{ project.summary|safe }}</p>
-	    			<p><span class="item-title">Tools Used:</span> {{project.tools.all|join:", "}}</p>
-	    			</ul>
-	    			<img src="{{project.headline_image.url}}" alt="" class="img-responsive">
-	    		</div><!-- section content -->
-	        </div>
+	    	<div style='display:none'>
+				<div id="project-{{project.id}}">
+		            <h2 class = "section-header">{{project.title}}</h2>
+		    		<div class="section-content">
+		    			<p>{{ project.summary|safe }}</p>
+		    			<p><span class="item-title">Tools Used:</span> {{project.tools.all|join:", "}}</p>
+		    			</ul>
+		    			<!--<img src="{{project.headline_image.url}}" alt="" class="img-responsive">-->
+		    		</div><!-- section content -->
+		        </div>
+	    	</div>
+	        
 		{% endfor %}
 		</div><!-- end columns -->
 	</div><!-- end rows -->
 	<div class="row project-wrapper">
 	    {% for project in projects %}
-	    <div class = "project hidden-project" data-project-id = "project-{{project.id}}" >
-	    	<div class="col-sm-4 col-xs-6">
-	    		<div class="section-content">
-	    			
-	    		</div><!-- section content -->
-	    	</div><!-- cols -->
+	    <div class = "hidden-project">
+		    <div class = "project" data-project-id = "project-{{project.id}}" >
+		    	<div class="col-sm-4 col-xs-6">
+		    		<div class="section-content">
+		    			
+		    		</div><!-- section content -->
+		    	</div><!-- cols -->
+			</div>
 		</div>
 		{% endfor %}
 	</div><!-- row -->
@@ -267,16 +272,6 @@
 	})(jQuery);
 </script>
 
-<script>
-	//Function for loading projects
-	$(".list-of-projects").find("a").on("click",function(e){
-	    $project_id = $(this).data("project-id");;
-	    $('[data-project-id="' + $project_id + '"]')
-	        .css("display","initial")
-	        .siblings().css("display","none");
-    });
-</script>
-
 <script type="text/javascript">
 	//Function for scrolling underline for menu
     $(document).on("scroll", onScroll);
@@ -307,7 +302,11 @@ function onScroll(event){
 	});});
 </script>
 
-
+<script src="{% static 'js/colorbox.js' %}"></script>
+<script>
+$(".filter-link").colorbox(
+	{inline:true, width:"75%", height:"75%"});
+</script>
 </body>
 </html>
 {% endwith %}

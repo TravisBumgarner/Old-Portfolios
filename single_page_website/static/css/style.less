@@ -111,7 +111,7 @@ p.section-header{
 
 //Define general coloring for content
 .section-content{
-	background-color: rgba(255,255,255,0.8); 
+	background-color: rgba(255,255,255,0.9); 
 	overflow: hidden;
 	ul{
 		list-style:none;
@@ -291,6 +291,7 @@ html, body{
 /******************* Projects *******************************************/
 /************************************************************************/
 #project-page{
+	display:none;
 	background: url("../img/background-project-page.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -315,6 +316,24 @@ html, body{
 		text-transform: uppercase;
 	}
 }
+/******************* Projects Lightbox CSS ******************************/
+#cboxLoadedContent{
+	background-color: rgba(255,255,255,0.9);
+}
+#cboxLoadedContent .section-content{
+	background-color: transparent;
+}
+
+#cboxClose{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0px;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+}
+
 /************************************************************************/
 /******************* about-skills-background ****************************/
 /************************************************************************/
