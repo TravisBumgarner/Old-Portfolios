@@ -531,6 +531,9 @@ html, body{
 
 
 @media only screen and (max-width: 768px){
+	body > .container{
+		padding: 0px;
+	}
 	#filter-page{
 		ul{
 			li{
@@ -559,6 +562,11 @@ html, body{
 	#skills-page{
 		.skill-category{
 			font-size: @font-size-small;
+		}
+		.grid-sizer,
+		.grid-item {
+		  width: 48%;
+		  margin: 0% 1%;
 		}		
 	}
 	.fixed-nav{

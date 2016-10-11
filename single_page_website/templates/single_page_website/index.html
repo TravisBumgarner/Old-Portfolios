@@ -100,22 +100,25 @@
 			</div><!-- controls -->
 		</div><!-- col -->
 	</div><!-- row -->
-	<div class="row ">
-		<div class="{{standard_content_width}}">
-			<div class = "row">
-				<div class="list-of-projects">
-					{% for project in projects %}
-						<div class="section-content mix col-sm-4 col-xs-6 {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
-							<a href= "#project-{{project.id}}" class="filter-link">
-								<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
-								<p class = "">{{ project.title }}</p>
-							</a>				
-						</div>
-					{% endfor %}
-				</div>
-			</div><!-- row -->
-		</div><!-- standard content width -->
-	</div><!-- row projects-all -->
+	<div class="container">
+		<div class="row ">
+			<div class="{{standard_content_width}}">
+				<div class = "row">
+					<div class="list-of-projects">
+						{% for project in projects %}
+							<div class="section-content mix col-sm-4 col-xs-6 {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
+								<a href= "#project-{{project.id}}" class="filter-link">
+									<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
+									<p class = "">{{ project.title }}</p>
+								</a>				
+							</div>
+						{% endfor %}
+					</div>
+				</div><!-- row -->
+			</div><!-- standard content width -->
+		</div><!-- row projects-all -->	
+	</div>
+
 	<!-- project page -->
 	<div id="project-page"  class= "all-pages">
 	<div class="row">

@@ -540,6 +540,9 @@ body {
   font-style: italic;
 }
 @media only screen and (max-width: 768px) {
+  body > .container {
+    padding: 0px;
+  }
   #filter-page ul li {
     width: 50%;
   }
@@ -560,6 +563,11 @@ body {
   }
   #skills-page .skill-category {
     font-size: 11px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
   }
   .fixed-nav .section-content {
     overflow: initial;
