@@ -318,12 +318,21 @@ html, body{
 	a:hover{
 		color:@light-blue;
 	}
+
+}
+/******************* Projects Lightbox CSS ******************************/
+#cboxContent .section-content{
+	padding: 10px;
 	.item-title{
 		font-weight: 800;
 		text-transform: uppercase;
+		padding-left:0px;
+		padding-bottom:0px;
+	}
+	.item-description{
+		padding: 0px;
 	}
 }
-/******************* Projects Lightbox CSS ******************************/
 #cboxLoadedContent{
 	background-color: rgba(255,255,255,0.9);
 }
@@ -548,6 +557,9 @@ html, body{
 		padding: 0px;
 	}
 	#filter-page{
+		.small-screen-spacing{
+			padding: 0px 10px;
+		}
 		ul{
 			li{
 				width:50%;

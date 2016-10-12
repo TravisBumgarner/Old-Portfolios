@@ -100,7 +100,7 @@
 			</div><!-- controls -->
 		</div><!-- col -->
 	</div><!-- row -->
-	<div class="container">
+	<div class="small-screen-spacing">
 		<div class="row ">
 			<div class="{{standard_content_width}}">
 				<div class = "row">
@@ -128,8 +128,10 @@
 				<div id="project-{{project.id}}">
 		            <h2 class = "section-header">{{project.title}}</h2>
 		    		<div class="section-content">
-		    			<p>{{ project.summary|safe }}</p>
-		    			<p><span class="item-title">Tools Used:</span> {{project.tools.all|join:", "}}</p>
+		    			<p class="item-title">Description:</p>
+		    			<p class="item-description">{{ project.summary|safe }}</p>
+		    			<p class = "item-title">Tools Used :</p>
+		    			<p class="item-description">{{project.tools.all|join:", "}}</p>
 		    			<div class = "img-wrapper">
 			    			{% for picture in project.project_image.all %}
 			    				<img class = "project-img" src="{{ picture.image.url }}">
