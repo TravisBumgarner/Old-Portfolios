@@ -328,6 +328,7 @@ html, body{
 		text-transform: uppercase;
 		padding-left:0px;
 		padding-bottom:0px;
+		padding-top:15px;
 	}
 	.item-description{
 		padding: 0px;
@@ -350,12 +351,11 @@ html, body{
     padding-right: 20px;
     color: @blackish;
 }
-	.project-img {
-	    width: 60%;
-	    margin: 0px auto;
-	    display: block;
-	    padding: 15px;
-	}
+.project-img {
+    margin: 0px auto;
+    display: block;
+    padding: 15px;
+}
 /************************************************************************/
 /******************* about-skills-background ****************************/
 /************************************************************************/
@@ -593,6 +593,17 @@ html, body{
 		  width: 48%;
 		  margin: 0% 1%;
 		}		
+	}
+	#footer-page{
+		p{
+			margin:0px;
+		}
+		.row{
+			div:nth-child(even) p{
+				text-align: left;
+				border-left: 0px;
+			}
+		}
 	}
 	.fixed-nav{
 		.section-content{

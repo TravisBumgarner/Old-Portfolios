@@ -351,6 +351,7 @@ body {
   text-transform: uppercase;
   padding-left: 0px;
   padding-bottom: 0px;
+  padding-top: 15px;
 }
 #cboxContent .section-content .item-description {
   padding: 0px;
@@ -373,7 +374,6 @@ body {
   color: #444444;
 }
 .project-img {
-  width: 60%;
   margin: 0px auto;
   display: block;
   padding: 15px;
@@ -592,6 +592,13 @@ body {
   #skills-page .grid-item {
     width: 48%;
     margin: 0% 1%;
+  }
+  #footer-page p {
+    margin: 0px;
+  }
+  #footer-page .row div:nth-child(even) p {
+    text-align: left;
+    border-left: 0px;
   }
   .fixed-nav .section-content {
     overflow: initial;

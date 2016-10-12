@@ -121,28 +121,29 @@
 
 	<!-- project page -->
 	<div id="project-page"  class= "all-pages">
-	<div class="row">
 		<div class="{{standard_content_width}} toggle_visible_projects">
 	    {% for project in projects %}
 	    	<div style='display:none'>
 				<div id="project-{{project.id}}">
 		            <h2 class = "section-header">{{project.title}}</h2>
-		    		<div class="section-content">
-		    			<p class="item-title">Description:</p>
-		    			<p class="item-description">{{ project.summary|safe }}</p>
-		    			<p class = "item-title">Tools Used :</p>
-		    			<p class="item-description">{{project.tools.all|join:", "}}</p>
-		    			<div class = "img-wrapper">
-			    			{% for picture in project.project_image.all %}
-			    				<img class = "project-img" src="{{ picture.image.url }}">
-			    				<h2 class="image-description">{{picture.title}}</h2>
-		    				{% endfor %}
+		    		<div class="row">
+		    			<div class="col-sm-8 col-sm-offset-2 col-xs-12">
+				    		<div class="section-content">
+				    			<p class="item-title">Description:</p>
+				    			<p class="item-description">{{ project.summary|safe }}</p>
+				    			<p class = "item-title">Tools Used :</p>
+				    			<p class="item-description">{{project.tools.all|join:", "}}</p>
+				    		</div><!-- section content -->
+			    			<div class = "img-wrapper">
+				    			{% for picture in project.project_image.all %}
+				    				<img class = "project-img img-responsive" src="{{ picture.image.url }}">
+				    				<h2 class="image-description">{{picture.title}}</h2>
+			    				{% endfor %}
+			    			</div>
 		    			</div>
-		    			<!--<img src="{{project.headline_image.url}}" alt="" class="img-responsive">-->
-		    		</div><!-- section content -->
+		    		</div>
 		        </div>
-	    	</div>
-	        
+		    </div>
 		{% endfor %}
 		</div><!-- end columns -->
 	</div><!-- end rows -->
@@ -218,16 +219,18 @@
 			<div class="{{standard_content_width}}">
 				<div class="section-content">
 					<div class="row">
-						<div class="col-xs-6"><p>Content, HTML, CSS, and Some JS by Travis Bumgarner (me!)</p></div>
-						<div class="col-xs-6"><p>Website Design by <a href="http://amandasantello.com/" target="_blank">Amanda Santello</a></p></div>
-						<div class="col-xs-6"><p>Icons Designed by Freepik and distributed by <a href="http://www.flaticon.com/" target="_blank">Flaticon</a></p></div>	
-						<div class="col-xs-6"><p>Powered by 
+						<div class="col-xs-12 col-sm-6"><p>Content, HTML, CSS, and Some JS by Travis Bumgarner (me!)</p></div>
+						<div class="col-xs-12 col-sm-6"><p>Website Design by <a href="http://amandasantello.com/" target="_blank">Amanda Santello</a></p></div>
+						<div class="col-xs-12 col-sm-6"><p>Icons Designed by Freepik and distributed by <a href="http://www.flaticon.com/" target="_blank">Flaticon</a></p></div>	
+						<div class="col-xs-12 col-sm-6"><p>Powered by 
 							<a href="djangoproject.com" target="_blank">Django</a>, 
 							<a href="http://jquery.com/" target="_blank">jQuery</a>,
 							<a href="http://lesscss.org/" target="_blank">Less</a>,
+							<a href="https://github.com/kswedberg/jquery-smooth-scroll" target="_blank">Smooth Scroll</a>,
 							<a href="mixitup.kunkalabs.com" target="_blank">MixItUp</a>,
-							<a href="getbootstrap.com" target="_blank">Bootstrap</a>, and 
-							<a href="http://darsa.in/sly/" target="_blank">Sly</a></p></div>						
+							<a href="http://www.jacklmoore.com/colorbox/" target="_blank">Colorbox</a>,
+							<a href="http://masonry.desandro.com/" target="_blank">Masonry</a>, and
+							<a href="getbootstrap.com" target="_blank">Bootstrap</a>.						
 					</div>
 				</div>
 			</div>			
