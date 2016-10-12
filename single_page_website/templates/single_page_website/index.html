@@ -130,7 +130,12 @@
 		    		<div class="section-content">
 		    			<p>{{ project.summary|safe }}</p>
 		    			<p><span class="item-title">Tools Used:</span> {{project.tools.all|join:", "}}</p>
-		    			</ul>
+		    			<div class = "img-wrapper">
+			    			{% for picture in project.project_image.all %}
+			    				<img class = "project-img" src="{{ picture.image.url }}">
+			    				<h2 class="image-description">{{picture.title}}</h2>
+		    				{% endfor %}
+		    			</div>
 		    			<!--<img src="{{project.headline_image.url}}" alt="" class="img-responsive">-->
 		    		</div><!-- section content -->
 		        </div>
@@ -308,7 +313,7 @@ function onScroll(event){
 <script src="{% static 'js/colorbox.js' %}"></script>
 <script>
 $(".filter-link").colorbox(
-	{inline:true, width:"75%", height:"75%"});
+	{inline:true, width:"90%", height:"90%"});
 </script>
 </body>
 </html>

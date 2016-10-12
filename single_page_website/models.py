@@ -59,7 +59,7 @@ class Project(models.Model):                       # This line defines our model
 class Project_Image(models.Model):
     title = models.CharField(max_length = 50)
     image = models.ImageField(upload_to = 'single_page_website/media/img/')
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project, related_name = "project_image")
     class Meta:
         ordering = ('title',)
     def __str__(self):  

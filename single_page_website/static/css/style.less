@@ -99,6 +99,11 @@ h2.section-header{
 	padding: @section-header-padding;
 	font-size:@font-size-large;
 }
+h2.image-description{
+	font-family: @header-font;
+	font-size: @font-size-normal;
+	text-align:center;
+}
 p.section-header{
 	font-family: @header-font;
 	color: @whiteish;	
@@ -268,6 +273,8 @@ html, body{
 	}
 	.list-of-projects{
 		.mix{
+
+
 			display: none;
 			margin-bottom: 20px;
 		}
@@ -323,7 +330,6 @@ html, body{
 #cboxLoadedContent .section-content{
 	background-color: transparent;
 }
-
 #cboxClose{
     position: absolute;
     top: 10px;
@@ -332,8 +338,15 @@ html, body{
     background-color: transparent;
     color: white;
     text-transform: uppercase;
+    padding-right: 20px;
+    color: @blackish;
 }
-
+	.project-img {
+	    width: 60%;
+	    margin: 0px auto;
+	    display: block;
+	    padding: 15px;
+	}
 /************************************************************************/
 /******************* about-skills-background ****************************/
 /************************************************************************/

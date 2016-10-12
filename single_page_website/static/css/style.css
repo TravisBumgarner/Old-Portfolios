@@ -153,6 +153,11 @@ h2.section-header {
   padding: 10px 15px 10px 15px;
   font-size: 22px;
 }
+h2.image-description {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  text-align: center;
+}
 p.section-header {
   font-family: 'Playfair Display', serif;
   color: #ffffff;
@@ -356,6 +361,14 @@ body {
   background-color: transparent;
   color: white;
   text-transform: uppercase;
+  padding-right: 20px;
+  color: #444444;
+}
+.project-img {
+  width: 60%;
+  margin: 0px auto;
+  display: block;
+  padding: 15px;
 }
 /************************************************************************/
 /******************* about-skills-background ****************************/
