@@ -66,6 +66,14 @@ class Project_Image(models.Model):
     def __str__(self):  
         return self.title #self.title refers to title = models.CharField(max_length=200) line
 
+class Project_Link(models.Model):
+    url_title = models.CharField(max_length = 50)
+    url_path = models.CharField(max_length = 300)
+    project = models.ForeignKey(Project, related_name = "project_link")
+    class Meta:
+        ordering = ('url_title',)
+    def __str__(self):  
+        return self.url_title #self.title refers to title = models.CharField(max_length=200) line
 
 ##################################################
 ########## Skills Functions ######################

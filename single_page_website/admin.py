@@ -10,6 +10,12 @@ class photoUploadInline(admin.TabularInline):
 	model = Project_Image
 	extra = 1
 
+class projectLink(admin.TabularInline):
+	#Refers to inlines in ProjectAdmin where the model for adding a new image is Project_Image and
+	# one extra field will be created when the post a new project page is opened
+	model = Project_Link
+	extra = 1
+
 class ProjectAdmin(admin.ModelAdmin):
 	#Controls order of how things are displayed on Post a new project page
 	fieldsets = [
@@ -18,7 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
 		('Media',{'fields': ['headline_image','video']})
 	]
 	#Let's me add an option to upload lots of images
-	inlines = [photoUploadInline]
+	inlines = [photoUploadInline, projectLink]
 	#let's projects be sorted by title and date
 	list_display = ('title','created_date')
 	#lelt's a filter for categories be added

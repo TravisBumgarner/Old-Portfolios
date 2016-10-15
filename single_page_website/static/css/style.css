@@ -373,10 +373,16 @@ small {
   background-color: rgba(255, 255, 255, 0.9);
   overflow-x: hidden !important;
 }
-#cboxLoadedContent .item-description a {
+#cboxLoadedContent .item-description p:nth-child(n+1) {
+  padding-top: 10px;
+}
+#cboxLoadedContent li {
+  padding-left: 0px;
+}
+#cboxLoadedContent a {
   color: #a8bd00;
 }
-#cboxLoadedContent .item-description a:hover {
+#cboxLoadedContent a:hover {
   color: #00a8bd;
 }
 #cboxLoadedContent .section-content {

@@ -133,20 +133,30 @@
 						    		<div class="section-content">
 						    			<p class="item-title">Description:</p>
 						    			<div class="item-description">{{ project.summary|safe }}</div>
+										{% if project.project_link.all %}
+						    				<p class="item-title">Links:</p>
+						    				<ul>
+												{% for link in project.project_link.all%}
+							    					<li><a href="{{link.url_path}}" target="_blank">{{ link.url_title }}</a></li>
+							    				{% endfor%}
+						    				</ul>
+						    			{% endif %}
 						    			<p class = "item-title">Tools Used:</p>
 						    			<p class="item-description">{{project.tools.all|join:", "}}</p>
+						    			<p class="item-title">Media:</p>
+							    		<div class = "video-wrapper col-xs-12 text-center">
+											{% if project.video %}
+							    				{{ project.video|safe }}
+							    			{% endif %}
+							    		</div>
+						    			<div class = "img-wrapper">
+							    			{% for picture in project.project_image.all %}
+							    				<img class = "project-img img-responsive" src="{{ picture.image.url }}">
+							    				<h2 class="image-description">{{picture.title}}</h2>
+						    				{% endfor %}
+						    			</div><!-- img wrapper -->
 						    		</div><!-- section content -->
-						    		<div class = "video-wrapper col-xs-12 text-center">
-										{% if project.video %}
-						    				{{ project.video|safe }}
-						    			{% endif %}
-						    		</div>
-					    			<div class = "img-wrapper">
-						    			{% for picture in project.project_image.all %}
-						    				<img class = "project-img img-responsive" src="{{ picture.image.url }}">
-						    				<h2 class="image-description">{{picture.title}}</h2>
-					    				{% endfor %}
-					    			</div><!-- img wrapper -->
+
 				    			</div><!-- cols -->
 				    		</div><!-- row -->
 				        </div><!-- project id -->
