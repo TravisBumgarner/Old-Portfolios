@@ -15,7 +15,7 @@ class ProjectAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None, {'fields': ['title']}),
 		('Info',{'fields': ['created_date','summary','tools','categories',]}),
-		('Photos',{'fields': ['headline_image',]})
+		('Media',{'fields': ['headline_image','video']})
 	]
 	#Let's me add an option to upload lots of images
 	inlines = [photoUploadInline]

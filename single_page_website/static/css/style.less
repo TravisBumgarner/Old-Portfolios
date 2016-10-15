@@ -86,10 +86,16 @@ font-family: @header-font;
 
 @gray-border: 1px solid #ccc;
 @black-border: 1px solid @blackish;
-
+/*
+Old: 
 @font-size-small: 11px;
 @font-size-normal: 16px;
 @font-size-large: 22px;
+@font-size-extra-large: 30px;*/
+@font-size-extra-small: 12px;
+@font-size-small: 14px;
+@font-size-normal: 18px;
+@font-size-large: 24px;
 @font-size-extra-large: 30px;
 
 h2.section-header{
@@ -101,7 +107,7 @@ h2.section-header{
 }
 h2.image-description{
 	font-family: @header-font;
-	font-size: @font-size-normal;
+	font-size: @font-size-small;
 	text-align:center;
 }
 p.section-header{
@@ -151,10 +157,6 @@ p.section-header{
 	}
 }
 
-
-
-
-
 /************************************************************************/
 /******************* helper Classes *************************************/
 /************************************************************************/
@@ -170,7 +172,6 @@ p.section-header{
 .hidden-project{
     display: none;
 }
-
 
 /************************************************************************/
 /******************* LESS Commom Stuff **********************************/
@@ -191,6 +192,7 @@ p.section-header{
 /************************************************************************/
 /******************* All Pages ******************************************/
 /************************************************************************/
+
 html, body{
 	background: #cecece;
     width: 100%;
@@ -200,7 +202,12 @@ html, body{
 }
 .all-pages{
 }
-
+*{
+	font-family: @content-font;	
+}
+small{
+	font-size:@font-size-extra-small;
+}
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
@@ -330,12 +337,21 @@ html, body{
 		padding-bottom:0px;
 		padding-top:15px;
 	}
-	.item-description{
+	.item-description, .item-description p{
 		padding: 0px;
 	}
 }
 #cboxLoadedContent{
 	background-color: rgba(255,255,255,0.9);
+	overflow-x: hidden !important; 
+	.item-description{
+		a{
+			color: @light-green;
+		}
+		a:hover{
+			color:@light-blue;
+		}
+	}
 }
 #cboxLoadedContent .section-content{
 	background-color: transparent;
@@ -519,23 +535,28 @@ html, body{
 	display: none;
 	background-color:white; 
 	.content-wrapper{
-		width: 100vw; 
-		margin: 0px auto;
+		width: 100vw;
+		overflow: hidden;
 		position: fixed; 
 		top: 0px; 
 		left: 0px;
     	z-index: 999;
     	padding: 0px;
-		height: 27px;
+		height: 30px;
 	}
 	ul{
-		width: 60vw;
-		margin: 0px auto;
+		position: relative;
+		float: left;
+		left: 50%;
+		padding:0px;
+		list-style: none;
 		text-align:center;
 		background-color: @whiteish;
 		li{
+			position: relative;
+			flaot: left;
+			right: 50%;
 			font-size: @font-size-small;
-			display: inline;
 			padding: 0px 0px 5px 0px;
 			float: left;
 			margin: 10px 20px;
@@ -547,6 +568,18 @@ html, body{
 				font-style: italic;
 			}
 		}
+	}
+}
+@media only screen and (max-width: 992px){
+	#skills-page{
+		.skill-category{
+			font-size: @font-size-small;
+		}
+		.grid-sizer,
+		.grid-item {
+		  width: 48%;
+		  margin: 0% 1%;
+		}		
 	}
 }
 

@@ -146,23 +146,29 @@ font-family: @header-font;
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
+/*
+Old: 
+@font-size-small: 11px;
+@font-size-normal: 16px;
+@font-size-large: 22px;
+@font-size-extra-large: 30px;*/
 h2.section-header {
   font-family: 'Playfair Display', serif;
   background-color: #a8bd00;
   color: #ffffff;
   padding: 10px 15px 10px 15px;
-  font-size: 22px;
+  font-size: 24px;
 }
 h2.image-description {
   font-family: 'Playfair Display', serif;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 p.section-header {
   font-family: 'Playfair Display', serif;
   color: #ffffff;
   padding: 10px 15px 10px 15px;
-  font-size: 11px;
+  font-size: 14px;
   float: right;
   padding: 15px;
   font-style: italic;
@@ -192,13 +198,13 @@ p.section-header {
 }
 @media only screen and (max-width: 768px) {
   .section-header {
-    font-size: 22px;
+    font-size: 24px;
     padding: 5px 10px 5px 10px;
   }
   .section-content li,
   .section-content p {
     padding: 5px 10px 5px 10px;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 /************************************************************************/
@@ -237,6 +243,12 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+small {
+  font-size: 12px;
+}
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
@@ -254,11 +266,11 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
 }
 #home-page .menu-item-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
 }
 #home-page .menu-item-description {
-  font-size: 11px;
+  font-size: 14px;
 }
 #home-page li {
   border-bottom: 1px solid #cccccc;
@@ -286,7 +298,7 @@ body {
 }
 #filter-page ul.filters li {
   width: 31%;
-  font-size: 11px;
+  font-size: 14px;
   float: left;
   cursor: pointer;
   cursor: hand;
@@ -306,9 +318,9 @@ body {
   background: none;
 }
 #filter-page .list-of-projects p {
-  font-size: 11px;
-  height: 33px;
-  line-height: 11px;
+  font-size: 14px;
+  height: 42px;
+  line-height: 14px;
   text-align: center;
   background: #ffffff;
   margin: 0px;
@@ -353,11 +365,19 @@ body {
   padding-bottom: 0px;
   padding-top: 15px;
 }
-#cboxContent .section-content .item-description {
+#cboxContent .section-content .item-description,
+#cboxContent .section-content .item-description p {
   padding: 0px;
 }
 #cboxLoadedContent {
   background-color: rgba(255, 255, 255, 0.9);
+  overflow-x: hidden !important;
+}
+#cboxLoadedContent .item-description a {
+  color: #a8bd00;
+}
+#cboxLoadedContent .item-description a:hover {
+  color: #00a8bd;
 }
 #cboxLoadedContent .section-content {
   background-color: transparent;
@@ -433,7 +453,7 @@ body {
 #skills-page #ready-to-learn {
   float: right;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: #cccccc;
   font-weight: 900;
@@ -443,14 +463,14 @@ body {
 #skills-page .skill-category {
   border-top: 1px solid #444444;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   padding: 10px 10px 10px 0px;
   margin-top: 20px;
   font-family: 'Open Sans', sans-serif;
 }
 #skills-page .skill {
-  font-size: 11px;
+  font-size: 14px;
 }
 #skills-page .page-title {
   width: 95%;
@@ -506,8 +526,8 @@ body {
   min-height: initial;
 }
 #footer-page p {
-  font-size: 11px;
-  line-height: 11px;
+  font-size: 14px;
+  line-height: 14px;
   margin: 10px;
 }
 #footer-page .row div:nth-child(even) p {
@@ -532,23 +552,28 @@ body {
 }
 .fixed-nav .content-wrapper {
   width: 100vw;
-  margin: 0px auto;
+  overflow: hidden;
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 999;
   padding: 0px;
-  height: 27px;
+  height: 30px;
 }
 .fixed-nav ul {
-  width: 60vw;
-  margin: 0px auto;
+  position: relative;
+  float: left;
+  left: 50%;
+  padding: 0px;
+  list-style: none;
   text-align: center;
   background-color: #ffffff;
 }
 .fixed-nav ul li {
-  font-size: 11px;
-  display: inline;
+  position: relative;
+  flaot: left;
+  right: 50%;
+  font-size: 14px;
   padding: 0px 0px 5px 0px;
   float: left;
   margin: 10px 20px;
@@ -559,6 +584,16 @@ body {
 }
 .fixed-nav ul li:last-child {
   font-style: italic;
+}
+@media only screen and (max-width: 992px) {
+  #skills-page .skill-category {
+    font-size: 14px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
+  }
 }
 @media only screen and (max-width: 768px) {
   body > .container {
@@ -578,7 +613,7 @@ body {
     width: 60%;
   }
   #about-page ul li {
-    font-size: 11px;
+    font-size: 14px;
     padding: 5px;
   }
   #about-page #about-photo {
@@ -586,7 +621,7 @@ body {
     width: 40%;
   }
   #skills-page .skill-category {
-    font-size: 11px;
+    font-size: 14px;
   }
   #skills-page .grid-sizer,
   #skills-page .grid-item {

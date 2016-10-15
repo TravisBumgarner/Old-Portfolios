@@ -45,6 +45,7 @@ class Project(models.Model):                       # This line defines our model
     tools = models.ManyToManyField(Project_Tool)
     categories = models.ManyToManyField(Project_Category)  
     headline_image = models.ImageField(upload_to = 'single_page_website/media/img/')
+    video = models.TextField(blank = True)
     class Meta:
         ordering = ('title',)
 
