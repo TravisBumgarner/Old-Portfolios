@@ -28,3 +28,6 @@ def view_new_project(request):
 	return render(request, 'single_page_website/index.html',{})
 	#{}, is a place in which we can add some things for the template to use. 
 	#{'projects':projects} is what can be played around with in HTML
+
+def website404(request):
+	return render(request,'single_page_website/404.html')

@@ -6,7 +6,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^$', views.project_list),
-
+    url(r'.*', views.website404),
     #views.project_list refers to the function name in views.py
 ]
 if settings.DEBUG:
