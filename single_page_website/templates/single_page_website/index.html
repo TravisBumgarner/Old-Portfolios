@@ -44,7 +44,7 @@
 						<a data-scroll href="#filter-page">
 						<li>
 							<span class = "menu-item-title">Portfolio</span><br>
-							<span class = "menu-item-description">Take a look at some of my engineering and design projects.</span><br>
+							<span class = "menu-item-description">View my engineering and design projects.</span><br>
 						</li>
 						</a>
 						<a data-scroll href="#about-page">
@@ -62,13 +62,13 @@
 						<a href="mailto:travis.bumgarner2@gmail.com?subject=I saw your engineering portfolio">
 						<li>
 							<span class = "menu-item-title">Contact</span><br>
-							<span class = "menu-item-description">Let me know if you're interested in working together.</span><br>
+							<span class = "menu-item-description">Let me know if you are interested in working together.</span><br>
 						</li>
 						</a>
 						<a data-scroll href="http://painlessprototyping.com" target="_blank">
 						<li>
 							<span class = "menu-item-title">Painless Prototyping Startup</span><br>
-							<span class = "menu-item-description">Learn about the startup I founded to make tools to aid the maker community.</span><br>
+							<span class = "menu-item-description">Learn about the startup I founded to create tools to aid the maker community.</span><br>
 						</li>
 						</a>
 					</ul>		
@@ -83,7 +83,7 @@
 		<div class = "row">
 			<div class="{{standard_content_width}} content-wrapper">
 				<div class="controls">
-					<p class = "section-header">Select any or a few categories to view.</p>
+					<p class = "section-header">Select any of several categories to view.</p>
 					<h2 class="section-header">Projects</h2>
 					<div class="section-content" id = "projects-filter">
 						<ul class="filters">
@@ -287,7 +287,7 @@
 	(function($) {          
 	    $(document).ready(function(){                    
 	        $(window).scroll(function(){
-	        	var home = $('#filter-page') .offset().top -30;                        
+	        	var home = $('#filter-page') .offset().top -100;                        
 	            if ($(this).scrollTop() > home) {
 	                $('.fixed-nav').fadeIn(250);
 	            } else {
@@ -306,7 +306,7 @@ function onScroll(event){
     $(".fixed-nav a:not(.external-link)").each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
-        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        if (refElement.position().top-1 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
             $('#menu-center ul li a').removeClass("active");
             currLink.addClass("active");
         }

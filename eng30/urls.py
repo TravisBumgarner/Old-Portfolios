@@ -1,9 +1,10 @@
 from django.conf.urls import url, include
 from django.contrib import admin
+from single_page_website import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls), 
     url(r'', include('single_page_website.urls')),
-
+    url(r'.*', views.website404),
     #This is the admin url which we've already visited
     #This line means that for every URL that starts with admin/, Django will find a corresponding view.
     # In this case we're including a lot of admin URLs so it isn't all packed into this small file – it's more readable and cleaner.

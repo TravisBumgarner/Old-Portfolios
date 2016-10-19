@@ -342,6 +342,14 @@ small{
 	}
 }
 #cboxLoadedContent{
+	.row{
+		padding-top: 40px;
+	}
+	.section-header{
+		position: absolute;
+		z-index: 998;
+		width:100%;
+	}
 	.item-description{
 		p:nth-child(n+1){
 			padding-top: 10px;
@@ -371,7 +379,9 @@ small{
     color: white;
     text-transform: uppercase;
     padding-right: 20px;
-    color: @blackish;
+ 	color: @whiteish;
+    z-index: 999;
+    font-weight: 999;
 }
 .project-img {
     margin: 0px auto;
@@ -438,7 +448,7 @@ small{
 		font-size: @font-size-normal;
 		text-transform: uppercase;
 		color: @gray;
-		font-weight: 900;
+		font-weight: 700;
 		padding: 15px;
 		border-top: @gray-border;
 	}
@@ -446,7 +456,7 @@ small{
 		border-top: @black-border;
 		text-transform: uppercase;
 		font-size: @font-size-normal;
-		font-weight: 900;
+		font-weight: 700;
 		padding: 10px 10px 10px 0px;
 		margin-top: 20px;
 		font-family: @content-font;
@@ -569,7 +579,6 @@ small{
 		padding:0px;
 		list-style: none;
 		text-align:center;
-		background-color: @whiteish;
 		li{
 			position: relative;
 			flaot: left;
