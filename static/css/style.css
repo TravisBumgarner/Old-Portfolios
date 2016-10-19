@@ -146,24 +146,35 @@ font-family: @header-font;
 /************************************************************************/
 /******************* Main LESS  ******************************************/
 /************************************************************************/
+/*
+Old: 
+@font-size-small: 11px;
+@font-size-normal: 16px;
+@font-size-large: 22px;
+@font-size-extra-large: 30px;*/
 h2.section-header {
   font-family: 'Playfair Display', serif;
-  background-color: #bd0000;
+  background-color: #a8bd00;
   color: #ffffff;
   padding: 10px 15px 10px 15px;
-  font-size: 22px;
+  font-size: 24px;
+}
+h2.image-description {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  text-align: center;
 }
 p.section-header {
   font-family: 'Playfair Display', serif;
   color: #ffffff;
   padding: 10px 15px 10px 15px;
-  font-size: 11px;
+  font-size: 14px;
   float: right;
   padding: 15px;
   font-style: italic;
 }
 .section-content {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
 .section-content ul {
@@ -187,25 +198,14 @@ p.section-header {
 }
 @media only screen and (max-width: 768px) {
   .section-header {
-    font-size: 22px;
+    font-size: 24px;
     padding: 5px 10px 5px 10px;
   }
   .section-content li,
   .section-content p {
     padding: 5px 10px 5px 10px;
-    font-size: 16px;
+    font-size: 18px;
   }
-}
-#project-page .section-content li:hover,
-#skills-page .section-content li:hover,
-#project-page .section-content p:hover,
-#skills-page .section-content p:hover,
-#project-page .section-content li:hover a,
-#skills-page .section-content li:hover a,
-#project-page .section-content p:hover a,
-#skills-page .section-content p:hover a {
-  background-color: #ffffff;
-  color: #444444;
 }
 /************************************************************************/
 /******************* helper Classes *************************************/
@@ -219,7 +219,7 @@ p.section-header {
 .right {
   float: right;
 }
-.hidden {
+.hidden-project {
   display: none;
 }
 /************************************************************************/
@@ -237,80 +237,109 @@ p.section-header {
 /************************************************************************/
 html,
 body {
+  background: #cecece;
   width: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  background: #cecece url("../img/background.png");
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-attachment: fixed;
 }
-.all-pages {
-  padding-top: 10vh;
-  padding-bottom: 0vh;
-  min-height: 100vh;
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+small {
+  font-size: 12px;
 }
 /************************************************************************/
 /******************* Homepage *******************************************/
 /************************************************************************/
 #home-page {
   min-height: 100vh;
-  padding-top: 20vh;
+  background: #3c3c3c url("../img/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+}
+#home-page .section-header {
+  margin-top: 20vh;
+}
+#home-page .section-content {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 #home-page .menu-item-title {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
 }
 #home-page .menu-item-description {
-  font-size: 11px;
+  font-size: 14px;
 }
 #home-page li {
   border-bottom: 1px solid #cccccc;
+  margin: 0px 10px;
+  padding: 10px 0px;
+}
+#home-page a:last-child li {
+  border-bottom: 0px;
 }
 #home-page li:hover span:first-child {
-  color: #bd0000;
-}
-@media only screen and (max-width: 768px) {
-  #home-page {
-    padding-top: 10vh;
-  }
+  color: #00a8bd;
 }
 /************************************************************************/
 /******************* Filter Page ****************************************/
 /************************************************************************/
-#filter-page ul li {
+#filter-page {
+  padding-top: 30px;
+  background: url("../img/background-filter-page.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#filter-page .controls {
+  margin-top: 15vh;
+  margin-bottom: 8vh;
+}
+#filter-page ul.filters li {
   width: 31%;
-  font-size: 11px;
+  font-size: 14px;
   float: left;
   cursor: pointer;
   cursor: hand;
   padding: 10px 15px 10px 15px;
   margin: 0px;
 }
-#filter-page ul li:first-child {
-  width: 100%;
-}
-#filter-page ul li.active {
+#filter-page ul.filters li.active {
   color: #444444;
-  color: #bd0000;
+  color: #00a8bd;
   font-weight: 900;
-}
-#filter-page .list-of-projects {
-  margin-top: 5vh;
 }
 #filter-page .list-of-projects .mix {
   display: none;
+  margin-bottom: 20px;
+}
+#filter-page .list-of-projects .section-content {
+  background: none;
 }
 #filter-page .list-of-projects p {
-  font-size: 11px;
-  height: 33px;
-  line-height: 11px;
+  font-size: 14px;
+  height: 42px;
+  line-height: 14px;
+  text-align: center;
+  background: #ffffff;
+  margin: 0px;
 }
 /************************************************************************/
 /******************* Projects *******************************************/
 /************************************************************************/
 #project-page {
-  min-height: 80vh;
+  display: none;
+  background: url("../img/background-project-page.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#project-page .toggle_visible_projects {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#project-page .toggle_visible_projects .project:first-child {
+  display: initial;
 }
 #project-page ul li {
   width: 49.75%;
@@ -319,41 +348,135 @@ body {
 #project-page ul li:nth-child(odd) {
   margin-right: 0.5%;
 }
-#project-page .project-wrapper {
-  margin-top: 5vh;
+#project-page a {
+  color: #a8bd00;
+}
+#project-page a:hover {
+  color: #00a8bd;
+}
+/******************* Projects Lightbox CSS ******************************/
+#cboxContent .section-content {
+  padding: 10px;
+}
+#cboxContent .section-content .item-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-top: 15px;
+}
+#cboxContent .section-content .item-description,
+#cboxContent .section-content .item-description p {
+  padding: 0px;
+}
+#cboxLoadedContent {
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-x: hidden !important;
+}
+#cboxLoadedContent .item-description p:nth-child(n+1) {
+  padding-top: 10px;
+}
+#cboxLoadedContent li {
+  padding-left: 0px;
+}
+#cboxLoadedContent a {
+  color: #a8bd00;
+}
+#cboxLoadedContent a:hover {
+  color: #00a8bd;
+}
+#cboxLoadedContent .section-content {
+  background-color: transparent;
+}
+#cboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0px;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  padding-right: 20px;
+  color: #444444;
+}
+.project-img {
+  margin: 0px auto;
+  display: block;
+  padding: 15px;
+}
+/************************************************************************/
+/******************* about-skills-background ****************************/
+/************************************************************************/
+.about-skills-background {
+  background: url("../img/about.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /************************************************************************/
 /******************* About Page *****************************************/
 /************************************************************************/
+#about-page {
+  padding-top: 30px;
+}
 #about-page #about-photo {
-  width: 33%;
-  padding: 10px;
+  width: 41%;
+  padding: 20px;
 }
-#about-page ul {
-  width: 65%;
+#about-page ul.about {
+  width: 50%;
+  padding-top: 20px;
 }
-#about-page p {
-  margin-bottom: 0px;
+#about-page p.about {
+  margin: 0px;
+  padding: 10px 20px;
 }
 #about-page li {
   padding: 15px;
-}
-#about-page li:nth-child(n+1) {
   border-bottom: 1px solid #cccccc;
+}
+#about-page li a {
+  padding-left: 10px;
+}
+#about-page li a:hover {
+  color: #00a8bd;
+}
+#about-page li img {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 2px;
+}
+#about-page li:first-child {
+  border-top: 1px solid #cccccc;
 }
 /************************************************************************/
 /******************* Skills *********************************************/
 /************************************************************************/
+#skills-page {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#skills-page #ready-to-learn {
+  float: right;
+  width: 100%;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #cccccc;
+  font-weight: 900;
+  padding: 15px;
+  border-top: 1px solid #cccccc;
+}
 #skills-page .skill-category {
   border-top: 1px solid #444444;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 900;
   padding: 10px 10px 10px 0px;
   margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 #skills-page .skill {
-  font-size: 11px;
+  font-size: 14px;
 }
 #skills-page .page-title {
   width: 95%;
@@ -392,12 +515,48 @@ body {
 }
 .grid-sizer,
 .grid-item {
-  width: 45%;
-  margin: 0% 2.5%;
+  width: 31%;
+  margin: 0% 1%;
 }
 .grid-item {
   float: left;
   margin-bottom: 15px;
+}
+/************************************************************************/
+/******************* Footer Page ****************************************/
+/************************************************************************/
+#footer-page {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #3c3c3c;
+  min-height: initial;
+}
+#footer-page p {
+  font-size: 14px;
+  line-height: 14px;
+  margin: 10px;
+}
+#footer-page .row div:nth-child(even) p {
+  text-align: right;
+  border-left: 1px solid #cccccc;
+}
+#footer-page a {
+  color: #a8bd00;
+}
+#footer-page a:hover {
+  color: #00a8bd;
+}
+/************************************************************************/
+/******************* 404 Page *******************************************/
+/************************************************************************/
+#fourohfour-page {
+  margin-top: 10vh;
+}
+#fourohfour-page h2.section-header {
+  background-color: #BD0000;
+}
+#fourohfour-page li:hover span:first-child {
+  color: #bd0000;
 }
 /************************************************************************/
 /******************* Nav ************************************************/
@@ -406,31 +565,101 @@ body {
   display: none;
   background-color: white;
 }
+.fixed-nav .active {
+  border-bottom: solid 5px #00a8bd;
+}
 .fixed-nav .content-wrapper {
   width: 100vw;
+  overflow: hidden;
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 999;
   padding: 0px;
-  height: 35px;
+  height: 30px;
 }
 .fixed-nav ul {
-  width: 60vw;
-  margin: 0px auto;
+  position: relative;
+  float: left;
+  left: 50%;
+  padding: 0px;
+  list-style: none;
   text-align: center;
   background-color: #ffffff;
 }
 .fixed-nav ul li {
-  height: 35px;
-  display: inline;
-  padding: 10px 20px 10px 20px;
+  position: relative;
+  flaot: left;
+  right: 50%;
+  font-size: 14px;
+  padding: 0px 0px 5px 0px;
   float: left;
-  margin: 0px;
+  margin: 10px 20px;
+  text-transform: uppercase;
 }
-.fixed-nav ul li:hover {
-  border-bottom: solid 5px #bd0000;
+.fixed-nav ul li:hover a {
+  border-bottom: solid 5px #00a8bd;
 }
 .fixed-nav ul li:last-child {
-  border-left: 1px solid #cccccc;
+  font-style: italic;
+}
+@media only screen and (max-width: 992px) {
+  #skills-page .skill-category {
+    font-size: 14px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body > .container {
+    padding: 0px;
+  }
+  #filter-page .small-screen-spacing {
+    padding: 0px 10px;
+  }
+  #filter-page ul li {
+    width: 50%;
+  }
+  #about-page p {
+    padding: 5px;
+  }
+  #about-page ul {
+    padding-top: 5px;
+    width: 60%;
+  }
+  #about-page ul li {
+    font-size: 14px;
+    padding: 5px;
+  }
+  #about-page #about-photo {
+    padding: 5px;
+    width: 40%;
+  }
+  #skills-page .skill-category {
+    font-size: 14px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
+  }
+  #footer-page p {
+    margin: 0px;
+  }
+  #footer-page .row div:nth-child(even) p {
+    text-align: left;
+    border-left: 0px;
+  }
+  .fixed-nav .section-content {
+    overflow: initial;
+  }
+  .fixed-nav .section-content ul {
+    width: 100vw;
+  }
+  .fixed-nav .section-content ul li:last-child {
+    display: none;
+  }
 }
