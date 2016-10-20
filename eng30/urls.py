@@ -9,7 +9,7 @@ urlpatterns = [
     #This line means that for every URL that starts with admin/, Django will find a corresponding view.
     # In this case we're including a lot of admin URLs so it isn't all packed into this small file – it's more readable and cleaner.
 ]
-
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 """
