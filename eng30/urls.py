@@ -3,13 +3,13 @@ from django.contrib import admin
 from single_page_website import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls), 
-    url(r'', include('single_page_website.urls')),
+    url(r'^$', views.project_list),
     url(r'.*', views.website404),
     #This is the admin url which we've already visited
     #This line means that for every URL that starts with admin/, Django will find a corresponding view.
     # In this case we're including a lot of admin URLs so it isn't all packed into this small file – it's more readable and cleaner.
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.STATIC_ROOT)
 
 
 """
