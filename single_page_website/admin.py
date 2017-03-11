@@ -33,6 +33,10 @@ class ProjectAdmin(admin.ModelAdmin):
 	filter_horizontal = ['tools','categories']
 
 
+class SkillsCategoriesAdmin(admin.ModelAdmin):
+	#let's projects be sorted by title and date
+	list_display = ('title','order')
+
 class About_Author_Link_Inline(admin.TabularInline):
 	#Refers to inlines in ProjectAdmin where the model for adding a new image is Project_Image and
 	# one extra field will be created when the post a new project page is opened
@@ -46,5 +50,5 @@ admin.site.register(Project_Tool)
 admin.site.register(Project_Category)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Skill)
-admin.site.register(Skill_Category)
+admin.site.register(Skill_Category, SkillsCategoriesAdmin)
 admin.site.register(About_Author, About_Author_Admin)

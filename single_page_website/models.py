@@ -81,8 +81,9 @@ class Project_Link(models.Model):
 
 class Skill_Category(models.Model):
     title = models.CharField(max_length=200)
+    order = models.IntegerField(blank=True)
     class Meta:
-        ordering = ('title',)
+        ordering = ('order',)
     def __str__(self):  
         return self.title #self.title refers to title = models.CharField(max_length=200) line
 
