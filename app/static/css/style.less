@@ -13,12 +13,24 @@ body {
   margin: 0px auto;
   font-family: 'Open Sans', sans-serif;
 }
+@media (max-width: 968px) {
+	body{
+		font-size: x-small;
+	}
+}
+@media (max-width: 500px) {
+	body{
+		font-size: xx-small;
+	}
+}
 nav{
 	float:right;
 	transform: rotate(90.0deg);
-	position: absolute;
+	position: fixed;
 	top: 20vh;
-	right: -2vh;
+	right: -6vh;
+    background-color: black;
+    padding: 5px 10px;
 }
 nav a{
 	color: white;
@@ -140,10 +152,17 @@ textarea{
 	padding-right: 20px;
 	padding-bottom: 20px;
 }
+input#submit{
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.bold-text{
+	font-weight: 700;
+}
 
 @media (max-width: 968px) {
 	#introduction article{
-	width: 90%;
+	width: 80%;
 	}
 	#findme article{
 		width: 80%;
@@ -154,5 +173,42 @@ textarea{
 	#elfin article{
 		width: 30%;
 	}
+	#profile-photo{
+		max-width: 200px;
+	}
+	#introduction-bg, #findme-bg, #about-bg, #contact-bg{
+		height: 200px;
+	}
+
+	.content-wrapper{
+		margin: 0px;
+	}
+
 }
+
+@media (max-width: 500px) {
+	#introduction article{
+		width: 80%;
+	}
+	#findme article{
+		width: 95%;
+	}
+	#contact article{
+		width: 90%;
+	}
+	#elfin article{
+		width: 60%;
+	}
+	#profile-photo{
+		max-width: 200px;
+	}
+	#introduction-bg, #findme-bg, #about-bg, #contact-bg{
+		height: 200px;
+	}
+
+	.content-wrapper{
+		margin: 0px;
+	}
+}
+
 
