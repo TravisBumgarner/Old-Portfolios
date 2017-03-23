@@ -9,4 +9,4 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 db.Model.metadata.reflect(db.engine)
 
-from app import admin, models, views
+from app import views

@@ -2,10 +2,18 @@
 // font-family: 'Merriweather', serif;
 // font-family: 'Open Sans', sans-serif;
 
+@color-dark: #000;
+@color-light: #fff;
+
+@font-size-l: 2em;
+@font-size-m: 1em;
+
+
 // CSS Rest
 h1, h2, h3{
 	margin: 0px;
 	padding: 0px;
+	color: @color-dark;
 }
 
 body {
@@ -24,21 +32,18 @@ body {
 	}
 }
 nav{
-	float:right;
-	transform: rotate(90.0deg);
 	position: fixed;
 	top: 20vh;
-	right: -6vh;
-    background-color: black;
-    padding: 5px 10px;
+	right: 0vh;
+    padding: 0px;
 }
 nav a{
-	color: white;
+	color: @color-light;
 	font-weight: 900;
 	text-transform: uppercase;
 }
 nav a:hover{
-	color: white;
+	color: @color-light;
 }
 article{
 	margin: 0px auto;
@@ -77,36 +82,40 @@ article{
 	width: 30%;
 }
 h1{
-	font-size: 2em;
+	font-size: @font-size-l;
 	font-family: 'Merriweather', serif;
 	font-weight: bold;
 }
 h2{
-	font-size: 1em;
+	font-size: @font-size-m;
 	font-family: 'Merriweather', serif;
 	font-weight: bold;
+	padding-bottom: 10px;
 }
 
 #introduction article p{
-	font-size: 2em;
+	font-size: @font-size-l;
 	font-family: 'Merriweather', serif;
 }
 #introduction article p span{
 	font-weight: bold;	
 }
 .content-wrapper{
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
+	border-top: 2px solid @color-dark;
+	border-bottom: 2px solid @color-dark;
 	margin: 20px 0px 20px 0px;
 	padding: 20px 0px 20px 0px;
 	overflow: auto;
 }
 .black-on-white{
-	color: white;
-	background-color: black;
+	color: @color-light;
+	background-color: @color-dark;
+}
+.black-on-white h1{
+	color: @color-light;
 }
 .black-on-white .content-wrapper{
-	border-color: white;
+	border-color: @color-light;
 }
 #findme section{
     width: 33%;
@@ -126,17 +135,17 @@ p{
 	line-height: 1.6;
 }
 a, a:hover{
-	color: black;
+	color: @color-dark;
 }
 form p{
 	text-transform: uppercase;
 	text-align: right;
-	font-weight: bold;	
+	font-weight: 300;	
 }
 textarea, input, select{
 	width:60%;
 	margin-left: 10px;
-	background-color: black !important;
+	background-color: @color-dark !important;
     border: 0px;
     color: white;
     padding-left: 10px;

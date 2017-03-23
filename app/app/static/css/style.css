@@ -4,6 +4,7 @@ h2,
 h3 {
   margin: 0px;
   padding: 0px;
+  color: #000000;
 }
 body {
   font-size: medium;
@@ -21,21 +22,18 @@ body {
   }
 }
 nav {
-  float: right;
-  transform: rotate(90deg);
   position: fixed;
   top: 20vh;
-  right: -6vh;
-  background-color: black;
-  padding: 5px 10px;
+  right: 0vh;
+  padding: 0px;
 }
 nav a {
-  color: white;
+  color: #ffffff;
   font-weight: 900;
   text-transform: uppercase;
 }
 nav a:hover {
-  color: white;
+  color: #ffffff;
 }
 article {
   margin: 0px auto;
@@ -82,6 +80,7 @@ h2 {
   font-size: 1em;
   font-family: 'Merriweather', serif;
   font-weight: bold;
+  padding-bottom: 10px;
 }
 #introduction article p {
   font-size: 2em;
@@ -91,18 +90,21 @@ h2 {
   font-weight: bold;
 }
 .content-wrapper {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
   margin: 20px 0px 20px 0px;
   padding: 20px 0px 20px 0px;
   overflow: auto;
 }
 .black-on-white {
-  color: white;
-  background-color: black;
+  color: #ffffff;
+  background-color: #000000;
+}
+.black-on-white h1 {
+  color: #ffffff;
 }
 .black-on-white .content-wrapper {
-  border-color: white;
+  border-color: #ffffff;
 }
 #findme section {
   width: 33%;
@@ -123,19 +125,19 @@ p {
 }
 a,
 a:hover {
-  color: black;
+  color: #000000;
 }
 form p {
   text-transform: uppercase;
   text-align: right;
-  font-weight: bold;
+  font-weight: 300;
 }
 textarea,
 input,
 select {
   width: 60%;
   margin-left: 10px;
-  background-color: black !important;
+  background-color: #000000 !important;
   border: 0px;
   color: white;
   padding-left: 10px;

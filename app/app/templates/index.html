@@ -10,13 +10,14 @@
 </head>
 <body>
 <nav>
-    <a href="#contact">Let's Chat</a>
+    <a href="#contact"><img src=" {{url_for('static', filename = 'img/chat.png') }}" alt="Let's chat"></a>
 </nav>
 <div class="page-wrapper black-on-white" id = "introduction">
     <article >
-        <h1>Hello,</h1>
+        <h1>Greetings,</h1>
         <div class="content-wrapper">
-            <p>If you're looking for someone who can combine	<span class ="intro-subject">Spanish</span>, <span class ="intro-subject">Arduino</span>, and <span class ="intro-subject">Flask</span> on a project -	you've come to the right place.</p>
+            <p>Are you looking for someone who can combine	<span class ="intro-subject">Spanish</span>, <span class ="intro-subject">Arduino</span>, and <span class ="intro-subject">Flask</span> on a project?</p>
+            <p>You've come to the right place! Let's meet up, work, or volunteer together!</p>
         </div>
     </article>
 </div>
@@ -73,12 +74,29 @@
         <h1>Let's Chat</h1>
         <div class="content-wrapper">
             <form method="post" name="contact">
+                <p class = "bold-text">                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }} <br>
+                    {% endfor %}
+                    {% endif %}
+                {% endwith %}</p>
+
                 {{ contact_form.hidden_tag() }}
                 <p>Fields marked with <span class = "required-entry">*</span> are required.</p>
-                <p>Full Name <span class = "required-entry">*</span>{{ contact_form.name() }}</p>
-                <p>Email Address <span class = "required-entry">*</span>{{ contact_form.email_address() }}</p>
-                <p>Website:{{ contact_form.website() }}</p>
-                <p>Request <span class = "required-entry">*</span>{{ contact_form.request() }}</p>
+
+                <p>{% for error in contact_form.name.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Full Name <span class = "required-entry">*</span>{{ contact_form.name() }}</p>
+
+                <p>{% for error in contact_form.email_address.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Email Address <span class = "required-entry">*</span>{{ contact_form.email_address() }}</p>
+
+                <p>{% for error in contact_form.website.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Website:{{ contact_form.website() }}</p>
+
+                <p>{% for error in contact_form.message.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Message <span class = "required-entry">*</span>{{ contact_form.message() }}</p>
+
                 <p>{{ contact_form.submit() }}</p>
           </form>
         </div>
@@ -88,9 +106,10 @@
 
 <div class="page-wrapper black-on-white" id = "elfin">
 <article >
-    <h1>El Fin</h1>
+    <h1>Cheers,</h1>
     <div class="content-wrapper">
-    <p>Designed and developed by Travis Bumgarner</p>
+    <p>Travis Bumgarner<br>
+        (Page Developer and Designer)</p>
     </div>
 </article>
 </div>
@@ -98,11 +117,11 @@
 
 <script>
 // mySkills should eventually come from DB
-mySkills = ["Adobe Lightroom",
-			"Adobe Photoshop",
+mySkills = ["Lightroom",
+			"Photoshop",
 			"Arduino",
 			"Bootstrap",
-			"Breadboarding",
+			"Breadboards",
 			"AutoCAD",
 			"C++",
 			"CSS",
@@ -114,7 +133,7 @@ mySkills = ["Adobe Lightroom",
 			"JavaScript",
 			"jQuery",
 			"Less",
-			"Microsoft Power BI",
+			"Power BI",
 			"PHP",
 			"Python",
 			"Raspberry Pi",

@@ -1,5 +1,3 @@
-from app import db
-
 base_str = 'single_page_website_'
 
 class Author(db.Model):
