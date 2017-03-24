@@ -546,11 +546,6 @@ small {
   line-height: 14px;
   margin: 10px;
 }
-#footer-page .row div:nth-child(even) p {
-  text-align: right;
-  border-left: 1px solid #cccccc;
-  border: 5px solid red;
-}
 #footer-page a {
   color: #a8bd00;
 }
