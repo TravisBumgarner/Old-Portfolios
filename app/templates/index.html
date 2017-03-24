@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Hire . Travis Bumgarner</title>
+	<title>Meet . Travis Bumgarner</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -118,7 +118,7 @@
 
 <script>
 // mySkills should eventually come from DB
-mySkills = ["Lightroom",
+var mySkills = ["Lightroom",
 			"Photoshop",
 			"Arduino",
 			"Bootstrap",
@@ -147,37 +147,27 @@ mySkills = ["Lightroom",
 			"Woodworking",
 			"WordPress"
 			]
-function generateThreeSkills(listOfSkills, firstTime=false){
-	var randomSkills = [];
-	while (randomSkills.length < 3){
-		var index = Math.floor(Math.random()*listOfSkills.length);
-		var randomSkill = listOfSkills[index]
-		if (randomSkills.includes(randomSkill) == false){
-			randomSkills.push(randomSkill);
-		}
-	}
-	$("#intro-message").children(".intro-subject").each(function(index){
-		if(firstTime == true){
-			$(this).text(randomSkills[index]);
-		}
-		else{
-			$(this).fadeOut("slow",function(){
-				$(this).text(randomSkills[index]).fadeIn("fast");
-			});
-		}
-
-	})
-}
-//$("document").ready(generateThreeSkills(mySkills, true));
-
 
 function generateOneSkill(listOfSkills, firstTime=false){
-	var currentSkillIndex = 1 + Math.floor(Math.random()*3); //because nth-of-type starts at 1
-	var allSkillIndex = Math.floor(Math.random()*listOfSkills.length);
-	var selector = "#introduction p span:nth-of-type(" + currentSkillIndex.toString() +")";
-	$(selector).fadeOut("slow",function(){
-		$(selector).text(listOfSkills[allSkillIndex]).fadeIn("fast");
-	});
+    current_items = []
+    $("#introduction p span").each(function(){
+        current_items.push($(this).text());
+    })
+	while(true){
+	    currentSkillIndex = 1 + Math.floor(Math.random()*3); //because nth-of-type starts at 1
+	    allSkillIndex = Math.floor(Math.random()*listOfSkills.length);
+	    if($.inArray(listOfSkills[allSkillIndex], current_items) != -1){
+	        continue;
+	    }
+	    else{
+            var selector = "#introduction p span:nth-of-type(" + currentSkillIndex.toString() +")";
+            $(selector).fadeOut("slow",function(){
+                $(selector).text(listOfSkills[allSkillIndex]).fadeIn("fast");
+            });
+            break;
+	    }
+	}
+
 }
 $("document").ready(generateOneSkill(mySkills, true));
 
