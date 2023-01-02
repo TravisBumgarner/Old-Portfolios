@@ -1,0 +1,670 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display';
+/************************************************************************/
+/******************* CSS Reset  *****************************************/
+/************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+/************************************************************************/
+/******************* Imports ********************************************/
+/************************************************************************/
+/*
+font-family: @content-font
+font-family: @header-font;
+*/
+/************************************************************************/
+/******************* Main LESS  ******************************************/
+/************************************************************************/
+/*
+Old: 
+@font-size-small: 11px;
+@font-size-normal: 16px;
+@font-size-large: 22px;
+@font-size-extra-large: 30px;*/
+h2.section-header {
+  font-family: 'Playfair Display', serif;
+  background-color: #a8bd00;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  font-size: 24px;
+}
+h2.image-description {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  text-align: center;
+}
+p.section-header {
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  font-size: 14px;
+  float: right;
+  padding: 15px;
+  font-style: italic;
+}
+.section-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+.section-content ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.section-content li,
+.section-content p {
+  color: #444444;
+  padding: 5px 5px 5px 5px;
+  margin: 0px 5px 0px 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+.section-content p {
+  line-height: 24px;
+}
+.section-content li a,
+.section-content p a {
+  color: #444444;
+  font-family: 'Open Sans', sans-serif;
+}
+@media only screen and (max-width: 768px) {
+  .section-header {
+    font-size: 24px;
+    padding: 5px 10px 5px 10px;
+  }
+  .section-content li,
+  .section-content p {
+    padding: 5px 10px 5px 10px;
+    font-size: 18px;
+  }
+}
+/************************************************************************/
+/******************* helper Classes *************************************/
+/************************************************************************/
+.clear-both {
+  clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.hidden-project {
+  display: none;
+}
+/************************************************************************/
+/******************* LESS Commom Stuff **********************************/
+/************************************************************************/
+.two-col-li ul li {
+  width: 49.75%;
+  float: left;
+}
+.two-col-li ul li:nth-child(odd) {
+  margin-right: 0.5%;
+}
+/************************************************************************/
+/******************* All Pages ******************************************/
+/************************************************************************/
+html,
+body {
+  background: #cecece;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+small {
+  font-size: 12px;
+}
+/************************************************************************/
+/******************* Homepage *******************************************/
+/************************************************************************/
+#home-page {
+  min-height: 100vh;
+  background: #3c3c3c url("../img/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+}
+#home-page .section-header {
+  margin-top: 20vh;
+}
+#home-page .section-content {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#home-page .menu-item-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+#home-page .menu-item-description {
+  font-size: 14px;
+}
+#home-page li {
+  border-bottom: 1px solid #cccccc;
+  margin: 0px 10px;
+  padding: 10px 0px;
+}
+#home-page a:last-child li {
+  border-bottom: 0px;
+}
+#home-page li:hover span:first-child {
+  color: #00a8bd;
+}
+/************************************************************************/
+/******************* Filter Page ****************************************/
+/************************************************************************/
+#filter-page {
+  padding-top: 30px;
+  background: url("../img/background-filter-page.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#filter-page .controls {
+  margin-top: 15vh;
+  margin-bottom: 8vh;
+}
+#filter-page ul.filters li {
+  width: 31%;
+  font-size: 14px;
+  float: left;
+  cursor: pointer;
+  cursor: hand;
+  padding: 10px 15px 10px 15px;
+  margin: 0px;
+}
+#filter-page ul.filters li.active {
+  color: #444444;
+  color: #00a8bd;
+  font-weight: 900;
+}
+#filter-page .list-of-projects .mix {
+  display: none;
+  margin-bottom: 20px;
+}
+#filter-page .list-of-projects .section-content {
+  background: none;
+}
+#filter-page .list-of-projects p {
+  font-size: 14px;
+  height: 42px;
+  line-height: 14px;
+  text-align: center;
+  background: #ffffff;
+  margin: 0px;
+}
+/************************************************************************/
+/******************* Projects *******************************************/
+/************************************************************************/
+#project-page {
+  display: none;
+  background: url("../img/background-project-page.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#project-page .toggle_visible_projects {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#project-page .toggle_visible_projects .project:first-child {
+  display: initial;
+}
+#project-page ul li {
+  width: 49.75%;
+  float: left;
+}
+#project-page ul li:nth-child(odd) {
+  margin-right: 0.5%;
+}
+#project-page a {
+  color: #a8bd00;
+}
+#project-page a:hover {
+  color: #00a8bd;
+}
+/******************* Projects Lightbox CSS ******************************/
+#cboxContent .section-content {
+  padding: 10px;
+}
+#cboxContent .section-content .item-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-top: 15px;
+}
+#cboxContent .section-content .item-description,
+#cboxContent .section-content .item-description p {
+  padding: 0px;
+}
+#cboxLoadedContent {
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-x: hidden !important;
+}
+#cboxLoadedContent .row {
+  padding-top: 40px;
+}
+#cboxLoadedContent .section-header {
+  position: absolute;
+  z-index: 998;
+  width: 100%;
+}
+#cboxLoadedContent .item-description p:nth-child(n+1) {
+  padding-top: 10px;
+}
+#cboxLoadedContent li {
+  padding-left: 0px;
+}
+#cboxLoadedContent a {
+  color: #a8bd00;
+}
+#cboxLoadedContent a:hover {
+  color: #00a8bd;
+}
+#cboxLoadedContent .section-content {
+  background-color: transparent;
+}
+#cboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0px;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  padding-right: 20px;
+  color: #ffffff;
+  z-index: 999;
+  font-weight: 999;
+}
+.project-img {
+  margin: 0px auto;
+  display: block;
+  padding: 15px;
+}
+/************************************************************************/
+/******************* about-skills-background ****************************/
+/************************************************************************/
+.about-skills-background {
+  background: url("../img/about.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/************************************************************************/
+/******************* About Page *****************************************/
+/************************************************************************/
+#about-page {
+  padding-top: 30px;
+}
+#about-page #about-photo {
+  width: 41%;
+  padding: 20px;
+}
+#about-page ul.about {
+  width: 50%;
+  padding-top: 20px;
+}
+#about-page p.about {
+  margin: 0px;
+  padding: 10px 20px;
+}
+#about-page li {
+  padding: 15px;
+  border-bottom: 1px solid #cccccc;
+}
+#about-page li a {
+  padding-left: 10px;
+}
+#about-page li a:hover {
+  color: #00a8bd;
+}
+#about-page li img {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 2px;
+}
+#about-page li:first-child {
+  border-top: 1px solid #cccccc;
+}
+/************************************************************************/
+/******************* Skills *********************************************/
+/************************************************************************/
+#skills-page {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#skills-page #ready-to-learn {
+  float: right;
+  width: 100%;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #cccccc;
+  font-weight: 700;
+  padding: 15px;
+  border-top: 1px solid #cccccc;
+}
+#skills-page .skill-category {
+  border-top: 1px solid #444444;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 10px 10px 0px;
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+#skills-page .skill {
+  font-size: 14px;
+}
+#skills-page .page-title {
+  width: 95%;
+  margin: 0px auto;
+  margin-bottom: 5px;
+}
+#skills-page .skills-wrapper {
+  padding-left: 0.5%;
+  padding-right: 5px;
+}
+#skills-page ul li {
+  padding: 10px 10px 10px 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+#skills-page ul li div {
+  display: inline-block;
+}
+#skills-page ul li div:first-child {
+  padding: 5px 0px 0px 0px;
+}
+#skills-page ul li div:last-child {
+  float: right;
+}
+/******************* Grid Items******************************************/
+* {
+  box-sizing: border-box;
+}
+.grid {
+  max-width: 1200px;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-sizer,
+.grid-item {
+  width: 31%;
+  margin: 0% 1%;
+}
+.grid-item {
+  float: left;
+  margin-bottom: 15px;
+}
+/************************************************************************/
+/******************* Footer Page ****************************************/
+/************************************************************************/
+#footer-page {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #3c3c3c;
+  min-height: initial;
+}
+#footer-page p {
+  font-size: 14px;
+  line-height: 14px;
+  margin: 10px;
+}
+#footer-page a {
+  color: #a8bd00;
+}
+#footer-page a:hover {
+  color: #00a8bd;
+}
+/************************************************************************/
+/******************* 404 Page *******************************************/
+/************************************************************************/
+#fourohfour-page {
+  margin-top: 10vh;
+}
+#fourohfour-page h2.section-header {
+  background-color: #BD0000;
+}
+#fourohfour-page li:hover span:first-child {
+  color: #bd0000;
+}
+/************************************************************************/
+/******************* Nav ************************************************/
+/************************************************************************/
+.fixed-nav {
+  display: none;
+  background-color: white;
+}
+.fixed-nav .active {
+  border-bottom: solid 5px #00a8bd;
+}
+.fixed-nav .content-wrapper {
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  padding: 0px;
+  height: 30px;
+}
+.fixed-nav ul {
+  position: relative;
+  float: left;
+  left: 50%;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+}
+.fixed-nav ul li {
+  position: relative;
+  flaot: left;
+  right: 50%;
+  font-size: 14px;
+  padding: 0px 0px 5px 0px;
+  float: left;
+  margin: 10px 20px;
+  text-transform: uppercase;
+}
+.fixed-nav ul li:hover a {
+  border-bottom: solid 5px #00a8bd;
+}
+.fixed-nav ul li:last-child {
+  font-style: italic;
+}
+@media only screen and (max-width: 992px) {
+  #skills-page .skill-category {
+    font-size: 14px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body > .container {
+    padding: 0px;
+  }
+  #filter-page .small-screen-spacing {
+    padding: 0px 10px;
+  }
+  #filter-page ul li {
+    width: 50%;
+  }
+  #about-page p {
+    padding: 5px;
+  }
+  #about-page ul {
+    padding-top: 5px;
+    width: 60%;
+  }
+  #about-page ul li {
+    font-size: 14px;
+    padding: 5px;
+  }
+  #about-page #about-photo {
+    padding: 5px;
+    width: 40%;
+  }
+  #skills-page .skill-category {
+    font-size: 14px;
+  }
+  #skills-page .grid-sizer,
+  #skills-page .grid-item {
+    width: 48%;
+    margin: 0% 1%;
+  }
+  #footer-page p {
+    margin: 0px;
+  }
+  #footer-page .row div:nth-child(even) p {
+    text-align: left;
+    border-left: 0px;
+  }
+  .fixed-nav .section-content {
+    overflow: initial;
+  }
+  .fixed-nav .section-content ul {
+    width: 100vw;
+  }
+  .fixed-nav .section-content ul li:last-child {
+    display: none;
+  }
+}

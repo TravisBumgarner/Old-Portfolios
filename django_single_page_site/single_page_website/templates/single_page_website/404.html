@@ -1,0 +1,59 @@
+<!-- Don't forget Travis, you'r'e awesome look at this shit that you did -->
+{% load staticfiles %}
+
+<!-- Generate that content! -->
+
+<!-- Variables for generating things for Django -->
+{% with standard_content_width="col-sm-10 col-sm-offset-1 col-xs-12"%}    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travis Bumgarner Engineering</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /
+tra>	</head>
+<body>
+<div class="container">
+	<div id="fourohfour-page" class="all-pages">
+		<div class="row ">
+			<div class="{{standard_content_width}} content-wrapper">
+				<h2 class="section-header">404 Error.  What were you looking for?</h2>
+				<div class="section-content">
+					<ul>
+						<a data-scroll href="#filter-page">
+						<li>
+							<span class = "http://engineering.travisbumgarner.com">Engineering Portfolio</span><br>
+						</li>
+						</a>
+						<a data-scroll href="http://photography.travisbumgarner.com">
+						<li>
+							<span class = "menu-item-title">Photography Portfolio</span><br>
+						</li>
+						</a>
+						<a data-scroll href="#skills-page">
+						<li>
+							<span class = "menu-item-title">Painless Prototyping</span><br>
+						</li>
+						</a>
+						<a href="mailto:travis.bumgarner2@gmail.com?subject=I saw your engineering portfolio">
+						<li>
+							<span class = "menu-item-title">Contact Me</span><br>
+						</li>
+						</a>
+						<a data-scroll href="http://painlessprototyping.com" target="_blank">
+						<li>
+							<span class = "menu-item-title">Painless Prototyping Startup</span><br>
+						</li>
+						</a>
+					</ul>		
+				</div><!-- section content -->
+			</div><!-- content wrapper -->
+		</div><!-- row -->
+	</div><!-- home page -->
+</div><!-- container -->
+</body>
+</html>
+{% endwith %}

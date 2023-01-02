@@ -1,0 +1,340 @@
+<!-- Don't forget Travis, you'r'e awesome look at this shit that you did -->
+{% load staticfiles %}
+
+<!-- Generate that content! -->
+
+<!-- Variables for generating things for Django -->
+{% with standard_content_width="col-sm-10 col-sm-offset-1 col-xs-12"%}    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Travis Bumgarner Engineering</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+</head>
+<body>
+
+<div class="container">
+	<div class = "fixed-nav">
+		<div class=" content-wrapper section-content">
+			<ul>
+				<li><a data-scroll href="#home-page">Home</a></li>
+				<li><a data-scroll href="#filter-page">Portfolio</a></li>
+				<li><a data-scroll href="#about-page">About</a></li>
+				<li><a data-scroll href="#skills-page">Skills</a></li>
+				<li><a class = "external-link" href="http://painlessprototyping.com" target="_blank">Painless Prototyping</a></li>
+			</ul>			
+		</div><!-- content wrapper -->
+	</div><!-- fixed nav -->
+
+	<div id="home-page" class="all-pages">
+		<div class="row ">
+			<div class="{{standard_content_width}} content-wrapper">
+				<h2 class="section-header">If it’s interesting, I’m <i>interested</i> in it.  What are you interested in?</h2>
+				<div class="section-content">
+					<ul>
+						<a data-scroll href="#filter-page">
+						<li>
+							<span class = "menu-item-title">Portfolio</span><br>
+							<span class = "menu-item-description">View my engineering and design projects.</span><br>
+						</li>
+						</a>
+						<a data-scroll href="#about-page">
+						<li>
+							<span class = "menu-item-title">About</span><br>
+							<span class = "menu-item-description">Get to know me a little better first.</span><br>
+						</li>
+						</a>
+						<a data-scroll href="#skills-page">
+						<li>
+							<span class = "menu-item-title">Skills</span><br>
+							<span class = "menu-item-description">Check out my experience from mechanical engineering, to designing, and a few things in between.</span><br>
+						</li>
+						</a>
+						<a href="http://meet.travisbumgarner.com/" target="_blank">
+						<li>
+							<span class = "menu-item-title">Contact</span><br>
+							<span class = "menu-item-description">Let me know if you are interested in working together.</span><br>
+						</li>
+						</a>
+						<a data-scroll href="http://painlessprototyping.com" target="_blank">
+						<li>
+							<span class = "menu-item-title">Painless Prototyping Startup</span><br>
+							<span class = "menu-item-description">Learn about the startup I founded to create tools to aid the maker community.</span><br>
+						</li>
+						</a>
+					</ul>		
+				</div><!-- section content -->
+			</div><!-- content wrapper -->
+		</div><!-- row -->
+	</div><!-- home page -->
+
+
+	<!-- filter page -->
+	<div id="filter-page" class= "all-pages">
+		<div class = "row">
+			<div class="{{standard_content_width}} content-wrapper">
+				<div class="controls">
+					<p class = "section-header">Select any of several categories to view.</p>
+					<h2 class="section-header">Projects</h2>
+					<div class="section-content" id = "projects-filter">
+						<ul class="filters">
+							<li data-filter = "all" class = "filter">View All</li>
+							<li data-filter = ".mechanical-project" class = "filter">Mechanical Engineering</li>
+							<li data-filter = ".electrical-project" class = "filter">Electrical Engineering</li>
+							<li data-filter = ".computer-project" class = "filter">Computer Programming</li>
+							<li data-filter = ".web-project" class = "filter">Web Development & Design</li>
+							<li data-filter = ".international-project" class = "filter">International Development</li>
+							<li data-filter = ".woodworking-project" class = "filter">Woodworking</li>
+							<li data-filter = ".misc-project" class = "filter">Miscellaneous</li>							
+						</ul>	
+					</div>	<!-- section content -->
+				</div><!-- controls -->
+			</div><!-- standard cols -->
+		</div><!-- row -->
+		
+		<div class="small-screen-spacing">
+			<div class="row ">
+				<div class="{{standard_content_width}}">
+					<div class = "row">
+						<div class="list-of-projects">
+							{% for project in projects %}
+								<div class="section-content mix col-sm-4 col-xs-6 {% for category in project.categories.all %}{{category.html_class_display_category}} {% endfor %}">
+									<a href= "#project-{{project.id}}" class="filter-link">
+										<img src="{{project.headline_image.url}}" alt="" class="img-responsive" style="">
+										<p class = "">{{ project.title }}</p>
+									</a>				
+								</div><!-- section content -->
+							{% endfor %}
+						</div><!-- list all projects -->
+					</div><!-- row -->
+				</div><!-- standard content width -->
+			</div><!-- row -->
+		</div><!-- smalls creen spacing -->
+	</div><!-- Filter page  -->
+	
+	<!-- project page -->
+	<div id="project-page"  class= "all-pages">
+		<div class="row">
+			<div class="{{standard_content_width}} toggle_visible_projects">
+		    {% for project in projects %}
+		    	<div class="container">
+					<div style='display:none'>
+						<div id="project-{{project.id}}">
+				            <h2 class = "section-header">{{project.title}}</h2>
+				    		<div class="row">
+				    			<div class="col-sm-8 col-sm-offset-2 col-xs-12">
+						    		<div class="section-content">
+						    			<p class="item-title">Description:</p>
+						    			<div class="item-description">{{ project.summary|safe }}</div>
+										{% if project.project_link.all %}
+						    				<p class="item-title">Links:</p>
+						    				<ul>
+												{% for link in project.project_link.all%}
+							    					<li><a href="{{link.url_path}}" target="_blank">{{ link.url_title }}</a></li>
+							    				{% endfor%}
+						    				</ul>
+						    			{% endif %}
+						    			<p class = "item-title">Tools Used:</p>
+						    			<p class="item-description">{{project.tools.all|join:", "}}</p>
+						    			<p class="item-title">Media:</p>
+							    		<div class = "video-wrapper col-xs-12 text-center">
+											{% if project.video %}
+							    				{{ project.video|safe }}
+							    			{% endif %}
+							    		</div>
+						    			<div class = "img-wrapper">
+							    			{% for picture in project.project_image.all %}
+							    				<img class = "project-img img-responsive" src="{{ picture.image.url }}">
+							    				<h2 class="image-description">{{picture.title}}</h2>
+						    				{% endfor %}
+						    			</div><!-- img wrapper -->
+						    		</div><!-- section content -->
+
+				    			</div><!-- cols -->
+				    		</div><!-- row -->
+				        </div><!-- project id -->
+				    </div><!-- display none -->
+		    	</div>
+			{% endfor %}
+			</div><!-- standard cols -->
+		</div><!-- end rows -->
+		<div class="row project-wrapper">
+		    {% for project in projects %}
+		    <div class = "hidden-project">
+			    <div class = "project" data-project-id = "project-{{project.id}}" >
+			    	<div class="col-sm-4 col-xs-6">
+			    		<div class="section-content">
+			    			
+			    		</div><!-- section content -->
+			    	</div><!-- cols -->
+				</div>
+			</div>
+			{% endfor %}
+		</div><!-- row -->
+	</div><!-- project page -->
+
+	<div class = "about-skills-background">
+	<!-- about page -->
+	<div id="about-page"  class= "all-pages">
+		<div class="row">
+			<div class="{{standard_content_width}}">
+				<h2 class="section-header">{{ about.title }} </h2>
+				<div class="section-content">
+					<img src="{{about.photo.url}}" alt="" class="img-responsive left" id="about-photo">
+					<ul class = "about left"><!-- setup for 2 or 3 columns -->
+						{% for link in links %}
+							<li><img src="{{link.link_image.url}}"><a href = "{{link.url_path}}" target="_blank">{{link.url_title}}</a></li>
+						{% endfor %}
+					</ul>			
+				</div><!-- section content -->
+				<div class="section-content">
+					<p class="about">{{ about.summary }}</p>
+				</div><!-- section-content -->
+			</div><!-- standard cols -->
+		</div><!-- row -->
+	</div><!-- about page -->
+
+	<!-- skills page -->
+	<div id="skills-page"  class= "all-pages">
+		<div class="row">
+			<div class="{{standard_content_width}}">
+				<h2 class="section-header">Skills + Tools</h2>
+				<div class="section-content">
+					<div class="grid">
+						{% for skill_category in skills_category %}
+							<div class="grid-sizer"></div>
+							<div class="skills grid-item grid-item-height-{{ skill_category|length }}">
+								<h2 class="skill-category">{{ skill_category.title }}</h2>
+								<ul>
+									{% for skill in skills %}
+										{% if skill_category == skill.category %}
+											<li><div class="skill">{{ skill.title }}</div><div><img src="{% static "img" %}/{{skill.rating}}.png"></div></li>
+										{% endif %}
+									{% endfor %}
+								</ul>			
+							</div>
+						{% endfor %}
+						<div class="grid-item">
+							<h2 id = "ready-to-learn"> [ INSERT NEXT SKILL HERE, I'M ALWAYS READY TO LEARN]
+						</div><!-- grid item -->
+					</div><!-- grid -->
+				</div>	
+			</div>
+		</div>
+	</div><!-- skills page -->
+	</div><!-- about-skills-background -->
+
+	<!-- footer page -->
+	<div id="footer-page"  class= "all-pages">
+		<div class="row">
+			<div class="{{standard_content_width}}">
+				<div class="section-content">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6"><p>Content, Django, HTML, CSS, and Some JS by Travis Bumgarner (me!)</p></div>
+						<div class="col-xs-12 col-sm-6"><p>Website Design by <a href="http://amandasantello.com/" target="_blank">Amanda Santello</a></p></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6"><p>Icons Designed by <a href ="http://www.flaticon.com/authors/madebyoliver" target="_blank">Madebyoliver</a> and distributed by <a href="http://www.flaticon.com/" target="_blank">Flaticon</a></p></div>	
+						<div class="col-xs-12 col-sm-6"><p>Powered by 
+							<a href="djangoproject.com" target="_blank">Django</a>, 
+							<a href="http://jquery.com/" target="_blank">jQuery</a>,
+							<a href="http://lesscss.org/" target="_blank">Less</a>,
+							<a href="https://github.com/kswedberg/jquery-smooth-scroll" target="_blank">Smooth Scroll</a>,
+							<a href="mixitup.kunkalabs.com" target="_blank">MixItUp</a>,
+							<a href="http://www.jacklmoore.com/colorbox/" target="_blank">Colorbox</a>,
+							<a href="http://masonry.desandro.com/" target="_blank">Masonry</a>, and
+							<a href="getbootstrap.com" target="_blank">Bootstrap</a>.						
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div><!-- footer page -->
+</div><!-- container -->
+
+
+
+
+
+
+<script src = "{% static 'js/jquery.js' %}"></script>
+
+<script src="{% static 'js/smooth-scroll.min.js' %}"></script>
+<script>
+	smoothScroll.init({
+	    speed: 1000, // Integer. How fast to complete the scroll in milliseconds
+	    selector: '[data-scroll]', 
+	});
+</script>
+
+
+<script src = "{% static 'js/masonry.js' %}"></script>
+<script>
+	//Masonry for how skills are displayed
+	$('.grid').masonry({
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	  percentPosition: true
+	});
+</script>
+
+<script>
+	//Function for displaying nav menu after home page
+	(function($) {          
+	    $(document).ready(function(){                    
+	        $(window).scroll(function(){
+	        	var home = $('#filter-page') .offset().top -100;                        
+	            if ($(this).scrollTop() > home) {
+	                $('.fixed-nav').fadeIn(250);
+	            } else {
+	                $('.fixed-nav').fadeOut(250);
+	            }
+	        });
+	    });
+	})(jQuery);
+</script>
+
+<script type="text/javascript">
+	//Function for scrolling underline for menu
+    $(document).on("scroll", onScroll);
+function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $(".fixed-nav a:not(.external-link)").each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top-1 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#menu-center ul li a').removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}
+</script>
+
+
+<script src = "{% static 'js/jquery.mixitup.js' %}"></script>
+<script>
+	// Project Filter Functionality
+	$(function(){$('.list-of-projects').mixItUp({
+		layout: {
+			display: 'inline'
+		}
+	});});
+</script>
+
+<script src="{% static 'js/colorbox.js' %}"></script>
+<script>
+$(".filter-link").colorbox(
+	{inline:true, width:"90%", height:"90%"});
+</script>
+</body>
+</html>
+{% endwith %}

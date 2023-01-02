@@ -1,0 +1,678 @@
+/************************************************************************/
+/******************* CSS Reset  *****************************************/
+/************************************************************************/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	&:hover, &:active, &:visited, &:focus{
+		text-decoration: none;
+	}
+}
+/************************************************************************/
+/******************* Imports ********************************************/
+/************************************************************************/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display';
+/*
+font-family: @content-font
+font-family: @header-font;
+*/
+
+/************************************************************************/
+/******************* Main LESS  ******************************************/
+/************************************************************************/
+@light-green:  #a8bd00;
+@light-blue: #00a8bd;
+@whiteish:   #ffffff;
+@blackish:   #444;
+@gray : 	 #ccc;
+
+@section-header-padding: 10px 15px 10px 15px;
+@section-content-padding: 5px 5px 5px 5px;
+@section-content-margin: 0px 5px 0px 5px;
+@section-padding-small-screen: 5px 10px 5px 10px;
+
+@header-font: 'Playfair Display', serif;
+@content-font: 'Open Sans', sans-serif;
+
+@gray-border: 1px solid #ccc;
+@black-border: 1px solid @blackish;
+/*
+Old: 
+@font-size-small: 11px;
+@font-size-normal: 16px;
+@font-size-large: 22px;
+@font-size-extra-large: 30px;*/
+@font-size-extra-small: 12px;
+@font-size-small: 14px;
+@font-size-normal: 18px;
+@font-size-large: 24px;
+@font-size-extra-large: 30px;
+
+h2.section-header{
+   	font-family: @header-font;
+	background-color: @light-green;
+	color: @whiteish;
+	padding: @section-header-padding;
+	font-size:@font-size-large;
+}
+h2.image-description{
+	font-family: @header-font;
+	font-size: @font-size-small;
+	text-align:center;
+}
+p.section-header{
+	font-family: @header-font;
+	color: @whiteish;	
+	padding: @section-header-padding;
+	font-size: @font-size-small;
+	float:right;
+	padding: 15px;
+	font-style: italic;
+}
+
+//Define general coloring for content
+.section-content{
+	background-color: rgba(255,255,255,0.9); 
+	overflow: hidden;
+	ul{
+		list-style:none;
+		padding-left: 0px;
+	}
+	li, p{
+		color: @blackish;
+		padding: @section-content-padding;
+		margin: @section-content-margin;
+		font-family: @content-font;
+    }
+    p{
+    	line-height: 24px;
+    }
+    li , p{
+    	a{
+    		color: @blackish;
+    		font-family: @content-font;
+    	}
+    }
+}
+@media only screen and (max-width:768px){
+	.section-header{
+		font-size:@font-size-large;
+		padding: @section-padding-small-screen; 
+	}
+	.section-content{
+		li,p{
+			padding: @section-padding-small-screen; 
+			font-size: @font-size-normal;
+		}
+	}
+}
+
+/************************************************************************/
+/******************* helper Classes *************************************/
+/************************************************************************/
+.clear-both{
+	clear:both;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.hidden-project{
+    display: none;
+}
+
+/************************************************************************/
+/******************* LESS Commom Stuff **********************************/
+/************************************************************************/
+// Display li items in two columns
+.two-col-li{
+	ul{
+		li{
+			width: 49.75%;
+			float: left;
+		}
+		li:nth-child(odd){
+			margin-right: 0.5%;
+		}
+	}
+}
+
+/************************************************************************/
+/******************* All Pages ******************************************/
+/************************************************************************/
+
+html, body{
+	background: #cecece;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+.all-pages{
+}
+*{
+	font-family: @content-font;	
+}
+small{
+	font-size:@font-size-extra-small;
+}
+/************************************************************************/
+/******************* Homepage *******************************************/
+/************************************************************************/
+#home-page{
+	min-height: 100vh;
+	.section-header{
+		margin-top:20vh;
+	}
+	.section-content{
+		background-color: rgba(255,255,255,0.8);
+	}
+	background: #3c3c3c url("../img/background.png");
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-attachment: fixed;
+	.menu-item-title{
+		font-size: @font-size-normal;
+		font-weight: 800;
+	}
+	.menu-item-description{
+		font-size: @font-size-small;
+	}
+	li{
+    	border-bottom: @gray-border;
+    	margin: 0px 10px;
+    	padding: 10px 0px;
+	}
+	a:last-child li{
+		border-bottom: 0px;
+	}
+	li:hover span:first-child{
+		color: @light-blue;	
+	}
+}
+@media only screen and (max-width:768px){
+	#home-page{
+	}
+}
+/************************************************************************/
+/******************* Filter Page ****************************************/
+/************************************************************************/
+#filter-page{
+	padding-top: 30px;
+	background: url("../img/background-filter-page.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.controls{
+	    margin-top: 15vh;
+    	margin-bottom: 8vh;
+	}
+	ul.filters{
+		li{
+			width: 31%;
+			font-size: @font-size-small;
+			float: left;
+			cursor: pointer;
+			cursor: hand;
+		    padding: 10px 15px 10px 15px;
+		    margin: 0px;
+		}
+		li.active{
+			color: @blackish;
+			color: @light-blue;
+			font-weight: 900;
+		}
+	}
+	.row{
+		.content-wrapper{
+		}
+	}
+	.list-of-projects{
+		.mix{
+
+
+			display: none;
+			margin-bottom: 20px;
+		}
+		.section-content{
+			background: none;
+		}
+		p{
+			font-size: @font-size-small;
+			height: @font-size-small*3;
+			line-height: @font-size-small;
+			text-align: center;
+			background: @whiteish;
+			margin:0px;
+		}
+	} 
+
+}
+
+
+/************************************************************************/
+/******************* Projects *******************************************/
+/************************************************************************/
+#project-page{
+	display:none;
+	background: url("../img/background-project-page.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.toggle_visible_projects{
+    	padding-top: 30px;
+		padding-bottom: 30px;	
+		.project:first-child{
+			display: initial;
+		}
+	}
+	.two-col-li;
+	.project-wrapper{
+	}
+	a{
+		color: @light-green;
+	}
+	a:hover{
+		color:@light-blue;
+	}
+
+}
+/******************* Projects Lightbox CSS ******************************/
+#cboxContent .section-content{
+	padding: 10px;
+	.item-title{
+		font-weight: 800;
+		text-transform: uppercase;
+		padding-left:0px;
+		padding-bottom:0px;
+		padding-top:15px;
+	}
+	.item-description, .item-description p{
+		padding: 0px;
+	}
+}
+#cboxLoadedContent{
+	.row{
+		padding-top: 40px;
+	}
+	.section-header{
+		position: absolute;
+		z-index: 998;
+		width:100%;
+	}
+	.item-description{
+		p:nth-child(n+1){
+			padding-top: 10px;
+		}
+	}
+	li{
+		padding-left: 0px;
+	}
+	background-color: rgba(255,255,255,0.9);
+	overflow-x: hidden !important; 
+	a{
+		color: @light-green;
+	}
+	a:hover{
+		color:@light-blue;
+	}
+}
+#cboxLoadedContent .section-content{
+	background-color: transparent;
+}
+#cboxClose{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0px;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    padding-right: 20px;
+ 	color: @whiteish;
+    z-index: 999;
+    font-weight: 999;
+}
+.project-img {
+    margin: 0px auto;
+    display: block;
+    padding: 15px;
+}
+/************************************************************************/
+/******************* about-skills-background ****************************/
+/************************************************************************/
+.about-skills-background{
+	background: url("../img/about.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+/************************************************************************/
+/******************* About Page *****************************************/
+/************************************************************************/
+
+#about-page{
+	padding-top: 30px;
+	#about-photo{
+		width: 41%;
+    	padding: 20px;
+	}
+	ul.about{
+		width: 50%;
+		padding-top: 20px;
+	}
+	p.about{
+		margin: 0px;
+		padding: 10px 20px;
+	}
+	li{
+		a{
+		    padding-left: 10px;
+		    &:hover{
+		    	color: @light-blue;
+		    }
+		}
+		img{
+			width: 20px;
+			height: 20px;
+		    position: relative;
+		    top: 2px;
+		}
+		padding: 15px;
+    	border-bottom: @gray-border;
+	}
+	li:first-child{
+    	border-top: @gray-border;
+	}
+
+}
+
+/************************************************************************/
+/******************* Skills *********************************************/
+/************************************************************************/
+#skills-page{
+	padding-top: 30px;
+	padding-bottom: 30px;	
+	#ready-to-learn{
+		float:right;
+		width: 100%;
+		font-size: @font-size-normal;
+		text-transform: uppercase;
+		color: @gray;
+		font-weight: 700;
+		padding: 15px;
+		border-top: @gray-border;
+	}
+	.skill-category{
+		border-top: @black-border;
+		text-transform: uppercase;
+		font-size: @font-size-normal;
+		font-weight: 700;
+		padding: 10px 10px 10px 0px;
+		margin-top: 20px;
+		font-family: @content-font;
+	}
+	.skill{
+		font-size: @font-size-small;
+	}
+	.page-title{
+		width:95%;
+		margin: 0px auto;
+		margin-bottom: 5px;
+	}
+	.skills-wrapper{
+		padding-left: 0.5%;
+		padding-right: 5px;
+	}
+	ul{
+		li{
+			padding: 10px 10px 10px 0px;
+			margin: 0px;
+			overflow: hidden;
+			div{
+				display:inline-block;
+			}
+			div:first-child{
+				padding: 5px 0px 0px 0px;
+			}
+			div:last-child{
+				float: right;
+			}
+		}
+
+	}
+}
+/******************* Grid Items******************************************/
+* { box-sizing: border-box; }
+.grid{
+	max-width:1200px;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+
+.grid-sizer,
+.grid-item {
+  width: 31%;
+  margin: 0% 1%;
+}
+.grid-item{
+	float:left;
+	margin-bottom:15px;
+}
+
+/************************************************************************/
+/******************* Footer Page ****************************************/
+/************************************************************************/
+#footer-page{
+	padding-top: 30px;
+	padding-bottom: 30px;	
+	background: #3c3c3c;
+	min-height: initial;
+	p{
+		font-size: @font-size-small;
+		line-height: @font-size-small;
+		margin:10px;
+	}
+
+	a{
+    	color: @light-green;
+    }
+	 a:hover{
+	    	color: @light-blue;
+	    }
+}
+/************************************************************************/
+/******************* 404 Page *******************************************/
+/************************************************************************/
+#fourohfour-page{
+	margin-top:10vh;
+	h2.section-header{
+		background-color: #BD0000;
+	}
+	li:hover span:first-child{
+		color: #bd0000;	
+	}
+}
+/************************************************************************/
+/******************* Nav ************************************************/
+/************************************************************************/
+.fixed-nav{
+	.active{
+		border-bottom: solid 5px @light-blue;
+	}
+	display: none;
+	background-color:white; 
+	.content-wrapper{
+		width: 100vw;
+		overflow: hidden;
+		position: fixed; 
+		top: 0px; 
+		left: 0px;
+    	z-index: 999;
+    	padding: 0px;
+		height: 30px;
+	}
+	ul{
+		position: relative;
+		float: left;
+		left: 50%;
+		padding:0px;
+		list-style: none;
+		text-align:center;
+		li{
+			position: relative;
+			flaot: left;
+			right: 50%;
+			font-size: @font-size-small;
+			padding: 0px 0px 5px 0px;
+			float: left;
+			margin: 10px 20px;
+			text-transform: uppercase;
+			&:hover a{
+				border-bottom: solid 5px @light-blue;
+			}
+			&:last-child{
+				font-style: italic;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 992px){
+	#skills-page{
+		.skill-category{
+			font-size: @font-size-small;
+		}
+		.grid-sizer,
+		.grid-item {
+		  width: 48%;
+		  margin: 0% 1%;
+		}		
+	}
+}
+
+
+
+@media only screen and (max-width: 768px){
+	body > .container{
+		padding: 0px;
+	}
+	#filter-page{
+		.small-screen-spacing{
+			padding: 0px 10px;
+		}
+		ul{
+			li{
+				width:50%;
+			}
+		}
+	}
+	#about-page{
+		p{
+			padding: 5px;
+		}
+		ul{
+			padding-top: 5px;
+			width: 60%;
+			li{
+				font-size: @font-size-small;
+				padding: 5px;
+			}
+
+		}
+		#about-photo{
+			padding: 5px;
+			width: 40%;
+		}
+	}
+	#skills-page{
+		.skill-category{
+			font-size: @font-size-small;
+		}
+		.grid-sizer,
+		.grid-item {
+		  width: 48%;
+		  margin: 0% 1%;
+		}		
+	}
+	#footer-page{
+		p{
+			margin:0px;
+		}
+		.row{
+			div:nth-child(even) p{
+				text-align: left;
+				border-left: 0px;
+			}
+		}
+	}
+	.fixed-nav{
+		.section-content{
+			overflow: initial;
+			ul{
+				width: 100vw;
+				li{
+					&:last-child{
+						display:none;
+					}
+				}
+			}			
+		}
+
+	}
+}
+
