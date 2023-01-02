@@ -1,0 +1,6 @@
+./eng40/keys.py
+.idea/
+*.pyc
+inputs/
+keys.py
+static/
