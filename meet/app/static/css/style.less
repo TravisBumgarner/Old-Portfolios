@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,900|Open+Sans:300,700');
+// font-family: 'Merriweather', serif;
+// font-family: 'Open Sans', sans-serif;
+
+@color-dark: #000;
+@color-light: #fff;
+
+@font-size-l: 2em;
+@font-size-m: 1em;
+
+
+// CSS Rest
+h1, h2, h3{
+	margin: 0px;
+	padding: 0px;
+	color: @color-dark;
+}
+
+body {
+  font-size: medium;
+  margin: 0px auto;
+  font-family: 'Open Sans', sans-serif;
+}
+@media (max-width: 968px) {
+	body{
+		font-size: x-small;
+	}
+}
+@media (max-width: 500px) {
+	body{
+		font-size: xx-small;
+	}
+}
+nav{
+	position: fixed;
+	top: 20vh;
+	right: 0vh;
+    padding: 0px;
+}
+nav a{
+	color: @color-light;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+nav a:hover{
+	color: @color-light;
+}
+article{
+	margin: 0px auto;
+	padding: 50px 0px;
+	max-width: 800px;
+}
+#introduction article{
+	width: 60%;
+}
+#introduction-bg{
+	background-image: url("../img/introduction-bottom-border.png");
+	background-position: center;
+	height:320px;
+}
+#findme article{
+	width: 50%;
+}
+#findme-bg{
+	background-image: url("../img/findme-bottom-border.png");
+	background-position: center;
+	height:320px;	
+}
+#about article{
+	width:90%;
+}
+#about-bg{
+	background-image: url("../img/about-bottom-border.png");
+	background-position: center;
+	height:320px;		
+}
+#contact article{
+	width: 70%;
+}
+#contact-bg{
+	background-image: url("../img/contact-bottom-border.png");
+	background-position: center;
+	height:320px;		
+}
+#elfin article{
+	width: 30%;
+}
+h1{
+	font-size: @font-size-l;
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+}
+h2{
+	font-size: @font-size-m;
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+#introduction article p{
+	font-size: @font-size-l;
+	font-family: 'Merriweather', serif;
+}
+#introduction article p span{
+	font-weight: bold;	
+}
+.content-wrapper{
+	border-top: 2px solid @color-dark;
+	border-bottom: 2px solid @color-dark;
+	margin: 20px 0px 20px 0px;
+	padding: 20px 0px 20px 0px;
+	overflow: auto;
+}
+.black-on-white{
+	color: @color-light;
+	background-color: @color-dark;
+}
+.black-on-white h1{
+	color: @color-light;
+}
+.black-on-white .content-wrapper{
+	border-color: @color-light;
+}
+#findme section{
+    width: 33%;
+    float: left;
+}
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+	font-family: 'Merriweather', serif;
+	font-weight: 300;	
+	line-height: 1.6;
+}
+p{
+	line-height: 1.6;
+}
+a, a:hover{
+	color: @color-dark;
+}
+form p{
+	text-transform: uppercase;
+	text-align: right;
+	font-weight: 300;	
+}
+textarea, input, select{
+	width:60%;
+	margin-left: 10px;
+	background-color: @color-dark !important;
+    border: 0px;
+    color: white;
+    padding-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+textarea{
+	height: 150px;
+}
+#profile-photo{
+	float: left;
+	max-width: 300px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+input#submit{
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.bold-text{
+	font-weight: 700;
+}
+
+@media (max-width: 968px) {
+	#introduction article{
+	width: 80%;
+	}
+	#findme article{
+		width: 80%;
+	}
+	#contact article{
+		width: 70%;
+	}
+	#elfin article{
+		width: 30%;
+	}
+	#profile-photo{
+		max-width: 200px;
+	}
+	#introduction-bg, #findme-bg, #about-bg, #contact-bg{
+		height: 200px;
+	}
+}
+
+@media (max-width: 500px) {
+	#introduction article{
+		width: 80%;
+	}
+	#findme article{
+		width: 95%;
+	}
+	#contact article{
+		width: 90%;
+	}
+	#elfin article{
+		width: 60%;
+	}
+	#profile-photo{
+		max-width: 200px;
+	}
+	#introduction-bg, #findme-bg, #about-bg, #contact-bg{
+		height: 200px;
+	}
+}
+
+

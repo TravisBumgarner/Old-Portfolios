@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Meet . Travis Bumgarner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img/favicon.png') }}" type="image/x-icon">
+</head>
+<body>
+<nav>
+    <a href="#contact"><img src=" {{url_for('static', filename = 'img/chat.png') }}" alt="Let's chat"></a>
+</nav>
+<div class="page-wrapper black-on-white" id = "introduction">
+    <article >
+        <h1>Greetings,</h1>
+        <div class="content-wrapper">
+            <p>Are you looking for someone who can combine	<span class ="intro-subject">Spanish</span>, <span class ="intro-subject">Arduino</span>, and <span class ="intro-subject">Flask</span> on a project?</p>
+            <p>You've come to the right place! Let's meet up, work, or volunteer together!</p>
+        </div>
+    </article>
+</div>
+<div id="introduction-bg"></div>
+
+<div class="page-wrapper" id ="findme">
+    <article>
+        <h1>Where you can find me</h1>
+        <div class="content-wrapper">
+            <section>
+                <h2>Photography</h2>
+                <ul>
+                    <li><a href="http://photography.travisbumgarner.com" target="_blank">Portfolio</a></li>
+                    <li><a href="https://www.instagram.com/esafoto/" target="_blank">Instagram</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Engineering</h2>
+                <ul>
+                    <li><a href="http://engineering.travisbumgarner.com" target="_blank">Portfolio</a></li>
+                    <li><a href="https://github.com/TravisBumgarner/" target="_blank">Github</a></li>
+                    <li><a href="http://painlessprototyping.com" target="_blank">Startup</a></li>
+                    <li><a href="https://www.instagram.com/painlessprototyping/" target="_blank">Instragram</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Community</h2>
+                <ul>
+                    <li><a href="http://www.cambridgehackspace.com/" target="_blank">Cambridge Hackspace</a></li>
+                    <li><a href="https://sandbox.mit.edu/" target="_blank">MIT Sandbox</a></li>
+                    <li><a href="https://d-lab.mit.edu/" target="_blank">MIT D-Lab</a></li>
+                </ul>
+            </section>
+        </div>
+    </article>
+</div>
+<div id="findme-bg"></div>
+
+<div class="page-wrapper black-on-white" id="about">
+    <article >
+
+        <h1>About</h1>
+            <div class="content-wrapper">
+                <img id = "profile-photo" src="{{ url_for('static', filename='img/me.jpg') }}" alt="Profile of Travis"><p>At some point or another, I have been, still am, or will be interested in just about everything related to engineering and topics beyond as well. As an undergrad, I studied mechanical engineering and both of my internships focused on <span class="bold-text">mechanical design engineering</span>. </p>
+                <p>After graduating, I joined the Peace Corps where I served as a <span class="bold-text">civil engineer</span> for two years. Due to a lack of steady internet access and electricity during my service, I dedicated my free time to exploring many hobbies and eventually discovering my passion for <span class="bold-text">photography</span>. After moving from my rural community to a regional capital for my last six months, I dedicated a large portion of my time to learning web development and to a lesser extent <span class="bold-text">web design</span>. </p>
+                <p>Since returning from the Peace Corps, I have continued my pursuit of knowledge related to <span class="bold-text">web development</span>, learning about everything from CSS on the <span class="bold-text">front-end</span> to Flask on the <span class="bold-text">back-end</span>. Furthermore, with regained internet access I was able to finally explore the <span class="bold-text">Arduino</span> and <span class="bold-text">Raspberry Pi</span> in depth. So much so, that I now teach an Introduction to Arduino class at the Cambridge Hackspace and have founded an <span class="bold-text">electrical engineering</span> startup focused on tools for these two devices. The hackspace has also offered me a great place to explore <span class="bold-text">woodworking</span>, <span class="bold-text">laser cutting</span>, and <span class="bold-text">3D printing</span>. </p>
+            </div>
+    </article>
+</div>
+<div id="about-bg"></div>
+
+<div class="page-wrapper" id="contact">
+    <article >
+        <h1>Let's Chat</h1>
+        <div class="content-wrapper">
+            <form method="post" name="contact">
+                <p class = "bold-text">                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }} <br>
+                    {% endfor %}
+                    {% endif %}
+                {% endwith %}</p>
+
+                {{ contact_form.hidden_tag() }}
+                <p>Fields marked with <span class = "required-entry">*</span> are required.</p>
+
+                <p>{% for error in contact_form.name.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Full Name <span class = "required-entry">*</span>{{ contact_form.name() }}</p>
+
+                <p>{% for error in contact_form.email_address.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Email Address <span class = "required-entry">*</span>{{ contact_form.email_address() }}</p>
+
+                <p>{% for error in contact_form.website.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Website:{{ contact_form.website() }}</p>
+
+                <p>{% for error in contact_form.message.errors %}<span class = "error">[{{ error }}]</span><br>{% endfor %}
+                Message <span class = "required-entry">*</span>{{ contact_form.message() }}</p>
+
+                <p>{{ contact_form.submit() }}</p>
+          </form>
+        </div>
+    </article>
+</div>
+<div id="contact-bg"></div>
+
+<div class="page-wrapper black-on-white" id = "elfin">
+<article >
+    <h1>Cheers,</h1>
+    <div class="content-wrapper">
+    <p>Travis Bumgarner<br>
+        (Page Developer and Designer)</p>
+    </div>
+</article>
+</div>
+
+
+<script>
+// mySkills should eventually come from DB
+var mySkills = ["Lightroom",
+			"Photoshop",
+			"Arduino",
+			"Bootstrap",
+			"Breadboards",
+			"AutoCAD",
+			"C++",
+			"CSS",
+			"Django",
+			"GitHub",
+			"Flask",
+			"Kickstarter",
+			"HTML",
+			"JavaScript",
+			"jQuery",
+			"Less",
+			"Power BI",
+			"PHP",
+			"Python",
+			"Raspberry Pi",
+			"Rasbian",
+			"Soldering",
+			"SolidWorks",
+			"Spanish",
+			"SQL",
+			"Ubuntu",
+			"Woodworking",
+			"WordPress"
+			]
+
+function generateOneSkill(listOfSkills, firstTime=false){
+    current_items = []
+    $("#introduction p span").each(function(){
+        current_items.push($(this).text());
+    })
+	while(true){
+	    currentSkillIndex = 1 + Math.floor(Math.random()*3); //because nth-of-type starts at 1
+	    allSkillIndex = Math.floor(Math.random()*listOfSkills.length);
+	    if($.inArray(listOfSkills[allSkillIndex], current_items) != -1){
+	        continue;
+	    }
+	    else{
+            var selector = "#introduction p span:nth-of-type(" + currentSkillIndex.toString() +")";
+            $(selector).fadeOut("slow",function(){
+                $(selector).text(listOfSkills[allSkillIndex]).fadeIn("fast");
+            });
+            break;
+	    }
+	}
+
+}
+$("document").ready(generateOneSkill(mySkills, true));
+
+
+window.setInterval(function(){
+  generateOneSkill(mySkills)
+}, 2000);
+
+</script>
+</body>
+</html>
+
+
