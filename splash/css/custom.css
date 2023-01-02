@@ -1,0 +1,63 @@
+#engineering{
+	background-color:#535353;
+	width:50%;	
+	float:left;
+}
+#engineering h1{
+	color: white;
+	text-align:right;
+}
+#engineering-img{
+	text-align:right;
+	float:right;
+	clear:both;
+}
+#engineering-text{
+	position:absolute;
+	top:45vh;
+	left:5vh;
+}
+
+#photography{
+	background-color:white;
+	width:50%;
+	float:left;
+}
+#photography-img{
+	float:left;
+	clear:both;
+}
+#photography-text{
+	position:absolute;
+	top:45vh;
+	right:5vh;
+}
+#photography h1{
+	color: #535353;
+}
+div{
+	padding:0px;
+	margin:0px;
+}
+img{
+	max-height: 100vh;
+	height:100vh;
+	max-width:50vw;
+}
+@media (max-width: 1100px) {
+	#photography-text{
+		position: static;
+		float:left;
+		padding-left:30px;
+	}
+	#engineering-text{
+		position:static;
+		float:right;
+		padding-right:30px;
+	}
+	img{
+		max-height: 90vh;
+		height:90vh;
+		max-width:50vw;
+	}
+}
