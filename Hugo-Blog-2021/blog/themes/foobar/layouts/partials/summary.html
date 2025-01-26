@@ -1,0 +1,17 @@
+<article class='summary'>
+    <a href="{{ .Permalink }}">
+        <h2>
+            {{ .Title }}
+        </h2>
+    </a>
+    <div class="image-and-text-wrapper">
+        <a href="{{ .Permalink }}">
+            <img src="{{.Params.preview_image}}">
+        </a>
+        <a href="{{ .Permalink }}">
+            <p>
+                {{ .Params.description }}<br>
+            </p>
+        </a>
+    </div>
+</article>

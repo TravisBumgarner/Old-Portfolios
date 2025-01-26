@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="content-wrapper">
+	<!-- {{ partial "sidebar.html" . }} -->
+	<div class="main-wrapper">
+		<main class="list">
+			{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+			{{ range $paginator.Pages }}
+			{{ partial "summary.html" . }}
+			{{ end }}
+		</main>
+		<div class="paginator">
+			{{ template "_internal/pagination.html" . }}
+		</div>
+	</div>
+</div>
+{{ partial "footer.html" . }}

@@ -1,0 +1,11 @@
+name = "foobar"
+license = "MIT"
+licenselink = "https://github.com/TravisBumgarner/blog/tree/master/blog/themes/LICENSE.md"
+description = "Theme for this blog."
+homepage = "https://github.com/travisbumgarner/blog"
+features = ["blog"]
+min_version = 0.52
+
+[author]
+  name = "Travis Bumgarner"
+  homepage = "https://travisbumgarner.com/"

@@ -1,0 +1,15 @@
+baseURL = "https://travisbumgarner.com/"
+languageCode = "en-us"
+title = "Travis Bumgarner"
+theme="foobar"
+disqusShortname="travisbumgarner"
+googleAnalytics="UA-131349056-1"
+paginate=10
+ignoreErrors = ["error-missing-instagram-accesstoken"]
+[taxonomies]
+   tools = "tools"
+   project = "project"
+   topics = "topics"
+[params]
+   SiteDescription= "These are artifacts of my experiences."
+   author="Travis Bumgarner"

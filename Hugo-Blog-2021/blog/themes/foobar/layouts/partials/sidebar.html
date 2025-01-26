@@ -1,0 +1,8 @@
+<aside class="sidebar" id="sidebar">
+    <h2>Topics</h2>
+    <ul>
+        {{ range $key, $value := .Site.Taxonomies.topics }}
+        <li><a href="/topics/{{ $key }}/">{{ humanize $key}}</a></li>
+        {{ end }}
+    </ul>
+</aside>

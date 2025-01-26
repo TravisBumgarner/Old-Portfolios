@@ -1,0 +1,22 @@
+{
+    "name": "blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "hugo server -FD",
+        "build": "hugo -d html",
+        "deploy": "yarn run build && gcloud config set project root-270023 && gcloud builds submit --tag gcr.io/root-270023/blog && gcloud run deploy blog --image gcr.io/root-270023/blog --platform managed --region us-east1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TravisBumgarner/blog.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TravisBumgarner/blog/issues"
+    },
+    "homepage": "https://github.com/TravisBumgarner/blog#readme"
+}

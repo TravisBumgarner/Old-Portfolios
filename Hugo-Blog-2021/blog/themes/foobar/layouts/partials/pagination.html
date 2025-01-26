@@ -1,0 +1,7 @@
+<section id="pagination">
+    {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+    {{ template "_internal/pagination.html" . }}
+    {{ range $paginator.Pages }}
+    {{ .Title }}
+    {{ end }}
+</section>

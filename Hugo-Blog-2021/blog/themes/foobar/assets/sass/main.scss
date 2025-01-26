@@ -1,0 +1,393 @@
+$fibonacci: 1.618;
+$gutter: 18px;
+$primary-color: black;
+$secondary-color: #979797;
+$font-global: "Montserrat", sans-serif;
+$font-code: "Roboto Mono", monospace;
+$divider: 1px solid $secondary-color;
+$figure-spacing: calc(3 * #{$gutter}) 0;
+$phone-breakboint: 800px;
+
+body {
+  width: 100vw;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: $font-global;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: $gutter;
+
+  strong {
+    font-weight: 500;
+  }
+
+  @media only screen and (max-width: $phone-breakboint) {
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: $divider;
+    }
+  }
+
+  a,
+  p,
+  li {
+    line-height: calc(1rem * #{$fibonacci});
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: initial;
+    font-weight: initial;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.divider {
+  border-bottom: $divider;
+  margin: calc(2 * #{$gutter}) 0;
+}
+
+.paginator {
+  clear: both;
+  display: flex;
+  justify-content: center;
+  border-top: $divider;
+  border-bottom: $divider;
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: $gutter;
+
+      &.active {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+header {
+  h1 {
+    font-size: calc(1rem * #{$fibonacci} * 2);
+    font-weight: 900;
+    margin: $gutter;
+
+    @media only screen and (max-width: $phone-breakboint) {
+      font-size: calc(1rem * #{$fibonacci} * 1.2);
+    }
+  }
+
+  p {
+    font-size: calc(1rem * #{$fibonacci} * 1);
+    font-weight: 100;
+    margin: $gutter;
+
+    @media only screen and (max-width: $phone-breakboint) {
+      font-size: calc(1rem * #{$fibonacci} * 0.8);
+    }
+  }
+}
+
+nav {
+  border-top: $divider;
+  border-bottom: $divider;
+  padding: 0 calc(1 * #{$gutter});
+  margin: calc(#{$gutter} * 2) 0;
+
+  ul {
+    list-style: none;
+    margin: $gutter 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      margin-right: 1rem;
+    }
+
+    &:last-child {
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+main.list {
+  article.summary {
+    margin-bottom: calc(4 * #{$gutter});
+    padding: 0 $gutter;
+    position: relative;
+
+    &:last-of-type {
+      margin-bottom: calc(2 * #{$gutter});
+    }
+
+    h2 {
+      font-weight: 900;
+      font-size: calc(1rem * 2 * #{$fibonacci});
+      padding: 0;
+      margin: 0 0 $gutter 0;
+    }
+
+    .image-and-text-wrapper {
+      position: relative;
+
+      p {
+        font-weight: 300;
+        text-align: justify;
+        font-size: calc(1rem * #{$fibonacci});
+        position: absolute;
+        margin: 0;
+        bottom: 10%;
+        left: 0;
+        padding: $gutter;
+        background-color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0px 0px 10px white;
+        width: 60%;
+
+        a {
+          font-weight: 900;
+        }
+      }
+
+      a {
+        width: 100%;
+        border: none;
+
+        img {
+          width: 100%;
+
+          &:hover {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .topic {
+      &::after {
+        content: ", ";
+      }
+
+      &:last-of-type:after {
+        content: "";
+      }
+    }
+
+    @media only screen and (max-width: $phone-breakboint) {
+      width: 100%;
+      box-sizing: border-box;
+
+      h2 {
+        font-size: calc(1rem * #{$fibonacci} * 1);
+      }
+
+      .image-and-text-wrapper {
+        p {
+          font-size: 1rem;
+          padding: calc(#{$gutter} * 0.5);
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+main.single {
+  box-sizing: border-box;
+  padding: 0 calc(1 * #{$gutter});
+  width: 100%;
+
+  $header-line-height: 1.2;
+
+  .header-wrapper {
+    // padding: $gutter;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    position: relative;
+    height: calc(3rem * #{$fibonacci} * 4 * #{$header-line-height});
+    width: 100%;
+    margin-bottom: calc(4 * #{$gutter});
+    margin-top: calc(4 * #{$gutter});
+
+    .header-background-img {
+      position: absolute;
+      height: calc(3rem * #{$fibonacci} * 4 * #{$header-line-height});
+      width: 100%;
+      z-index: -1;
+      opacity: 0.4;
+      background-size: cover;
+    }
+
+    h2 {
+      opacity: 1;
+      line-height: $header-line-height;
+      font-size: calc(1rem * #{$fibonacci} * 2.5);
+      font-weight: 900;
+      margin: 0 0 $gutter 0;
+      padding: calc(2 * #{$gutter});
+      position: absolute;
+      bottom: 0;
+
+      @media only screen and (max-width: $phone-breakboint) {
+        font-size: calc(1rem * #{$fibonacci} * 1.2);
+      }
+    }
+  }
+
+  h3 {
+    font-size: calc(1rem * #{$fibonacci} * 1.2);
+    font-weight: 600;
+    margin: calc(#{$gutter} * 2) 0 calc(#{$gutter} * 1.5) 0;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: calc(1rem * #{$fibonacci} * 1);
+    font-weight: 400;
+    margin: calc(#{gutter} * 4) 0 calc(#{gutter} * 2) 0;
+    padding: 0;
+
+    @media only screen and (max-width: $phone-breakboint) {
+      font-size: calc(1rem * #{$fibonacci} * 1);
+    }
+  }
+
+  p {
+    font-weight: 100;
+    max-width: 70rem;
+  }
+
+  a {
+    font-weight: 100;
+    text-decoration: underline;
+  }
+
+  li {
+    font-weight: 100;
+  }
+
+  time,
+  p.topics {
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin: 0;
+
+    .topic {
+      &::after {
+        content: ", ";
+      }
+
+      &:last-of-type:after {
+        content: "";
+      }
+    }
+  }
+
+  figure {
+    margin: $figure-spacing;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  code:not(.language-multiline) {
+    background-color: #e2e2e2;
+    padding: 0 6px;
+  }
+
+  code.language-multiline {
+    // I could not figure out how to do multiline vs singleline styling. This is a bad workaround. But it works lol.
+    position: relative;
+    border: $divider;
+    border-radius: $gutter;
+    font-family: $font-code;
+    font-weight: 300;
+    padding: calc(6 * #{$gutter}) calc(2 * #{$gutter});
+    display: block;
+    box-sizing: border-box;
+    margin: $figure-spacing;
+    overflow-x: scroll;
+
+    &::before,
+    &::after {
+      color: $secondary-color;
+      font-size: calc(1rem * #{$fibonacci} * 2);
+      position: absolute;
+      font-family: $font-global;
+      font-weight: 100;
+    }
+
+    &::before {
+      content: "<code>";
+      top: $gutter;
+      left: $gutter;
+    }
+
+    &::after {
+      content: "</code>";
+      bottom: $gutter;
+      right: $gutter;
+    }
+  }
+
+  blockquote {
+    margin: $figure-spacing;
+    position: relative;
+    border: $divider;
+    border-radius: $gutter;
+    font-family: $font-code;
+    font-weight: 300;
+    padding: calc(5 * #{$gutter}) calc(2 * #{$gutter});
+    display: block;
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+      color: $secondary-color;
+      font-size: calc(1rem * #{$fibonacci} * 5);
+      position: absolute;
+      font-family: $font-global;
+      font-weight: 100;
+      line-height: 0;
+    }
+
+    &::before {
+      content: "‹";
+      top: calc(2 * #{$gutter});
+      left: $gutter;
+    }
+
+    &::after {
+      content: "›";
+      bottom: calc(4 * #{$gutter});
+      right: $gutter;
+    }
+  }
+}

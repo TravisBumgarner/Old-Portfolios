@@ -1,0 +1,34 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="content-wrapper">
+	<!-- {{ partial "sidebar.html" . }} -->
+	<main class="single">
+		<article>
+			<div class="header-wrapper">
+				<div class="header-background-img" style="background-image: url('{{.Params.preview_image}}')"></div>
+				<h2 class="title">{{ .Title }}</h2>
+			</div>
+			<section>
+				{{ .Content }}
+			</section>
+			<section>
+				<ul id="tags">
+					{{ range .Params.tags }}
+					<li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
+					{{ end }}
+				</ul>
+			</section>
+			<time>{{ .Date.Format "Monday, January 2, 2006" }}</time>
+			<p class="topics">Topics: {{ range .Params.topics }}
+				<a class="topic" href="/topics/{{ lower . }}/">{{ . }}</a>
+				{{ end }}
+			</p>
+			<div class="divider"></div>
+			<section>
+				<h3 class="comments">Comments</h2>
+					{{ template "_internal/disqus.html" . }}
+			</section>
+		</article>
+	</main>
+</div>
+{{ partial "footer.html" . }}
